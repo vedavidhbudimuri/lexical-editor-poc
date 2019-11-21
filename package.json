@@ -19,7 +19,8 @@
       "react-dom": "^16.12.0",
       "react-router-dom": "5.1.2",
       "react-scripts": "3.2.0",
-      "typescript": "3.7.2"
+      "typescript": "3.7.2",
+      "yarnhook": "0.4.3"
    },
    "scripts": {
       "start": "react-scripts start",
@@ -61,7 +62,9 @@
    },
    "husky": {
       "hooks": {
-         "pre-commit": "lint-staged && madge --format es6 --circular src/ "
+         "pre-commit": "lint-staged && madge --format es6 --circular src/ ",
+         "post-merge": "yarnhook",
+         "post-rewrite": "yarnhook"
       }
    }
 }
