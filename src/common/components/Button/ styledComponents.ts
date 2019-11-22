@@ -1,3 +1,7 @@
 import styled from 'styled-components'
 
-export const TagName = styled.button``
+export const StyledButton = styled.button`
+   border: none;
+`
+
+export const StyledText = styled.span``

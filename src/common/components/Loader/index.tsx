@@ -12,8 +12,8 @@ class Loader extends React.Component<ILoaderProps> {
    static defaultProps = {
       type: 'Oval',
       color: '#2196f3',
-      height: 80,
-      width: 80
+      height: 30,
+      width: 30
    }
 
    constructor(props: ILoaderProps) {

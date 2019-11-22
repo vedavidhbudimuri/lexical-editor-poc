@@ -346,7 +346,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-syntax-jsx@^7.2.0":
+"@babel/plugin-syntax-jsx@7.2.0", "@babel/plugin-syntax-jsx@^7.2.0":
   version "7.2.0"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.2.0.tgz#0b85a3b4bc7cdf4cc4b8bf236335b907ca22e7c7"
   dependencies:
@@ -2931,7 +2931,7 @@ browserslist@4.7.0:
     electron-to-chromium "^1.3.247"
     node-releases "^1.1.29"
 
-browserslist@^4.0.0, browserslist@^4.1.1, browserslist@^4.6.0, browserslist@^4.6.4, browserslist@^4.7.2, browserslist@^4.7.3:
+browserslist@^4.0.0, browserslist@^4.1.1, browserslist@^4.6.0, browserslist@^4.6.4, browserslist@^4.7.3:
   version "4.7.3"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/browserslist/-/browserslist-4.7.3.tgz#02341f162b6bcc1e1028e30624815d4924442dc3"
   dependencies:
@@ -3462,15 +3462,15 @@ copy-to-clipboard@^3.0.8:
     toggle-selection "^1.0.6"
 
 core-js-compat@^3.1.1:
-  version "3.4.1"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js-compat/-/core-js-compat-3.4.1.tgz#e12c5a3ef9fcb50fd9d9a32805bfe674f9139246"
+  version "3.4.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js-compat/-/core-js-compat-3.4.2.tgz#652fa7c54652b7f6586a893e37001df55ea2ac37"
   dependencies:
-    browserslist "^4.7.2"
+    browserslist "^4.7.3"
     semver "^6.3.0"
 
 core-js-pure@^3.0.1:
-  version "3.4.1"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js-pure/-/core-js-pure-3.4.1.tgz#483dbc687016b45cab4c185cf998c2c59e772c2a"
+  version "3.4.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js-pure/-/core-js-pure-3.4.2.tgz#ffd4ea4dc1f8517f75d4a929986a214629477417"
 
 core-js@3.2.1:
   version "3.2.1"
@@ -3485,8 +3485,8 @@ core-js@^2.4.0:
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js/-/core-js-2.6.10.tgz#8a5b8391f8cc7013da703411ce5b585706300d7f"
 
 core-js@^3.0.1, core-js@^3.0.4:
-  version "3.4.1"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js/-/core-js-3.4.1.tgz#76dd6828412900ab27c8ce0b22e6114d7ce21b18"
+  version "3.4.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js/-/core-js-3.4.2.tgz#ee2b1a60b50388d8ddcda8cdb44a92c7a9ea76df"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -4176,8 +4176,8 @@ ejs@^2.6.1:
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.306:
-  version "1.3.308"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/electron-to-chromium/-/electron-to-chromium-1.3.308.tgz#73c2cd8f865abc1c31623725e4f89225e9e209e6"
+  version "1.3.310"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/electron-to-chromium/-/electron-to-chromium-1.3.310.tgz#a6c0c194d93ff54fcdc6dc3843689abb5c4dec0c"
 
 element-resize-detector@^1.1.15:
   version "1.1.15"
@@ -4293,11 +4293,11 @@ es-to-primitive@^1.2.0:
     is-symbol "^1.0.2"
 
 es5-ext@^0.10.35, es5-ext@^0.10.50:
-  version "0.10.52"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/es5-ext/-/es5-ext-0.10.52.tgz#bb21777e919a04263736ded120a9d665f10ea63f"
+  version "0.10.53"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/es5-ext/-/es5-ext-0.10.53.tgz#93c5a3acfdbef275220ad72644ad02ee18368de1"
   dependencies:
     es6-iterator "~2.0.3"
-    es6-symbol "~3.1.2"
+    es6-symbol "~3.1.3"
     next-tick "~1.0.0"
 
 es5-shim@^4.5.13:
@@ -4316,7 +4316,7 @@ es6-shim@^0.35.5:
   version "0.35.5"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/es6-shim/-/es6-shim-0.35.5.tgz#46f59dc0a84a1c5029e8ff1166ca0a902077a9ab"
 
-es6-symbol@^3.1.1, es6-symbol@~3.1.2:
+es6-symbol@^3.1.1, es6-symbol@~3.1.3:
   version "3.1.3"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/es6-symbol/-/es6-symbol-3.1.3.tgz#bad5d3c1bcdac28269f4cb331e431c78ac705d18"
   dependencies:
@@ -6008,7 +6008,7 @@ is-svg@^3.0.0:
   dependencies:
     html-comment-regex "^1.1.0"
 
-is-symbol@^1.0.2:
+is-symbol@^1.0.2, is-symbol@^1.0.3:
   version "1.0.3"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/is-symbol/-/is-symbol-1.0.3.tgz#38e1014b9e6329be0de9d24a414fd7441ec61937"
   dependencies:
@@ -6965,8 +6965,8 @@ memory-fs@^0.5.0:
     readable-stream "^2.0.1"
 
 merge-anything@^2.2.4:
-  version "2.4.1"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/merge-anything/-/merge-anything-2.4.1.tgz#e9bccaec1e49ec6cb5f77ca78c5770d1a35315e6"
+  version "2.4.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/merge-anything/-/merge-anything-2.4.2.tgz#f7152fc4764ae02c024742afb14a989c1a0f1f27"
   dependencies:
     is-what "^3.3.1"
 
@@ -7352,8 +7352,8 @@ node-pre-gyp@^0.12.0:
     tar "^4"
 
 node-releases@^1.1.29, node-releases@^1.1.40:
-  version "1.1.40"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/node-releases/-/node-releases-1.1.40.tgz#a94facfa8e2d612302601ca1361741d529c4515a"
+  version "1.1.41"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/node-releases/-/node-releases-1.1.41.tgz#57674a82a37f812d18e3b26118aefaf53a00afed"
   dependencies:
     semver "^6.3.0"
 
@@ -9473,9 +9473,15 @@ resolve@1.1.7:
   version "1.1.7"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-resolve@1.12.0, resolve@^1.1.6, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.0, resolve@^1.12.0, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.8.1:
+resolve@1.12.0:
   version "1.12.0"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/resolve/-/resolve-1.12.0.tgz#3fc644a35c84a48554609ff26ec52b66fa577df6"
+  dependencies:
+    path-parse "^1.0.6"
+
+resolve@^1.1.6, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.0, resolve@^1.12.0, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.8.1:
+  version "1.12.1"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/resolve/-/resolve-1.12.1.tgz#a17d6368ffafb9dd14b584cac7940f9219ac55bb"
   dependencies:
     path-parse "^1.0.6"
 
@@ -9628,7 +9634,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.0.0, schema-utils@^2.0.1, schema-utils@^2.2.0, schema-utils@^2.4.1:
+schema-utils@^2.0.0, schema-utils@^2.0.1, schema-utils@^2.2.0, schema-utils@^2.5.0:
   version "2.5.0"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/schema-utils/-/schema-utils-2.5.0.tgz#8f254f618d402cc80257486213c8970edfd7c22f"
   dependencies:
@@ -10355,14 +10361,14 @@ tar@^4:
     yallist "^3.0.3"
 
 telejson@^3.0.2:
-  version "3.1.0"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/telejson/-/telejson-3.1.0.tgz#c648479afe0d8edd90aeaf478b0b8a2fe9f59513"
+  version "3.2.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/telejson/-/telejson-3.2.0.tgz#43226d8b52a3450a2d7cb0d9a6e8b78ab2a1627b"
   dependencies:
     "@types/is-function" "^1.0.0"
     global "^4.4.0"
     is-function "^1.0.1"
     is-regex "^1.0.4"
-    is-symbol "^1.0.2"
+    is-symbol "^1.0.3"
     isobject "^4.0.0"
     lodash "^4.17.15"
     memoizerific "^1.11.3"
@@ -10714,12 +10720,12 @@ url-loader@2.1.0:
     schema-utils "^2.0.0"
 
 url-loader@^2.0.1:
-  version "2.2.0"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/url-loader/-/url-loader-2.2.0.tgz#af321aece1fd0d683adc8aaeb27829f29c75b46e"
+  version "2.3.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/url-loader/-/url-loader-2.3.0.tgz#e0e2ef658f003efb8ca41b0f3ffbf76bab88658b"
   dependencies:
     loader-utils "^1.2.3"
     mime "^2.4.4"
-    schema-utils "^2.4.1"
+    schema-utils "^2.5.0"
 
 url-parse@^1.4.3:
   version "1.4.7"
