@@ -1,27 +1,34 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import { observable } from 'mobx'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
+import { counterStore } from '../../stores'
 
 @observer
 class CounterWithToast extends Component {
-   @observable count: number = 0
+   handleIncrement = () => {
+      counterStore.incrementCounter()
+      toast(`Count has been incremented by 1`)
+   }
 
-   handleClick = () => {
-      this.count = this.count + 1
-      if (this.count >= 5) {
-         toast(`Count has reached ${this.count}. Setting count back to 0`)
-         this.count = 0
+   handleDecrement = () => {
+      if (counterStore.count !== 0) {
+         counterStore.decrementCounter()
+         toast(`Count has been decremented by 1`)
+      } else {
+         toast(`Count is 0 and it can't be decremented`)
       }
    }
 
    render() {
+      const { count } = counterStore
       return (
          <div>
-            <h1>{this.count}</h1>
-            <button onClick={this.handleClick}>Click me!</button>
+            <h1>{count}</h1>
+            <button onClick={this.handleIncrement}>+</button>
+            <button onClick={this.handleDecrement}>-</button>
             <ToastContainer
                position='top-right'
                autoClose={1000}
