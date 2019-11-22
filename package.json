@@ -19,13 +19,15 @@
       "react-dom": "^16.12.0",
       "react-router-dom": "5.1.2",
       "react-scripts": "3.2.0",
-      "typescript": "3.7.2"
+      "typescript": "3.7.2",
+      "yarnhook": "0.4.3"
    },
    "scripts": {
       "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
       "eject": "react-scripts eject",
+      "lint": "eslint --ignore-path .gitignore --fix --ext .ts,.tsx src/",
       "storybook": "start-storybook -p 9009 -s public",
       "build-storybook": "build-storybook -s public"
    },
@@ -47,6 +49,7 @@
    "devDependencies": {
       "@babel/plugin-proposal-decorators": "7.7.0",
       "@babel/preset-env": "7.7.1",
+      "@react-native-community/eslint-config": "0.0.5",
       "@storybook/addon-actions": "^5.2.6",
       "@storybook/addon-knobs": "5.2.6",
       "@storybook/addon-links": "^5.2.6",
@@ -57,11 +60,19 @@
       "@testing-library/jest-dom": "4.2.4",
       "@testing-library/react": "9.3.2",
       "@types/storybook__react": "4.0.2",
-      "prettier": "1.19.1"
+      "@typescript-eslint/eslint-plugin": "2.3.0",
+      "@typescript-eslint/parser": "2.3.0",
+      "babel-eslint": "10.0.3",
+      "prettier": "1.19.1",
+      "eslint": "6.4.0",
+      "eslint-config-prettier": "6.3.0",
+      "eslint-plugin-prettier": "3.1.0"
    },
    "husky": {
       "hooks": {
-         "pre-commit": "lint-staged && madge --format es6 --circular src/ "
+         "pre-commit": " madge --format es6 --circular src/ && lint-staged && tsc --noEmit --skipLibCheck  ",
+         "post-merge": "yarnhook",
+         "post-rewrite": "yarnhook"
       }
    }
 }

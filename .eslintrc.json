@@ -1,0 +1,26 @@
+{
+   "parser": "@typescript-eslint/parser",
+   "plugins": ["react", "@typescript-eslint", "prettier"],
+   "parserOptions": {
+      "ecmaFeatures": {
+         "jsx": true
+      },
+      "useJSXTextNode": true,
+      "project": "./tsconfig.json"
+   },
+   "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/react",
+      "plugin:prettier/recommended",
+      "eslint-config-prettier"
+   ],
+   "linterOptions": {
+      "exclude": ["storybook/index.tsx"]
+   },
+   "globals": {
+      "GLOBAL": true
+   }
+}
