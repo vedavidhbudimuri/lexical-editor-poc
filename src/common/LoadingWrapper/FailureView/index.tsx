@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
+import Button from '../../components/Button'
+
 import {
    FailureText,
    ButtonContainer,
    Content,
    Container
 } from './styledComponents'
-
-import Button from '../../components/Button'
 
 interface IProps {
    onRetry: () => any

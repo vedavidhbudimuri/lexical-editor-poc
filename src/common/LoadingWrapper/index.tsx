@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import {
    APIStatus,
    API_FETCHING,
@@ -14,9 +13,7 @@ import { Container } from './styledComponents'
 interface IProps {
    renderLoadingView: () => any
    renderFailureView: (onRetry: () => any, failureText: string) => any
-
    apiStatus: APIStatus
-
    onRetry: () => any
    failureText: string
 }
