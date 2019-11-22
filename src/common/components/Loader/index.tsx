@@ -1,5 +1,6 @@
 import * as React from 'react'
 import ReactLoader from 'react-loader-spinner'
+
 interface ILoaderProps {
    height: number
    width: number
@@ -10,13 +11,15 @@ interface ILoaderProps {
 class Loader extends React.Component<ILoaderProps> {
    static defaultProps = {
       type: 'Oval',
-      color: '#00BFFF',
-      height: 100,
-      width: 100
+      color: '#2196f3',
+      height: 80,
+      width: 80
    }
+
    constructor(props: ILoaderProps) {
       super(props)
    }
+
    render() {
       const { height, width, type, color } = this.props
       return (
