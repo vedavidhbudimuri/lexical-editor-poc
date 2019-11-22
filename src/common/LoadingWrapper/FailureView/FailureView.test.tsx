@@ -6,10 +6,10 @@ import FailureView from '.'
 describe('Test cases of FailureView Component', () => {
    test('callback while clicking retry button', () => {
       const onRetry = jest.fn()
-      const { getByTestId } = render(
+      const { getByText } = render(
          <FailureView onRetry={onRetry} failureText='connection failed' />
       )
-      const retry = getByTestId('retry')
+      const retry = getByText('Retry')
       fireEvent.click(retry)
       expect(onRetry).toBeCalled()
    })

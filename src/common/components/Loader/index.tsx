@@ -1,6 +1,7 @@
 import * as React from 'react'
 import ReactLoader from 'react-loader-spinner'
 
+import colors from '../../../themes/Colors'
 interface ILoaderProps {
    height: number
    width: number
@@ -11,7 +12,7 @@ interface ILoaderProps {
 class Loader extends React.Component<ILoaderProps> {
    static defaultProps = {
       type: 'Oval',
-      color: '#2196f3',
+      color: colors.primaryColor,
       height: 30,
       width: 30
    }

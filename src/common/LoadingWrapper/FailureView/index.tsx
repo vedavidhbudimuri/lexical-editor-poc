@@ -7,6 +7,8 @@ import {
    Container
 } from './styledComponents'
 
+import Button from '../../components/Button'
+
 interface IProps {
    onRetry: () => any
    failureText: string
@@ -16,7 +18,7 @@ export default class FailureView extends Component<IProps> {
    constructor(props: IProps) {
       super(props)
    }
-   //TODO replce button with common component button
+   //TODO use text from i18n
    render() {
       const { onRetry, failureText } = this.props
       return (
@@ -25,13 +27,7 @@ export default class FailureView extends Component<IProps> {
                <FailureText>{failureText}</FailureText>
             </Content>
             <ButtonContainer>
-               <button
-                  onClick={onRetry}
-                  data-testid='retry'
-                  style={{ backgroundColor: '#2196f3' }}
-               >
-                  Retry
-               </button>
+               <Button onClick={onRetry} text='Retry' />
             </ButtonContainer>
          </Container>
       )
