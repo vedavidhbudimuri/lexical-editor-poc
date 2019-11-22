@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Link } from 'react-router-dom'
 
@@ -29,16 +29,7 @@ class CounterWithToast extends Component {
             <h1>{count}</h1>
             <button onClick={this.handleIncrement}>+</button>
             <button onClick={this.handleDecrement}>-</button>
-            <ToastContainer
-               position='top-right'
-               autoClose={1000}
-               hideProgressBar={true}
-               newestOnTop={true}
-               closeOnClick
-               rtl={false}
-               draggable
-               pauseOnHover
-            />
+
             <Link to='/'>
                <p>Home</p>
             </Link>
