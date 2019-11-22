@@ -11,12 +11,9 @@ interface IButtonProps {
    text: string
    onClick: () => any
    apiStatus: APIStatus
-
    style: object
-
    textStyle: object
    disabled: boolean
-
    renderLoader: () => any
 }
 
@@ -54,12 +51,7 @@ class Button extends React.Component<IButtonProps> {
    render() {
       const { onClick, disabled, style } = this.props
       return (
-         <StyledButton
-            onClick={onClick}
-            data-testid='button'
-            disabled={disabled}
-            style={style}
-         >
+         <StyledButton onClick={onClick} disabled={disabled} style={style}>
             {this.renderContentBasedOnStatus()}
          </StyledButton>
       )

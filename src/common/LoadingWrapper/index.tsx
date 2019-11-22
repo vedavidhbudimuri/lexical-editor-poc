@@ -21,7 +21,7 @@ interface IProps {
    failureText: string
 }
 
-export default class LoadingWrapper extends Component<IProps> {
+class LoadingWrapper extends Component<IProps> {
    static defaultProps = {
       onRetry: () => {
          return 0
@@ -65,3 +65,5 @@ export default class LoadingWrapper extends Component<IProps> {
       return this.renderContent()
    }
 }
+
+export default LoadingWrapper

@@ -6,10 +6,10 @@ import Button from '.'
 describe('Button', () => {
    it('should test if the function passed is called on click', () => {
       const onPressMockFunction = jest.fn()
-      const { getByTestId } = render(
+      const { getByText } = render(
          <Button text='Login' onClick={onPressMockFunction} />
       )
-      fireEvent.click(getByTestId('button'))
-      expect(onPressMockFunction).toHaveBeenCalledTimes(1)
+      fireEvent.click(getByText('Login'))
+      expect(onPressMockFunction).toBeCalled()
    })
 })

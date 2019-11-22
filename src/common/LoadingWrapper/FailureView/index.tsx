@@ -14,7 +14,7 @@ interface IProps {
    failureText: string
 }
 
-export default class FailureView extends Component<IProps> {
+class FailureView extends Component<IProps> {
    constructor(props: IProps) {
       super(props)
    }
@@ -33,3 +33,5 @@ export default class FailureView extends Component<IProps> {
       )
    }
 }
+
+export default FailureView

@@ -2,6 +2,7 @@ import * as React from 'react'
 import ReactLoader from 'react-loader-spinner'
 
 import colors from '../../../themes/Colors'
+
 interface ILoaderProps {
    height: number
    width: number
