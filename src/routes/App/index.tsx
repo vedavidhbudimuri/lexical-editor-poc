@@ -1,11 +1,13 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
+import { Provider } from 'mobx-react'
 
+import stores from '../../stores'
 import Routes from '../index'
 
 const App: React.FC = () => {
    return (
-      <div>
+      <Provider {...stores}>
          <Routes />
          <ToastContainer
             position='top-right'
@@ -17,7 +19,7 @@ const App: React.FC = () => {
             draggable
             pauseOnHover
          />
-      </div>
+      </Provider>
    )
 }
 

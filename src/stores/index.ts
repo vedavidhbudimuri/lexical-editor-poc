@@ -1,3 +1,7 @@
 import CounterStore from './CounterStore'
 
-export const counterStore = new CounterStore()
+const counterStore = new CounterStore()
+
+export default {
+    counterStore
+}
