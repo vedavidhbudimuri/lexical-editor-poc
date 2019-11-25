@@ -7,7 +7,7 @@ import Loader from '../Loader'
 
 import { StyledButton, StyledText } from './ styledComponents'
 
-interface IButtonProps {
+interface ButtonProps {
    text: string
    onClick: () => any
    apiStatus: APIStatus
@@ -17,13 +17,13 @@ interface IButtonProps {
    renderLoader: () => any
 }
 
-class Button extends React.Component<IButtonProps> {
+class Button extends React.Component<ButtonProps> {
    static defaultProps = {
       apiStatus: API_INITIAL,
       disabled: false,
-      renderLoader: () => {
-         return <Loader color={colors.white} height={25} width={25} />
-      },
+      renderLoader: () => (
+         <Loader color={colors.white} height={25} width={25} />
+      ),
       style: {
          height: 30,
          width: 100,
@@ -32,7 +32,8 @@ class Button extends React.Component<IButtonProps> {
       },
       textStyle: { fontSize: 20 }
    }
-   constructor(props: IButtonProps) {
+
+   constructor(props: ButtonProps) {
       super(props)
    }
 
@@ -48,6 +49,7 @@ class Button extends React.Component<IButtonProps> {
       }
       return <StyledText style={textStyle}>{text}</StyledText>
    }
+
    render() {
       const { onClick, disabled, style } = this.props
       return (
