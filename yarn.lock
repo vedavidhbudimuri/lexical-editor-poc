@@ -9801,6 +9801,10 @@ react-helmet-async@^1.0.2:
     react-fast-compare "^2.0.4"
     shallowequal "^1.1.0"
 
+react-horizontal-scrolling-menu@0.7.3:
+  version "0.7.3"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-0.7.3.tgz#78f05d0cbcf50dad5bc18e0eb0db6b3162ef5944"
+
 react-hotkeys@2.0.0-pre4:
   version "2.0.0-pre4"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/react-hotkeys/-/react-hotkeys-2.0.0-pre4.tgz#a1c248a51bdba4282c36bf3204f80d58abc73333"
