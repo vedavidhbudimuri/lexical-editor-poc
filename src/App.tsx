@@ -4,7 +4,7 @@ import { withTranslation } from 'react-i18next'
 import logo from './logo.svg'
 import './App.css'
 
-type AppProps = { t: any }
+type AppProps = { t: (word: string) => string }
 
 const App = ({ t }: AppProps) => (
    <div className='App'>
@@ -24,5 +24,4 @@ const App = ({ t }: AppProps) => (
       </header>
    </div>
 )
-
 export default withTranslation()(App)

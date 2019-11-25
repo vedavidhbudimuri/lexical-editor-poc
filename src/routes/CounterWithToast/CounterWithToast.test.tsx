@@ -12,6 +12,7 @@ describe('Counter test', () => {
       const counter = render(
          <Provider {...stores}>
             <Router>
+               //@ts-ignore
                <CounterWithToast />
             </Router>
          </Provider>
