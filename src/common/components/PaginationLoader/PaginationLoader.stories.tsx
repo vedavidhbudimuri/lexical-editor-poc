@@ -37,13 +37,11 @@ class InfinitePaginationLoader extends React.Component {
       }, 1000)
    }
 
-   renderLoader = () => {
-      return (
-         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Loader height={60} width={60} />
-         </div>
-      )
-   }
+   renderLoader = () => (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+         <Loader type='Oval' height={60} width={60} />
+      </div>
+   )
 
    render() {
       return (
@@ -60,7 +58,7 @@ class InfinitePaginationLoader extends React.Component {
          >
             {this.state.items.map((i, index) => (
                <div style={style} key={index}>
-                  Item => {index}
+                  <span>{`Item => ${index}`}</span>
                </div>
             ))}
          </PaginationLoader>

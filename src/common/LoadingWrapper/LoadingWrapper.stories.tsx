@@ -22,7 +22,7 @@ storiesOf('component Guide', module)
    .add('LoadingWrapper Component when success', () => (
       <LoadingWrapper
          onRetry={() => {
-            actions('clicked retry button')
+            action('clicked retry button')
          }}
          failureText='connection failed'
          apiStatus={API_SUCCESS}
@@ -33,7 +33,7 @@ storiesOf('component Guide', module)
    .add('LoadingWrapper Component when failed', () => (
       <LoadingWrapper
          onRetry={() => {
-            actions('clicked retry button')
+            action('clicked retry button')
          }}
          failureText='connection failed'
          apiStatus={API_FAILED}

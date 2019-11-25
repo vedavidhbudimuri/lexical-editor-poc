@@ -12,22 +12,32 @@
       "@types/node": "12.12.9",
       "@types/react": "16.9.11",
       "@types/react-dom": "16.9.4",
+      "env-cmd": "10.0.1",
+      "eslint-plugin-import": "2.18.2",
+      "eslint-plugin-react": "7.16.0",
+      "husky": "3.1.0",
+      "lint-staged": "9.4.3",
+      "madge": "3.6.0",
       "mobx": "5.15.0",
       "mobx-react": "6.1.4",
       "react": "^16.12.0",
       "react-dom": "^16.12.0",
-      "react-loader-spinner": "3.1.5",
       "react-infinite-scroll-component": "5.0.3",
+      "react-loader-spinner": "3.1.5",
       "react-router-dom": "5.1.2",
       "react-scripts": "3.2.0",
+      "react-toastify": "5.4.1",
       "styled-components": "4.4.1",
-      "typescript": "3.7.2"
+      "typescript": "3.7.2",
+      "yarnhook": "0.4.3"
    },
    "scripts": {
       "start": "react-scripts start",
       "build": "react-scripts build",
+      "build:staging": "env-cmd -f .env.staging npm run build",
       "test": "react-scripts test",
       "eject": "react-scripts eject",
+      "lint": "eslint --ignore-path .gitignore --fix --ext .ts,.tsx src/",
       "storybook": "start-storybook -p 9009 -s public",
       "build-storybook": "build-storybook -s public"
    },
@@ -59,6 +69,19 @@
       "@testing-library/jest-dom": "4.2.4",
       "@testing-library/react": "9.3.2",
       "@types/storybook__react": "4.0.2",
+      "@typescript-eslint/eslint-plugin": "2.3.0",
+      "@typescript-eslint/parser": "2.8.0",
+      "babel-eslint": "10.0.3",
+      "eslint": "6.4.0",
+      "eslint-config-prettier": "6.3.0",
+      "eslint-plugin-prettier": "3.1.0",
       "prettier": "1.19.1"
+   },
+   "husky": {
+      "hooks": {
+         "pre-commit": " madge --format es6 --circular src/ && lint-staged && tsc --noEmit --skipLibCheck  ",
+         "post-merge": "yarnhook",
+         "post-rewrite": "yarnhook"
+      }
    }
 }
