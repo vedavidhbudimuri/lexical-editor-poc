@@ -1,3 +1,3 @@
 import styled from 'styled-components'
 
-export const ReactImage = styled.image``
+export const ReactImage = styled.img``
