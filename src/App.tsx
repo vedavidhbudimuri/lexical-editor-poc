@@ -1,12 +1,11 @@
 import React from 'react'
 import { withTranslation } from 'react-i18next'
+import { WithT } from 'i18next'
 
 import logo from './logo.svg'
 import './App.css'
 
-type AppProps = { t: (word: string) => string }
-
-const App = ({ t }: AppProps) => (
+const App = ({ t }: WithT) => (
    <div className='App'>
       <header className='App-header'>
          <img src={logo} className='App-logo' alt='logo' />
