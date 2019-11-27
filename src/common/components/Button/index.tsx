@@ -5,7 +5,7 @@ import Colors from '../../../themes/Colors'
 
 import Loader from '../Loader'
 
-import { StyledButton, StyledText } from './ styledComponents'
+import { StyledButton, StyledText } from './styledComponents'
 
 interface ButtonProps {
    text: string
