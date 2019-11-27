@@ -905,7 +905,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.0", "@babel/runtime@^7.6.2", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.0", "@babel/runtime@^7.6.2", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2":
   version "7.7.4"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@babel/runtime/-/runtime-7.7.4.tgz#b23a856751e4bf099262f867767889c0e3fe175b"
   dependencies:
@@ -1071,9 +1071,22 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@ib/api-constants@0.0.1":
+"@ib/api-constants@0.0.1", "@ib/api-constants@^0.0.1":
   version "0.0.1"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@ib/api-constants/-/@ib/api-constants-0.0.1.tgz#f8c0cb75816583950ff5b7ada1853c81b8022a45"
+
+"@ib/api@0.0.2":
+  version "0.0.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@ib/api/-/@ib/api-0.0.2.tgz#5c22180ac69029990aefbf5478db127281d3c356"
+  dependencies:
+    apisauce "^0.14.3"
+
+"@ib/mobx-promise@0.0.1":
+  version "0.0.1"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@ib/mobx-promise/-/@ib/mobx-promise-0.0.1.tgz#a61b7cd7e479a681d86ee2533301b4d8143b36cb"
+  dependencies:
+    "@ib/api-constants" "^0.0.1"
+    prop-types "^15.6.0"
 
 "@icons/material@^0.2.4":
   version "0.2.4"
@@ -1858,8 +1871,8 @@
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
 
 "@types/node@*":
-  version "12.12.12"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@types/node/-/node-12.12.12.tgz#529bc3e73dbb35dd9e90b0a1c83606a9d3264bdb"
+  version "12.12.14"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@types/node/-/node-12.12.14.tgz#1c1d6e3c75dba466e0326948d56e8bd72a1903d2"
 
 "@types/node@12.12.9":
   version "12.12.9"
@@ -2008,10 +2021,10 @@
     tsutils "^3.17.1"
 
 "@typescript-eslint/eslint-plugin@^2.2.0":
-  version "2.8.0"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.8.0.tgz#eca584d46094ebebc3cb3e9fb625bfbc904a534d"
+  version "2.9.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.9.0.tgz#fa810282c0e45f6c2310b9c0dfcd25bff97ab7e9"
   dependencies:
-    "@typescript-eslint/experimental-utils" "2.8.0"
+    "@typescript-eslint/experimental-utils" "2.9.0"
     eslint-utils "^1.4.3"
     functional-red-black-tree "^1.0.1"
     regexpp "^3.0.0"
@@ -2033,13 +2046,30 @@
     "@typescript-eslint/typescript-estree" "2.8.0"
     eslint-scope "^5.0.0"
 
-"@typescript-eslint/parser@2.8.0", "@typescript-eslint/parser@^2.2.0":
+"@typescript-eslint/experimental-utils@2.9.0":
+  version "2.9.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@typescript-eslint/experimental-utils/-/experimental-utils-2.9.0.tgz#bbe99a8d9510240c055fc4b17230dd0192ba3c7f"
+  dependencies:
+    "@types/json-schema" "^7.0.3"
+    "@typescript-eslint/typescript-estree" "2.9.0"
+    eslint-scope "^5.0.0"
+
+"@typescript-eslint/parser@2.8.0":
   version "2.8.0"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@typescript-eslint/parser/-/parser-2.8.0.tgz#e10f7c40c8cf2fb19920c879311e6c46ad17bacb"
   dependencies:
     "@types/eslint-visitor-keys" "^1.0.0"
     "@typescript-eslint/experimental-utils" "2.8.0"
     "@typescript-eslint/typescript-estree" "2.8.0"
+    eslint-visitor-keys "^1.1.0"
+
+"@typescript-eslint/parser@^2.2.0":
+  version "2.9.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@typescript-eslint/parser/-/parser-2.9.0.tgz#2e9cf438de119b143f642a3a406e1e27eb70b7cd"
+  dependencies:
+    "@types/eslint-visitor-keys" "^1.0.0"
+    "@typescript-eslint/experimental-utils" "2.9.0"
+    "@typescript-eslint/typescript-estree" "2.9.0"
     eslint-visitor-keys "^1.1.0"
 
 "@typescript-eslint/typescript-estree@2.3.0":
@@ -2051,9 +2081,21 @@
     lodash.unescape "4.0.1"
     semver "^6.3.0"
 
-"@typescript-eslint/typescript-estree@2.8.0", "@typescript-eslint/typescript-estree@^2.4.0":
+"@typescript-eslint/typescript-estree@2.8.0":
   version "2.8.0"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@typescript-eslint/typescript-estree/-/typescript-estree-2.8.0.tgz#fcc3fe6532840085d29b75432c8a59895876aeca"
+  dependencies:
+    debug "^4.1.1"
+    eslint-visitor-keys "^1.1.0"
+    glob "^7.1.6"
+    is-glob "^4.0.1"
+    lodash.unescape "4.0.1"
+    semver "^6.3.0"
+    tsutils "^3.17.1"
+
+"@typescript-eslint/typescript-estree@2.9.0", "@typescript-eslint/typescript-estree@^2.4.0":
+  version "2.9.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/@typescript-eslint/typescript-estree/-/typescript-estree-2.9.0.tgz#09138daf8f47d0e494ba7db9e77394e928803017"
   dependencies:
     debug "^4.1.1"
     eslint-visitor-keys "^1.1.0"
@@ -2245,8 +2287,8 @@ acorn@^5.5.3:
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
 
 acorn@^6.0.1, acorn@^6.0.4, acorn@^6.2.1:
-  version "6.3.0"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/acorn/-/acorn-6.3.0.tgz#0087509119ffa4fc0a0041d1e93a417e68cb856e"
+  version "6.4.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/acorn/-/acorn-6.4.0.tgz#b659d2ffbafa24baf5db1cdbb2c94a983ecd2784"
 
 acorn@^7.1.0:
   version "7.1.0"
@@ -2389,6 +2431,13 @@ anymatch@^2.0.0:
   dependencies:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
+
+apisauce@^0.14.3:
+  version "0.14.3"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/apisauce/-/apisauce-0.14.3.tgz#0a2dd11d883934c33e31f9ddfc612805490a7ba8"
+  dependencies:
+    axios "^0.16.2"
+    ramda "^0.24.1"
 
 app-module-path@^2.2.0:
   version "2.2.0"
@@ -2593,8 +2642,15 @@ aws-sign2@~0.7.0:
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
 
 aws4@^1.8.0:
-  version "1.8.0"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
+  version "1.9.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/aws4/-/aws4-1.9.0.tgz#24390e6ad61386b0a747265754d2a17219de862c"
+
+axios@^0.16.2:
+  version "0.16.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/axios/-/axios-0.16.2.tgz#ba4f92f17167dfbab40983785454b9ac149c3c6d"
+  dependencies:
+    follow-redirects "^1.2.3"
+    is-buffer "^1.1.5"
 
 axobject-query@^2.0.2:
   version "2.0.2"
@@ -3289,8 +3345,8 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001010:
-  version "1.0.30001011"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/caniuse-lite/-/caniuse-lite-1.0.30001011.tgz#0d6c4549c78c4a800bb043a83ca0cbe0aee6c6e1"
+  version "1.0.30001012"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/caniuse-lite/-/caniuse-lite-1.0.30001012.tgz#653ec635e815b9e0fb801890923b0c2079eb34ec"
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -3715,15 +3771,15 @@ copy-to-clipboard@^3.0.8:
     toggle-selection "^1.0.6"
 
 core-js-compat@^3.1.1:
-  version "3.4.2"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js-compat/-/core-js-compat-3.4.2.tgz#652fa7c54652b7f6586a893e37001df55ea2ac37"
+  version "3.4.4"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js-compat/-/core-js-compat-3.4.4.tgz#d0aa01b1d626e129455d51aa94c27127c564ba2b"
   dependencies:
     browserslist "^4.7.3"
     semver "^6.3.0"
 
 core-js-pure@^3.0.1:
-  version "3.4.2"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js-pure/-/core-js-pure-3.4.2.tgz#ffd4ea4dc1f8517f75d4a929986a214629477417"
+  version "3.4.4"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js-pure/-/core-js-pure-3.4.4.tgz#613b936fa0c0482216f0c93794cd8139886efb53"
 
 core-js@3.2.1:
   version "3.2.1"
@@ -3738,8 +3794,8 @@ core-js@^2.4.0:
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js/-/core-js-2.6.10.tgz#8a5b8391f8cc7013da703411ce5b585706300d7f"
 
 core-js@^3.0.1, core-js@^3.0.4:
-  version "3.4.2"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js/-/core-js-3.4.2.tgz#ee2b1a60b50388d8ddcda8cdb44a92c7a9ea76df"
+  version "3.4.4"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/core-js/-/core-js-3.4.4.tgz#e3d422f8a51adc4cae2bfa04cef26a5ccc046d29"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -4653,8 +4709,8 @@ error-ex@^1.2.0, error-ex@^1.3.1:
     is-arrayish "^0.2.1"
 
 es-abstract@^1.12.0, es-abstract@^1.13.0, es-abstract@^1.15.0, es-abstract@^1.16.0, es-abstract@^1.4.3, es-abstract@^1.5.1, es-abstract@^1.7.0:
-  version "1.16.1"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/es-abstract/-/es-abstract-1.16.1.tgz#9edab53bec49b7d9cd513983520ed99703216a8a"
+  version "1.16.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/es-abstract/-/es-abstract-1.16.2.tgz#4e874331645e9925edef141e74fc4bd144669d34"
   dependencies:
     es-to-primitive "^1.2.1"
     function-bind "^1.1.1"
@@ -5121,8 +5177,8 @@ express@^4.16.2, express@^4.17.0:
     vary "~1.1.2"
 
 ext@^1.1.2:
-  version "1.2.0"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/ext/-/ext-1.2.0.tgz#8dd8d2dd21bcced3045be09621fa0cbf73908ba4"
+  version "1.2.1"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/ext/-/ext-1.2.1.tgz#67e635e8d1c63a3250766a593aa8c3d6db332a32"
   dependencies:
     type "^2.0.0"
 
@@ -5439,7 +5495,7 @@ focus-lock@^0.6.3:
   version "0.6.6"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/focus-lock/-/focus-lock-0.6.6.tgz#98119a755a38cfdbeda0280eaa77e307eee850c7"
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.2.3:
   version "1.9.0"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/follow-redirects/-/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
   dependencies:
@@ -6010,6 +6066,12 @@ html-minifier@^3.5.20:
     relateurl "0.2.x"
     uglify-js "3.4.x"
 
+html-parse-stringify2@2.0.1:
+  version "2.0.1"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/html-parse-stringify2/-/html-parse-stringify2-2.0.1.tgz#dc5670b7292ca158b7bc916c9a6735ac8872834a"
+  dependencies:
+    void-elements "^2.0.1"
+
 html-webpack-plugin@4.0.0-beta.5:
   version "4.0.0-beta.5"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/html-webpack-plugin/-/html-webpack-plugin-4.0.0-beta.5.tgz#2c53083c1151bfec20479b1f8aaf0039e77b5513"
@@ -6124,6 +6186,18 @@ husky@3.1.0:
     read-pkg "^5.2.0"
     run-node "^1.0.0"
     slash "^3.0.0"
+
+i18next-xhr-backend@3.2.2:
+  version "3.2.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/i18next-xhr-backend/-/i18next-xhr-backend-3.2.2.tgz#769124441461b085291f539d91864e3691199178"
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+
+i18next@19.0.1:
+  version "19.0.1"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/i18next/-/i18next-19.0.1.tgz#11347b9d5f2ceb4a03750a06010cc249fe065d31"
+  dependencies:
+    "@babel/runtime" "^7.3.1"
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   version "0.4.24"
@@ -9634,6 +9708,10 @@ ramda@^0.21.0:
   version "0.21.0"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/ramda/-/ramda-0.21.0.tgz#a001abedb3ff61077d4ff1d577d44de77e8d0a35"
 
+ramda@^0.24.1:
+  version "0.24.1"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -9735,16 +9813,16 @@ react-dev-utils@^9.0.0, react-dev-utils@^9.1.0:
     text-table "0.2.0"
 
 react-docgen-typescript-loader@^3.3.0:
-  version "3.5.0"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/react-docgen-typescript-loader/-/react-docgen-typescript-loader-3.5.0.tgz#f4846e1baf49612c54ce057bebd781a17bf8f0a7"
+  version "3.6.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/react-docgen-typescript-loader/-/react-docgen-typescript-loader-3.6.0.tgz#5515f03f869e66d49e287c5f1e7ec10f2084f7bb"
   dependencies:
     "@webpack-contrib/schema-utils" "^1.0.0-beta.0"
     loader-utils "^1.2.3"
     react-docgen-typescript "^1.15.0"
 
 react-docgen-typescript@^1.15.0:
-  version "1.15.1"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/react-docgen-typescript/-/react-docgen-typescript-1.15.1.tgz#1648aa422940d9850bc5433c1d179e440d8401f6"
+  version "1.16.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/react-docgen-typescript/-/react-docgen-typescript-1.16.0.tgz#bbbb89f9fc067463a4231d6fb870a22e344247fb"
 
 react-docgen@^4.1.1:
   version "4.1.1"
@@ -9810,6 +9888,13 @@ react-hotkeys@2.0.0-pre4:
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/react-hotkeys/-/react-hotkeys-2.0.0-pre4.tgz#a1c248a51bdba4282c36bf3204f80d58abc73333"
   dependencies:
     prop-types "^15.6.1"
+
+react-i18next@11.2.2:
+  version "11.2.2"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/react-i18next/-/react-i18next-11.2.2.tgz#e5e55ae4187521b01b4eafe483dd96b280106670"
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    html-parse-stringify2 "2.0.1"
 
 react-infinite-scroll-component@5.0.3:
   version "5.0.3"
@@ -10376,8 +10461,8 @@ resolve@1.12.0:
     path-parse "^1.0.6"
 
 resolve@^1.1.6, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.0, resolve@^1.11.1, resolve@^1.12.0, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.8.1:
-  version "1.12.2"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/resolve/-/resolve-1.12.2.tgz#08b12496d9aa8659c75f534a8f05f0d892fff594"
+  version "1.13.1"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/resolve/-/resolve-1.13.1.tgz#be0aa4c06acd53083505abb35f4d66932ab35d16"
   dependencies:
     path-parse "^1.0.6"
 
@@ -11324,8 +11409,8 @@ tar@^4:
     yallist "^3.0.3"
 
 telejson@^3.0.2:
-  version "3.2.0"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/telejson/-/telejson-3.2.0.tgz#43226d8b52a3450a2d7cb0d9a6e8b78ab2a1627b"
+  version "3.3.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/telejson/-/telejson-3.3.0.tgz#6d814f3c0d254d5c4770085aad063e266b56ad03"
   dependencies:
     "@types/is-function" "^1.0.0"
     global "^4.4.0"
@@ -11597,8 +11682,8 @@ uglify-js@3.4.x:
     source-map "~0.6.1"
 
 uglify-js@^3.1.4:
-  version "3.6.9"
-  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/uglify-js/-/uglify-js-3.6.9.tgz#85d353edb6ddfb62a9d798f36e91792249320611"
+  version "3.7.0"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/uglify-js/-/uglify-js-3.7.0.tgz#14b854003386b7a7c045910f43afbc96d2aa5307"
   dependencies:
     commander "~2.20.3"
     source-map "~0.6.1"
@@ -11795,6 +11880,10 @@ verror@1.10.0:
 vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
+
+void-elements@^2.0.1:
+  version "2.0.1"
+  resolved "https://ibuild.jfrog.io/ibuild/api/npm/npm/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
