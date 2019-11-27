@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { APIStatus, API_INITIAL, API_FETCHING } from '@ib/api-constants'
 
-import colors from '../../../themes/Colors'
+import Colors from '../../../themes/Colors'
 
 import Loader from '../Loader'
 
@@ -11,7 +11,7 @@ interface ButtonProps {
    text: string
    onClick: () => any
    apiStatus: APIStatus
-   style: object
+   className: string
    textStyle: object
    disabled: boolean
    renderLoader: () => any
@@ -22,15 +22,10 @@ class Button extends React.Component<ButtonProps> {
       apiStatus: API_INITIAL,
       disabled: false,
       renderLoader: () => (
-         <Loader color={colors.white} height={25} width={25} />
+         <Loader color={Colors.white} height={25} width={25} />
       ),
-      style: {
-         height: 30,
-         width: 100,
-         backgroundColor: colors.primaryColor,
-         color: colors.white
-      },
-      textStyle: { fontSize: 20 }
+      textStyle: { fontSize: 20 },
+      className: ''
    }
 
    constructor(props: ButtonProps) {
@@ -51,9 +46,13 @@ class Button extends React.Component<ButtonProps> {
    }
 
    render() {
-      const { onClick, disabled, style } = this.props
+      const { onClick, disabled, className } = this.props
       return (
-         <StyledButton onClick={onClick} disabled={disabled} style={style}>
+         <StyledButton
+            onClick={onClick}
+            disabled={disabled}
+            className={className}
+         >
             {this.renderContentBasedOnStatus()}
          </StyledButton>
       )
