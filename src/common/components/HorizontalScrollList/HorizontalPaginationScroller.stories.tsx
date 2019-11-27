@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 
 import colors from '../../../themes/Colors'
 
-import ScrollMenu from '.'
+import HorizontalScrollList from '.'
 
 const list = [
    { name: 'item1' },
@@ -95,7 +95,7 @@ class HorizontalScroller extends React.Component {
       const menu = this.getMenu(list, selected)
       return (
          <div className='App'>
-            <ScrollMenu
+            <HorizontalScrollList
                data={menu}
                arrowLeft={this.arrowLeft()}
                arrowRight={this.arrowRight()}
@@ -108,6 +108,6 @@ class HorizontalScroller extends React.Component {
 }
 
 storiesOf('Component Guide', module).add(
-   'HorizontalPaginationLoader Component',
+   'HorizontalScrollList Component',
    () => <HorizontalScroller />
 )

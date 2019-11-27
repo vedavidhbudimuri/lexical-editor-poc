@@ -8,6 +8,7 @@ export const StyledButton = styled.button`
    height: 30px;
    background-color: ${Colors.primaryColor};
    color: ${Colors.white};
+   cursor: pointer;
 `
 
 export const StyledText = styled.span``

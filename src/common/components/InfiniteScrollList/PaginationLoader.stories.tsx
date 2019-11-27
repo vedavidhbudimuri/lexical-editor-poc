@@ -5,7 +5,7 @@ import colors from '../../../themes/Colors'
 
 import Loader from '../Loader'
 
-import PaginationLoader from '.'
+import InfiniteScrollComponent from '.'
 
 const style = {
    height: 30,
@@ -17,7 +17,7 @@ const style = {
    justifyContent: 'center',
    alignItems: 'center'
 }
-class InfinitePaginationLoader extends React.Component {
+class InfiniteScrollComponentStory extends React.Component {
    state = {
       items: Array.from({ length: 20 }),
       hasMore: true
@@ -45,7 +45,7 @@ class InfinitePaginationLoader extends React.Component {
 
    render() {
       return (
-         <PaginationLoader
+         <InfiniteScrollComponent
             dataLength={this.state.items.length}
             next={this.fetchMoreData}
             hasMore={this.state.hasMore}
@@ -61,11 +61,12 @@ class InfinitePaginationLoader extends React.Component {
                   <span>{`Item => ${index}`}</span>
                </div>
             ))}
-         </PaginationLoader>
+         </InfiniteScrollComponent>
       )
    }
 }
 
-storiesOf('Component Guide', module).add('PaginationLoader Component', () => (
-   <InfinitePaginationLoader />
-))
+storiesOf('Component Guide', module).add(
+   'InfiniteScrollComponent Component',
+   () => <InfiniteScrollComponentStory />
+)
