@@ -6,14 +6,14 @@ import { API_FETCHING, API_SUCCESS, API_FAILED } from '@ib/api-constants'
 import LoadingWrapper from '.'
 
 function ChildComponent() {
-   return <span>hello</span>
+   return <span>Render data here...</span>
 }
 
 storiesOf('component Guide', module)
    .add('LoadingWrapper Component when fetching', () => (
       <LoadingWrapper
          onRetry={action('clicked retry button')}
-         failureText='connection failed'
+         failureText='Connection failed'
          apiStatus={API_FETCHING}
       >
          {ChildComponent()}
@@ -24,7 +24,7 @@ storiesOf('component Guide', module)
          onRetry={() => {
             action('clicked retry button')
          }}
-         failureText='connection failed'
+         failureText='Connection failed'
          apiStatus={API_SUCCESS}
       >
          {ChildComponent()}
@@ -35,7 +35,7 @@ storiesOf('component Guide', module)
          onRetry={() => {
             action('clicked retry button')
          }}
-         failureText='connection failed'
+         failureText='Connection failed'
          apiStatus={API_FAILED}
       >
          {ChildComponent()}

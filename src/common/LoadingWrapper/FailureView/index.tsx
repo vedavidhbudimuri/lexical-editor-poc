@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withTranslation, WithTranslation } from 'react-i18next' // eslint-disable-line
 
 import Button from '../../components/Button'
 
@@ -9,29 +10,25 @@ import {
    Container
 } from './styledComponents'
 
-interface IProps {
+interface FailureViewProps extends WithTranslation {
    onRetry: () => any
    failureText: string
 }
 
-class FailureView extends Component<IProps> {
-   constructor(props: IProps) {
-      super(props)
-   }
-   //TODO use text from i18n
+class FailureView extends Component<FailureViewProps> {
    render() {
-      const { onRetry, failureText } = this.props
+      const { onRetry, failureText, t } = this.props
       return (
          <Container>
             <Content>
                <FailureText>{failureText}</FailureText>
             </Content>
             <ButtonContainer>
-               <Button onClick={onRetry} text='Retry' />
+               <Button onClick={onRetry} text={t('common.failureView.retry')} />
             </ButtonContainer>
          </Container>
       )
    }
 }
 
-export default FailureView
+export default withTranslation()(FailureView)

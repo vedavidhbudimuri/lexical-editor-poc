@@ -7,6 +7,6 @@ import FailureView from '.'
 storiesOf('component Guide', module).add('FailureView Component', () => (
    <FailureView
       onRetry={action('clicked retry button')}
-      failureText='connection failed!!'
+      failureText='Connection failed!!'
    />
 ))

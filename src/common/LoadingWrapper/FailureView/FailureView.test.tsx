@@ -1,15 +1,20 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
+import { I18nextProvider } from 'react-i18next'
+
+import i18n from '../../../i18n'
 
 import FailureView from '.'
 
 describe('Test cases of FailureView Component', () => {
-   test('callback while clicking retry button', () => {
+   it('should call onRetry callback when clicks on retry button', () => {
       const onRetry = jest.fn()
       const { getByText } = render(
-         <FailureView onRetry={onRetry} failureText='connection failed' />
+         <I18nextProvider i18n={i18n}>
+            <FailureView onRetry={onRetry} failureText='Connection failed' />
+         </I18nextProvider>
       )
-      const retry = getByText('Retry')
+      const retry = getByText(i18n.t('common.failureView.retry'))
       fireEvent.click(retry)
       expect(onRetry).toBeCalled()
    })
