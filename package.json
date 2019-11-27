@@ -39,6 +39,11 @@
       "storybook": "start-storybook -p 9009 -s public",
       "build-storybook": "build-storybook -s public"
    },
+   "engines": {
+      "npm": ">=5.6.0",
+      "yarn": ">=1.7.0",
+      "node": ">=8.11.3"
+   },
    "eslintConfig": {
       "extends": "react-app"
    },
