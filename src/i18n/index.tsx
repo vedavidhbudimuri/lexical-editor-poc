@@ -11,6 +11,9 @@ i18n
       fallbackLng,
       backend: {
          loadPath: '/i18n/translations/{{lng}}.json'
+      },
+      react: {
+         useSuspense: false
       }
    })
 
