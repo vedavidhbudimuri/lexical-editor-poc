@@ -18,7 +18,7 @@ const App = ({ t }: WithT) => (
             target='_blank'
             rel='noopener noreferrer'
          >
-            {t('app.learn_react')}
+            {t('app.learnReact')}
          </a>
       </header>
    </div>
