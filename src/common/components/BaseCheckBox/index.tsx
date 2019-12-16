@@ -74,6 +74,4 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
    }
 }
 
-//TODO:make overflow label response styles
-
 export default BaseCheckBox

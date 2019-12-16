@@ -82,6 +82,4 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
    }
 }
 
-//TODO:make overflow label response styles
-
 export default BaseRadioButton
