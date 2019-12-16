@@ -12,8 +12,10 @@ interface ButtonProps {
    onClick: () => any
    apiStatus: APIStatus
    className: string
-   textStyle: object
    disabled: boolean
+   textTypo: React.ElementType
+   textClassName?: string
+   id?: string
    renderLoader: () => any
 }
 
@@ -24,12 +26,9 @@ class Button extends React.Component<ButtonProps> {
       renderLoader: () => (
          <Loader color={Colors.white} height={25} width={25} />
       ),
-      textStyle: { fontSize: 20 },
+      textTypo: StyledText,
+      textClassName: '',
       className: ''
-   }
-
-   constructor(props: ButtonProps) {
-      super(props)
    }
 
    isFetching = () => {
@@ -38,20 +37,27 @@ class Button extends React.Component<ButtonProps> {
    }
 
    renderContentBasedOnStatus = () => {
-      const { text, textStyle, renderLoader } = this.props
+      const {
+         text,
+         textTypo: ButtonText,
+         textClassName,
+         renderLoader
+      } = this.props
       if (this.isFetching()) {
          return renderLoader()
       }
-      return <StyledText style={textStyle}>{text}</StyledText>
+      return <ButtonText className={textClassName}>{text}</ButtonText>
    }
 
    render() {
-      const { onClick, disabled, className } = this.props
+      const { onClick, disabled, className, id, ...otherProps } = this.props
       return (
          <StyledButton
             onClick={onClick}
-            disabled={disabled}
+            disabled={disabled || this.isFetching()}
             className={className}
+            id={id}
+            {...otherProps}
          >
             {this.renderContentBasedOnStatus()}
          </StyledButton>

@@ -11,6 +11,7 @@ export const BaseRobotoText = styled(BaseText)`
 
 export const Typo12BlackRoboto = styled(BaseRobotoText)`
    font-size: 12px;
+   color: ${Colors.black};
 `
 
 export const Typo12PinkishOrangeRoboto = styled(BaseRobotoText)`
