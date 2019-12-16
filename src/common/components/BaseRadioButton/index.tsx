@@ -5,6 +5,8 @@ import RadioButtonNormalIcon from '../../../icons/RadioButtonNormalIcon'
 import RadioButtonSelectedIcon from '../../../icons/RadioButtonSelectedIcon'
 import RadioButtonDisabledIcon from '../../../icons/RadioButtonDisabledIcon'
 import RadioButtonSelectedDisabledIcon from '../../../icons/RadioButtonSelectedDisabledIcon'
+
+import { RadioButtonValue } from './styledComponents'
 import './styles.css'
 
 interface BaseRadioButtonProps {
@@ -44,7 +46,7 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
       const { value, checked, testId, disabled } = this.props
 
       return (
-         <div>
+         <div className='radioButtonContainer'>
             <label className='labelStyle'>
                <input
                   data-testid={testId}
@@ -73,7 +75,7 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
                      <RadioButtonSelectedDisabledIcon />
                   </div>
                )}
-               {value}
+               <RadioButtonValue>{value}</RadioButtonValue>
             </label>
          </div>
       )

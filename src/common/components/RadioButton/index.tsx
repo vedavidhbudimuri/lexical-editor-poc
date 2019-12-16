@@ -7,7 +7,6 @@ import BaseRadioButton from '../BaseRadioButton'
 
 import {
    RadioButtonsContainer,
-   ErrorView,
    ErrorMessage,
    MainContainer
 } from './styledComponents'

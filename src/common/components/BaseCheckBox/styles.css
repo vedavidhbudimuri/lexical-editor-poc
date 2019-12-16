@@ -12,10 +12,6 @@ label > input {
    flex-direction: row;
 }
 
-.baseCheckBoxContainerDisabled.baseCheckBoxContainerDisabled {
-   opacity: 0.4;
-}
-
 .checkBoxContainer.checkBoxContainer label > input[type='radio'] ~ .radioImage {
    width: 23px;
    height: 23px;

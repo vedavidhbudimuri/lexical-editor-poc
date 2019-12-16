@@ -1,9 +1,10 @@
-label>input {
+label > input {
    visibility: hidden;
    position: absolute;
 }
 
-.radioImage {}
+.radioImage {
+}
 
 .radioButtonContainer.radioButtonContainer {
    font-size: 16px;
@@ -11,11 +12,10 @@ label>input {
    flex-direction: row;
 }
 
-.radioButtonContainerDisabled.radioButtonContainerDisabled {
-   opacity: 0.4;
-}
-
-.radioButtonContainer.radioButtonContainer label>input[type='radio']~.radioImage {
+.radioButtonContainer.radioButtonContainer
+   label
+   > input[type='radio']
+   ~ .radioImage {
    width: 23px;
    height: 23px;
    margin-right: 5px;
@@ -24,7 +24,10 @@ label>input {
    object-fit: contain;
 }
 
-.radioButtonContainer.radioButtonContainer label>input[type='radio']:checked~.radioImage {
+.radioButtonContainer.radioButtonContainer
+   label
+   > input[type='radio']:checked
+   ~ .radioImage {
    width: 23px;
    height: 23px;
    margin-top: 5px;

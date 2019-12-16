@@ -6,6 +6,8 @@ import BaseCheckBoxSelectedIcon from '../../../icons/BaseCheckBoxSelectedIcon'
 import CheckBoxDisabled from '../../../icons/CheckBoxDisabled'
 import CheckBoxSelectedDisabledIcon from '../../../icons/CheckBoxSelectedDisabledIcon'
 
+import { CheckBoxValue } from './styledComponents'
+
 import './styles.css'
 
 interface BaseCheckBoxProps {
@@ -36,7 +38,7 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
       const { value, checked, testId, disabled } = this.props
 
       return (
-         <div>
+         <div className='checkBoxContainer'>
             <label className='labelStyle'>
                <input
                   data-testid={testId}
@@ -46,26 +48,26 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
                   value={value}
                />
                {!checked && !disabled && (
-                  <div className='radioImage'>
+                  <div className='checkBoxImage'>
                      <BaseCheckBoxNormalIcon />
                   </div>
                )}
                {checked && !disabled && (
-                  <div className='radioImage'>
+                  <div className='checkBoxImage'>
                      <BaseCheckBoxSelectedIcon />
                   </div>
                )}
                {!checked && disabled && (
-                  <div className='radioImage'>
+                  <div className='checkBoxImage'>
                      <CheckBoxDisabled />
                   </div>
                )}
                {checked && disabled && (
-                  <div className='radioImage'>
+                  <div className='checkBoxImage'>
                      <CheckBoxSelectedDisabledIcon />
                   </div>
                )}
-               {value}
+               <CheckBoxValue>{value}</CheckBoxValue>
             </label>
          </div>
       )

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
-export const RadioButtonContainer = styled.div`
-   font-size: 16px;
+import { Typo12BlackRoboto } from '../../../styleGuide/Typos'
+
+export const CheckBoxValue = styled(Typo12BlackRoboto)`
+   margin-left: 10px;
 `
