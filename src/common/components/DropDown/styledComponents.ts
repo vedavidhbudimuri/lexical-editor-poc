@@ -4,14 +4,10 @@ import Select from 'react-select'
 import Colors from '../../../themes/Colors'
 import ReactSelectDropDownArrow from '../../../icons/ReactSelectDropDownArrow'
 import { BaseRobotoText } from '../../../styleGuide/Typos'
-import { mobile } from '../../../utils/MixinUtils'
 
 export const DropDownContainer = styled('div')`
    width: 100%;
    margin: 20px 0px 0px 0px;
-   ${mobile} {
-      margin-top: 8px;
-   }
 `
 
 export const SelectField = styled(Select)`
