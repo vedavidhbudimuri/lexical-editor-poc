@@ -1,0 +1,51 @@
+label > input {
+   visibility: hidden;
+   position: absolute;
+}
+
+.checkBoxImage {
+}
+
+.checkBoxContainer.checkBoxContainer {
+   font-size: 16px;
+   display: flex;
+   flex-direction: row;
+}
+
+.baseCheckBoxContainerDisabled.baseCheckBoxContainerDisabled {
+   opacity: 0.4;
+}
+
+.checkBoxContainer.checkBoxContainer label > input[type='radio'] ~ .radioImage {
+   width: 23px;
+   height: 23px;
+   margin-right: 5px;
+   margin-top: 7px;
+   background-repeat: no-repeat;
+   object-fit: contain;
+}
+
+.checkBoxContainer.checkBoxContainer
+   label
+   > input[type='radio']:checked
+   ~ .radioImage {
+   width: 23px;
+   height: 23px;
+   margin-top: 5px;
+   background-repeat: no-repeat;
+   object-fit: contain;
+}
+
+.labelStyle.labelStyle {
+   font-family: Roboto;
+   font-size: 12px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #1e2a3f;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
