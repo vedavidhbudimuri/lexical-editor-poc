@@ -64,6 +64,7 @@ class CheckBox extends React.Component<CheckBoxProps> {
          } else {
             this.checkedValues.splice(index, 1)
          }
+         console.log(this.checkedValues)
       }
       onSelectOption(value)
    }
