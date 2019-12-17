@@ -56,19 +56,16 @@ class CheckBox extends React.Component<CheckBoxProps> {
 
    onSelectOption = (value: string) => {
       const { onSelectOption } = this.props
-      onSelectOption(value)
-   }
+      if (value) {
+         const index = this.checkedValues.indexOf(value)
 
-   getSelectedValues = () => {
-      const { selectedValue } = this.props
-      if (selectedValue) {
-         const index = this.checkedValues.indexOf(selectedValue)
-         if (index !== -1) {
-            this.checkedValues.push(selectedValue)
+         if (index === -1) {
+            this.checkedValues.push(value)
          } else {
             this.checkedValues.splice(index, 1)
          }
       }
+      onSelectOption(value)
    }
 
    isValueChecked = option => {
@@ -79,7 +76,6 @@ class CheckBox extends React.Component<CheckBoxProps> {
 
    renderOptions = () => {
       const { options, disabled } = this.props
-      this.getSelectedValues()
       const radioButtons = options.map((option, index) => (
          <BaseCheckBox
             key={option.label + index}
