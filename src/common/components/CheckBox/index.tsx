@@ -27,12 +27,20 @@ interface CheckBoxProps {
 
 @observer
 class CheckBox extends React.Component<CheckBoxProps> {
+   ref
    @observable checkedValues: string[] = []
+
+   constructor(props) {
+      super(props)
+      this.ref = React.createRef()
+   }
+
    static defaultProps = {
       disabled: false
    }
+
    componentDidMount() {
-      this.getSelectedValues()
+      this.getSelectedValue()
    }
 
    @observable error = ''
@@ -70,12 +78,15 @@ class CheckBox extends React.Component<CheckBoxProps> {
       onSelectOption(value)
    }
 
+   getSelectedValues = () => this.checkedValues
+
    isValueChecked = option => {
       const index = this.checkedValues.indexOf(option)
       if (index !== -1) return true
       return false
    }
-   getSelectedValues = () => {
+
+   getSelectedValue = () => {
       const { selectedValue } = this.props
       if (selectedValue) {
          const index = this.checkedValues.indexOf(selectedValue)
@@ -89,6 +100,7 @@ class CheckBox extends React.Component<CheckBoxProps> {
       const { options, disabled } = this.props
       const radioButtons = options.map((option, index) => (
          <BaseCheckBox
+            ref={this.ref}
             key={option.label + index}
             disabled={disabled}
             testId={option.label}
