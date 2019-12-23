@@ -17,9 +17,9 @@ import I18n from '../i18n'
 
 import { getAccessToken, getRefreshToken } from './StorageUtils'
 
-export function checkErrorType(message: string) {
+export function isAccessTokenExpiredMessage(message: string) {
    const errorResponse = JSON.parse(message)
-   let isFetchNewTokenAndRetry = false
+   let isAccessTokenExpired = false
    try {
       const { status, data } = errorResponse
       const { detail: failureMessage, res_status: resStatus } = data
@@ -29,41 +29,41 @@ export function checkErrorType(message: string) {
          (resStatus === resStatuses.invalidToken ||
             resStatus === resStatuses.invalidUser)
       ) {
-         isFetchNewTokenAndRetry = true
+         isAccessTokenExpired = true
       } else if (
          status === statusCodes.accessForbiddenErrorCode &&
          failureMessage &&
          resStatus === undefined
       ) {
-         isFetchNewTokenAndRetry = true
+         isAccessTokenExpired = true
       } else if (
          status === statusCodes.unAuthorizedErrorCode &&
          failureMessage &&
          resStatus === undefined
       ) {
-         isFetchNewTokenAndRetry = true
+         isAccessTokenExpired = true
       } else if (
          status === statusCodes.accessForbiddenErrorCode &&
          resStatus === resStatuses.notAuthorizedException
       ) {
-         isFetchNewTokenAndRetry = true
+         isAccessTokenExpired = true
       } else if (
          status === statusCodes.notFoundErrorCode &&
          resStatus === resStatuses.userNotFoundException
       ) {
-         isFetchNewTokenAndRetry = true
+         isAccessTokenExpired = true
       } else if (
          status === statusCodes.notFoundErrorCode &&
          resStatus === resStatuses.invalidSessionToken
       ) {
-         isFetchNewTokenAndRetry = true
+         isAccessTokenExpired = true
       }
    } catch (e) {
       console.log('error in check error type', e)
    }
 
    return {
-      isFetchNewTokenAndRetry
+      isAccessTokenExpired
    }
 }
 
@@ -202,9 +202,9 @@ export const networkCallWithApisauce = (store: any) => async (
       response = await getData(api, url, requestObject, type)
    } catch (error) {
       const { message } = error
-      const { isFetchNewTokenAndRetry } = checkErrorType(message)
+      const { isAccessTokenExpired } = isAccessTokenExpiredMessage(message)
       //
-      if (isFetchNewTokenAndRetry) {
+      if (isAccessTokenExpired) {
          try {
             // NOTE: To avoid circular dependencies we are passing store as an argument
 
