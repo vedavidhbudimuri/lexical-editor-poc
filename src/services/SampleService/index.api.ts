@@ -1,4 +1,4 @@
-import { create } from 'apisauce'
+import { create, ApisauceInstance } from 'apisauce'
 
 import { apiMethods } from '../../constants/APIConstants'
 import Config from '../../constants/EnvironmentConstants'
@@ -11,7 +11,7 @@ import SampleService from '.'
 const AUTH_URL = `${Config.NKB_BASE_URL}nkb_auth/`
 
 class SampleServiceApi implements SampleService {
-   api: Record<string, any>
+   api: ApisauceInstance
    networkCallWithApisauce: Function
 
    constructor(networkCallWithApisauce: Function) {
