@@ -4,6 +4,7 @@ import { observable, action, computed } from 'mobx'
 import { withTranslation, WithTranslation } from 'react-i18next'
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import classNames from 'classnames'
 
 import { DATE_PICKER_DATE_FORMAT } from '../../../constants/DateConstants'
 
@@ -14,9 +15,9 @@ import { DateContainer } from './styledComponents'
 import './styles.css'
 
 interface DatePickerProps extends WithTranslation {
-   onSelectedDate: (date: Date) => void
+   onSelectDate: (date: Date) => void
    date: Date
-   validate?: () => ValidationResponseType
+   validate: () => ValidationResponseType
 
    [x: string]: any
 }
@@ -43,13 +44,11 @@ class DatePicker extends Component<DatePickerProps> {
 
    onBlur = () => {
       const { validate } = this.props
-      if (validate) {
-         const result = validate()
-         if (result.shouldShowError) {
-            this.setError(result.errorMessage)
-         } else {
-            this.setError('')
-         }
+      const result = validate()
+      if (result.shouldShowError) {
+         this.setError(result.errorMessage)
+      } else {
+         this.setError('')
       }
    }
 
@@ -62,9 +61,9 @@ class DatePicker extends Component<DatePickerProps> {
    }
 
    handleChange = date => {
-      const { onSelectedDate } = this.props
+      const { onSelectDate } = this.props
       this.selectedDate = date
-      onSelectedDate(date)
+      onSelectDate(date)
    }
 
    captureDatePickerRef = ref => {
@@ -76,7 +75,11 @@ class DatePicker extends Component<DatePickerProps> {
 
    render() {
       const { t, ...other } = this.props
-
+      const datePickerClass = classNames({
+         dateFieldStyles: true,
+         'dateFieldStyles dateFieldStylesOnError': this.isError,
+         dateFieldStyle: !this.isError
+      })
       return (
          <DateContainer>
             <ReactDatePicker
@@ -91,11 +94,7 @@ class DatePicker extends Component<DatePickerProps> {
                yearDropdownItemNumber={100}
                dateFormat={DATE_PICKER_DATE_FORMAT}
                placeholderText={t('en:common.datePicker.selectDate')}
-               className={
-                  this.isError
-                     ? 'dateFieldStyles dateFieldStylesOnError'
-                     : 'dateFieldStyles'
-               }
+               className={datePickerClass}
                maxDate={new Date()}
                isClearable
                {...other}

@@ -8,6 +8,6 @@ storiesOf('Date Picker', module).add('ui date picker component', () => (
    <DatePicker
       date={new Date(2015, 4, 5)}
       isValid={true}
-      onSelectedDate={action('date selected')}
+      onSelectDate={action('date selected')}
    />
 ))

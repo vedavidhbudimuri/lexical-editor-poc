@@ -8,7 +8,7 @@ describe('DatePicker component test cases', () => {
       const selectDate = jest.fn()
       const { getByPlaceholderText } = render(
          <DatePicker
-            onSelectedDate={selectDate}
+            onSelectDate={selectDate}
             date={new Date(2019, 3, 3)}
             isValid={true}
          />
