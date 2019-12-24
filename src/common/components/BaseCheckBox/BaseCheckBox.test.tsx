@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 
 import BaseCheckBox from '.'
 
@@ -9,6 +9,8 @@ describe('BaseCheckBox component test cases', () => {
       const { getByTestId } = render(
          <BaseCheckBox value={'red'} onChange={onChange} />
       )
-      expect(getByTestId('checkbox')).toBeDefined()
+
+      fireEvent.click(getByTestId('checkbox'))
+      expect(onChange).toBeCalled()
    })
 })

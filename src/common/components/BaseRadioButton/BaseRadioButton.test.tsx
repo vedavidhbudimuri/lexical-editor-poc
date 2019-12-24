@@ -9,6 +9,7 @@ describe('BaseRadioButton component test cases', () => {
       const { getByTestId } = render(
          <BaseRadioButton value={'red'} onChange={onChange} />
       )
-      expect(getByTestId('radioButton')).toBeDefined()
+      fireEvent.click(getByTestId('radioButton'))
+      expect(onChange).toBeCalled()
    })
 })

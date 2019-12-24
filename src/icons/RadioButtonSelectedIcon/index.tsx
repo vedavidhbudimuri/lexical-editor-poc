@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RadioButtonSelectedIcon() {
+function RadioButtonSelectedIcon(props) {
    return (
       <svg
          xmlns='http://www.w3.org/2000/svg'
@@ -8,6 +8,7 @@ function RadioButtonSelectedIcon() {
          width='18'
          height='19'
          viewBox='0 0 18 19'
+         {...props}
       >
          <defs>
             <path id='a' d='M0 0h20v20H0z'></path>
