@@ -40,26 +40,26 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
          if (disabled) {
             return (
                <div className='checkBoxImage'>
-                  <CheckBoxSelectedDisabledIcon width={15} height={15} />
+                  <CheckBoxSelectedDisabledIcon />
                </div>
             )
          }
          return (
             <div className='checkBoxImage'>
-               <BaseCheckBoxSelectedIcon width={16} height={16} />
+               <BaseCheckBoxSelectedIcon />
             </div>
          )
       }
       if (disabled) {
          return (
             <div className='checkBoxImage'>
-               <CheckBoxDisabled width={15} height={15} />
+               <CheckBoxDisabled />
             </div>
          )
       }
       return (
          <div className='checkBoxImage'>
-            <BaseCheckBoxNormalIcon width={16} height={16} />
+            <BaseCheckBoxNormalIcon />
          </div>
       )
    }

@@ -41,7 +41,35 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
       }
       return ''
    }
-
+   renderRadioButtons = () => {
+      const { checked, disabled } = this.props
+      if (checked) {
+         if (disabled) {
+            return (
+               <div className='radioImage'>
+                  <RadioButtonSelectedDisabledIcon />
+               </div>
+            )
+         }
+         return (
+            <div className='radioImage'>
+               <RadioButtonSelectedIcon />
+            </div>
+         )
+      }
+      if (disabled) {
+         return (
+            <div className='radioImage'>
+               <RadioButtonDisabledIcon />
+            </div>
+         )
+      }
+      return (
+         <div className='radioImage'>
+            <RadioButtonNormalIcon />
+         </div>
+      )
+   }
    render() {
       const { value, checked, testId, disabled } = this.props
 
@@ -55,26 +83,7 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
                   onChange={this.onChange}
                   value={value}
                />
-               {!checked && !disabled && (
-                  <div className='radioImage'>
-                     <RadioButtonNormalIcon />
-                  </div>
-               )}
-               {checked && !disabled && (
-                  <div className='radioImage'>
-                     <RadioButtonSelectedIcon />
-                  </div>
-               )}
-               {!checked && disabled && (
-                  <div className='radioImage'>
-                     <RadioButtonDisabledIcon />
-                  </div>
-               )}
-               {checked && disabled && (
-                  <div className='radioImage'>
-                     <RadioButtonSelectedDisabledIcon />
-                  </div>
-               )}
+               {this.renderRadioButtons()}
                <RadioButtonValue>{value}</RadioButtonValue>
             </label>
          </div>
