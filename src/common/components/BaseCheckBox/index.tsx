@@ -11,7 +11,7 @@ import { CheckBoxValue } from './styledComponents'
 import './styles.css'
 
 interface BaseCheckBoxProps {
-   onSelectOption: (value: string) => void
+   onChange: (value: string) => void
    disabled?: boolean
    value: string
    testId?: string
@@ -27,11 +27,41 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
    }
 
    onChange = e => {
-      const { onSelectOption, disabled } = this.props
+      const { onChange, disabled } = this.props
 
       if (!disabled) {
-         onSelectOption(e.target.value)
+         onChange(e.target.value)
       }
+   }
+
+   renderCheckBox = () => {
+      const { checked, disabled } = this.props
+      if (checked) {
+         if (disabled) {
+            return (
+               <div className='checkBoxImage'>
+                  <CheckBoxSelectedDisabledIcon />
+               </div>
+            )
+         }
+         return (
+            <div className='checkBoxImage'>
+               <BaseCheckBoxSelectedIcon />
+            </div>
+         )
+      }
+      if (disabled) {
+         return (
+            <div className='checkBoxImage'>
+               <CheckBoxDisabled />
+            </div>
+         )
+      }
+      return (
+         <div className='checkBoxImage'>
+            <BaseCheckBoxNormalIcon />
+         </div>
+      )
    }
 
    render() {
@@ -47,26 +77,7 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
                   onChange={this.onChange}
                   value={value}
                />
-               {!checked && !disabled && (
-                  <div className='checkBoxImage'>
-                     <BaseCheckBoxNormalIcon />
-                  </div>
-               )}
-               {checked && !disabled && (
-                  <div className='checkBoxImage'>
-                     <BaseCheckBoxSelectedIcon />
-                  </div>
-               )}
-               {!checked && disabled && (
-                  <div className='checkBoxImage'>
-                     <CheckBoxDisabled />
-                  </div>
-               )}
-               {checked && disabled && (
-                  <div className='checkBoxImage'>
-                     <CheckBoxSelectedDisabledIcon />
-                  </div>
-               )}
+               {this.renderCheckBox()}
                <CheckBoxValue>{value}</CheckBoxValue>
             </label>
          </div>

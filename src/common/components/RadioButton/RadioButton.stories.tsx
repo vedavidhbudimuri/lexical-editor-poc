@@ -4,27 +4,25 @@ import { action } from '@storybook/addon-actions'
 
 import RadioButton from '.'
 
+const options = [
+   { label: 'Male', value: 'Male' },
+   { label: 'Female', value: 'Female' },
+   { label: 'Others', value: 'Others' }
+]
+
 storiesOf('RadioButton', module)
    .add('buttons enabled', () => (
       <RadioButton
-         options={[
-            { label: 'Male', value: 'Male' },
-            { label: 'Female', value: 'Female' },
-            { label: 'Others', value: 'Others' }
-         ]}
+         options={options}
          selectedValue={'Female'}
-         onSelectOption={action('selected')}
+         onChange={action('selected')}
       />
    ))
    .add('buttons disabled', () => (
       <RadioButton
          disabled={true}
-         options={[
-            { label: 'Male', value: 'Male' },
-            { label: 'Female', value: 'Female' },
-            { label: 'Others', value: 'Others' }
-         ]}
+         options={options}
          selectedValue={'Male'}
-         onSelectOption={action('selected')}
+         onChange={action('selected')}
       />
    ))

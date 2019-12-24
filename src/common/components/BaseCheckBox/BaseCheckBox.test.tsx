@@ -5,9 +5,9 @@ import BaseCheckBox from '.'
 
 describe('BaseCheckBox component test cases', () => {
    it('should call on change prop', () => {
-      const onSelectOption = jest.fn()
+      const onChange = jest.fn()
       const { getByTestId } = render(
-         <BaseCheckBox value={'red'} onSelectOption={onSelectOption} />
+         <BaseCheckBox value={'red'} onChange={onChange} />
       )
       expect(getByTestId('checkbox')).toBeDefined()
    })

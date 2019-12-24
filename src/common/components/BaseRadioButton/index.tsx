@@ -10,7 +10,7 @@ import { RadioButtonValue } from './styledComponents'
 import './styles.css'
 
 interface BaseRadioButtonProps {
-   onSelectOption: (value: string) => void
+   onChange: (value: string) => void
    disabled?: boolean
    value: string
    testId?: string
@@ -26,10 +26,10 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
    }
 
    onChange = e => {
-      const { onSelectOption, disabled } = this.props
+      const { onChange, disabled } = this.props
 
       if (!disabled) {
-         onSelectOption(e.target.value)
+         onChange(e.target.value)
       }
    }
 

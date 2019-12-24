@@ -2,7 +2,7 @@ import * as React from 'react'
 import { observable, action, computed } from 'mobx'
 import { observer } from 'mobx-react'
 
-import { ValidationResponseType } from '../CheckBox/types'
+import { ValidationResponseType } from '../CheckBoxGroup/types'
 import BaseRadioButton from '../BaseRadioButton'
 
 import {
@@ -21,7 +21,7 @@ interface RadioButtonProps {
    disabled?: boolean
    validate?: () => ValidationResponseType
    containerClassName?: string
-   onSelectOption: (value: string) => void
+   onChange: (value: string) => void
    selectedValue?: string
    className?: string
    errorId?: string
@@ -56,9 +56,9 @@ class RadioButton extends React.Component<RadioButtonProps> {
       }
    }
 
-   onSelectOption = (value: string) => {
-      const { onSelectOption } = this.props
-      onSelectOption(value)
+   onChange = (value: string) => {
+      const { onChange } = this.props
+      onChange(value)
    }
 
    renderOptions = () => {
@@ -69,7 +69,7 @@ class RadioButton extends React.Component<RadioButtonProps> {
             disabled={disabled}
             testId={option.label}
             value={option.value}
-            onSelectOption={this.onSelectOption}
+            onChange={this.onChange}
             checked={selectedValue === option.value}
          />
       ))

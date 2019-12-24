@@ -18,7 +18,7 @@ interface CheckBoxProps {
    disabled?: boolean
    validate?: () => ValidationResponseType
    containerClassName?: string
-   onSelectOption: (value: string) => void
+   onChange: (value: string) => void
    selectedValue?: string
    className?: string
    errorId?: string
@@ -26,7 +26,7 @@ interface CheckBoxProps {
 }
 
 @observer
-class CheckBox extends React.Component<CheckBoxProps> {
+class CheckboxGroup extends React.Component<CheckBoxProps> {
    ref
    @observable checkedValues: string[] = []
 
@@ -65,8 +65,8 @@ class CheckBox extends React.Component<CheckBoxProps> {
       }
    }
 
-   onSelectOption = (value: string) => {
-      const { onSelectOption } = this.props
+   onChange = (value: string) => {
+      const { onChange } = this.props
       if (value) {
          const index = this.checkedValues.indexOf(value)
          if (index === -1) {
@@ -75,7 +75,7 @@ class CheckBox extends React.Component<CheckBoxProps> {
             this.checkedValues.splice(index, 1)
          }
       }
-      onSelectOption(value)
+      onChange(value)
    }
 
    getSelectedValues = () => this.checkedValues
@@ -105,7 +105,7 @@ class CheckBox extends React.Component<CheckBoxProps> {
             disabled={disabled}
             testId={option.label}
             value={option.value}
-            onSelectOption={this.onSelectOption}
+            onChange={this.onChange}
             checked={this.isValueChecked(option.value)}
          />
       ))
@@ -134,4 +134,4 @@ class CheckBox extends React.Component<CheckBoxProps> {
    }
 }
 
-export default CheckBox
+export default CheckboxGroup
