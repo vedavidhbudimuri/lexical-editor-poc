@@ -74,8 +74,8 @@ const RadioButtonSelectedIcon = (props: Props) => (
 )
 
 RadioButtonSelectedIcon.defaultProps = {
-   width: 18,
-   height: 19
+   width: 16,
+   height: 16
 }
 
 export default RadioButtonSelectedIcon
