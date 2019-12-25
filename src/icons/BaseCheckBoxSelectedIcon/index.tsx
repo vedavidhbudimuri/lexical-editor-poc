@@ -1,7 +1,12 @@
 import React from 'react'
 
-const BaseCheckBoxSelectedIcon = props => (
-   <svg width={16} height={16} {...props}>
+interface Props {
+   width: number
+   height: number
+}
+
+const BaseCheckBoxSelectedIcon = (props: Props) => (
+   <svg width={props.width} height={props.height}>
       <defs>
          <path id='selected_check_svg__a' d='M0 0h20v20H0z' />
       </defs>
@@ -26,5 +31,10 @@ const BaseCheckBoxSelectedIcon = props => (
       </g>
    </svg>
 )
+
+BaseCheckBoxSelectedIcon.defaultProps = {
+   width: 16,
+   height: 16
+}
 
 export default BaseCheckBoxSelectedIcon

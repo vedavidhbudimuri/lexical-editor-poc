@@ -1,7 +1,12 @@
 import React from 'react'
 
-const RadioButtonSelectedDisabledIcon = props => (
-   <svg width={16} height={16} {...props}>
+interface Props {
+   width: number
+   height: number
+}
+
+const RadioButtonSelectedDisabledIcon = (props: Props) => (
+   <svg width={props.width} height={props.height} {...props}>
       <defs>
          <path id='selected_disabled_radio_svg__a' d='M0 0h20v20H0z' />
       </defs>
@@ -27,5 +32,10 @@ const RadioButtonSelectedDisabledIcon = props => (
       </g>
    </svg>
 )
+
+RadioButtonSelectedDisabledIcon.defaultProps = {
+   width: 16,
+   height: 16
+}
 
 export default RadioButtonSelectedDisabledIcon

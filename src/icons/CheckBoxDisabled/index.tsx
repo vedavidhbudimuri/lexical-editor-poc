@@ -1,7 +1,12 @@
 import React from 'react'
 
-const CheckBoxDisabled = props => (
-   <svg width={16} height={16} {...props}>
+interface Props {
+   width: number
+   height: number
+}
+
+const CheckBoxDisabled = (props: Props) => (
+   <svg width={props.width} height={props.height}>
       <defs>
          <path id='disabled_check_svg__a' d='M0 0h20v20H0z' />
       </defs>
@@ -22,5 +27,10 @@ const CheckBoxDisabled = props => (
       </g>
    </svg>
 )
+
+CheckBoxDisabled.defaultProps = {
+   width: 16,
+   height: 16
+}
 
 export default CheckBoxDisabled
