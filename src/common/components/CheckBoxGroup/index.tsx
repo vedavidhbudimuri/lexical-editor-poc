@@ -19,7 +19,7 @@ interface CheckBoxProps {
    validate?: () => ValidationResponseType
    containerClassName?: string
    onChange: (value: string) => void
-   selectedValue?: string
+   selectedValues: Array<string>
    className?: string
    errorId?: string
    errorMessage?: string
@@ -36,11 +36,12 @@ class CheckboxGroup extends React.Component<CheckBoxProps> {
    }
 
    static defaultProps = {
-      disabled: false
+      disabled: false,
+      selectedValues: []
    }
 
    componentDidMount() {
-      this.getSelectedValue()
+      this.setSelectedValues()
    }
 
    @observable error = ''
@@ -80,20 +81,15 @@ class CheckboxGroup extends React.Component<CheckBoxProps> {
 
    getSelectedValues = () => this.checkedValues
 
-   isValueChecked = option => {
-      const index = this.checkedValues.indexOf(option)
+   isValueChecked = (value: string) => {
+      const index = this.checkedValues.indexOf(value)
       if (index !== -1) return true
       return false
    }
 
-   getSelectedValue = () => {
-      const { selectedValue } = this.props
-      if (selectedValue) {
-         const index = this.checkedValues.indexOf(selectedValue)
-         if (index === -1) {
-            this.checkedValues.push(selectedValue)
-         }
-      }
+   setSelectedValues = () => {
+      const { selectedValues } = this.props
+      selectedValues.map(value => this.checkedValues.push(value))
    }
 
    renderOptions = () => {
@@ -104,6 +100,7 @@ class CheckboxGroup extends React.Component<CheckBoxProps> {
             key={option.label + index}
             disabled={disabled}
             testId={option.label}
+            label={option.label}
             value={option.value}
             onChange={this.onChange}
             checked={this.isValueChecked(option.value)}

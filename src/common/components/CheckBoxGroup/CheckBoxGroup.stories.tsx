@@ -5,9 +5,9 @@ import { action } from '@storybook/addon-actions'
 import CheckboxGroup from '.'
 
 const options = [
-   { label: 'Male', value: 'Male' },
-   { label: 'Female', value: 'Female' },
-   { label: 'Others', value: 'Others' }
+   { label: 'Male', value: 'MALE' },
+   { label: 'Female', value: 'FEMALE' },
+   { label: 'Others', value: 'OTHERS' }
 ]
 
 class CheckBoxRef extends Component {
@@ -24,7 +24,7 @@ class CheckBoxRef extends Component {
             <button onClick={this.getSelectedValues}>Get Values</button>
             <CheckboxGroup
                options={options}
-               selectedValue={'Female'}
+               selectedValues={['FEMALE']}
                onChange={action('selected')}
                ref={this.ref}
             />
@@ -39,7 +39,7 @@ storiesOf('CheckboxGroup', module)
    .add('buttons enabled', () => (
       <CheckboxGroup
          options={options}
-         selectedValue={'Female'}
+         selectedValues={['FEMALE']}
          onChange={action('selected')}
       />
    ))
@@ -47,7 +47,7 @@ storiesOf('CheckboxGroup', module)
       <CheckboxGroup
          disabled={true}
          options={options}
-         selectedValue={'Male'}
+         selectedValues={['MALE']}
          onChange={action('selected')}
       />
    ))

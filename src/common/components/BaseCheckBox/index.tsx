@@ -6,13 +6,15 @@ import BaseCheckBoxSelectedIcon from '../../../icons/BaseCheckBoxSelectedIcon'
 import CheckBoxDisabled from '../../../icons/CheckBoxDisabled'
 import CheckBoxSelectedDisabledIcon from '../../../icons/CheckBoxSelectedDisabledIcon'
 
-import { CheckBoxValue } from './styledComponents'
+import { CheckBoxLabel } from './styledComponents'
 
 import './styles.css'
 
 interface BaseCheckBoxProps {
    onChange: (value: string) => void
    disabled?: boolean
+   label: string
+
    value: string
    testId?: string
    checked?: boolean
@@ -65,7 +67,7 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
    }
 
    render() {
-      const { value, checked, testId, disabled } = this.props
+      const { label, value, checked, testId, disabled } = this.props
 
       return (
          <div className='checkBoxContainer'>
@@ -78,7 +80,7 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
                   value={value}
                />
                {this.renderCheckBox()}
-               <CheckBoxValue>{value}</CheckBoxValue>
+               <CheckBoxLabel>{label}</CheckBoxLabel>
             </label>
          </div>
       )

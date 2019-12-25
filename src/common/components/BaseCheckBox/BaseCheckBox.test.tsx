@@ -7,7 +7,7 @@ describe('BaseCheckBox component test cases', () => {
    it('should call on change prop', () => {
       const onChange = jest.fn()
       const { getByTestId } = render(
-         <BaseCheckBox value={'red'} onChange={onChange} />
+         <BaseCheckBox value={'RED'} label={'red'} onChange={onChange} />
       )
 
       fireEvent.click(getByTestId('checkbox'))

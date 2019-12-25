@@ -6,19 +6,34 @@ import BaseCheckBox from '.'
 
 storiesOf('Base Check Boxes', module)
    .add('enabled check box', () => (
-      <BaseCheckBox value={'red '} onChange={action('selected')} />
+      <BaseCheckBox
+         value={'RED '}
+         label={'red'}
+         onChange={action('selected')}
+      />
    ))
    .add('disabled check box', () => (
-      <BaseCheckBox disabled value={'red'} onChange={action('selected')} />
+      <BaseCheckBox
+         disabled
+         value={'RED'}
+         label={'red'}
+         onChange={action('selected')}
+      />
    ))
    .add('checked and disabled check box', () => (
       <BaseCheckBox
          checked
          disabled
-         value={'red'}
+         value={'RED'}
+         label={'red'}
          onChange={action('selected')}
       />
    ))
    .add('checked check box', () => (
-      <BaseCheckBox checked value={'red'} onChange={action('selected')} />
+      <BaseCheckBox
+         checked
+         value={'RED'}
+         label={'red'}
+         onChange={action('selected')}
+      />
    ))

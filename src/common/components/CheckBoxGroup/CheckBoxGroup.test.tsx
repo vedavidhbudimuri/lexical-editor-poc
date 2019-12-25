@@ -4,9 +4,9 @@ import { render, fireEvent } from '@testing-library/react'
 import CheckboxGroup from '.'
 
 const options = [
-   { label: 'Male', value: 'Male' },
-   { label: 'Female', value: 'Female' },
-   { label: 'Others', value: 'Others' }
+   { label: 'Male', value: 'MALE' },
+   { label: 'Female', value: 'FEMALE' },
+   { label: 'Others', value: 'OTHERS' }
 ]
 
 describe('Checkboxes component test cases', () => {
