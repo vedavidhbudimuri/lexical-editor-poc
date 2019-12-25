@@ -10,7 +10,7 @@ import LoadingView from './LoadingView'
 import FailureView from './FailureView'
 import { Container } from './styledComponents'
 
-interface IProps {
+interface Props {
    renderLoadingView: () => any
    renderFailureView: (onRetry: () => any, failureText: string) => any
    apiStatus: APIStatus
@@ -18,19 +18,15 @@ interface IProps {
    failureText: string
 }
 
-class LoadingWrapper extends Component<IProps> {
+class LoadingWrapper extends Component<Props> {
    static defaultProps = {
-      onRetry: () => {
-         return 0
-      },
-      renderLoadingView: () => {
-         return <LoadingView />
-      },
-      renderFailureView: (onRetry, failureText) => {
-         return <FailureView onRetry={onRetry} failureText={failureText} />
-      }
+      onRetry: () => 0,
+      renderLoadingView: () => <LoadingView />,
+      renderFailureView: (onRetry, failureText) => (
+         <FailureView onRetry={onRetry} failureText={failureText} />
+      )
    }
-   constructor(props: IProps) {
+   constructor(props: Props) {
       super(props)
    }
 
