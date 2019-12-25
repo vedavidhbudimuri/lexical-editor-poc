@@ -125,7 +125,9 @@ export const displayApiError = (apiError: any, showAlert = false) => {
             }
          }
       } catch (e) {
-         // console.log('err >><<<', e)
+         if (apiError) {
+            console.log(apiError)
+         }
       }
    }
 
