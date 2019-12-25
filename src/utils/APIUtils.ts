@@ -6,13 +6,11 @@ import {
    API_SUCCESS,
    API_FAILED
 } from '@ib/api-constants'
-
 import getData from '@ib/api'
 import { ApisauceInstance } from 'apisauce'
 
 import { apiMethods } from '../constants/APIConstants'
 import { resStatuses, statusCodes } from '../constants/APIErrorConstants'
-
 import I18n from '../i18n'
 
 import { getAccessToken, getRefreshToken } from './StorageUtils'
@@ -205,26 +203,18 @@ export const networkCallWithApisauce = (store: any) => async (
       const { isAccessTokenExpired } = isAccessTokenExpiredMessage(message)
       //
       if (isAccessTokenExpired) {
-         try {
-            // NOTE: To avoid circular dependencies we are passing store as an argument
+         // NOTE: To avoid circular dependencies we are passing store as an argument
 
-            const request = {
-               refresh_token: getRefreshToken(),
-               access_token: getAccessToken()
-            }
-            await store.refreshAuthTokensAPI(request)
-
-            try {
-               api.setHeaders({
-                  Authorization: `Bearer ${options.getAccessToken()}`
-               })
-               response = await getData(api, url, requestObject, type)
-            } catch (apiError) {
-               throw apiError
-            }
-         } catch (e) {
-            throw e
+         const request = {
+            refresh_token: getRefreshToken(),
+            access_token: getAccessToken()
          }
+         await store.refreshAuthTokensAPI(request)
+
+         api.setHeaders({
+            Authorization: `Bearer ${options.getAccessToken()}`
+         })
+         response = await getData(api, url, requestObject, type)
       } else {
          throw error
       }

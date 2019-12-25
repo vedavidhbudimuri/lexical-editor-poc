@@ -1,6 +1,7 @@
 //TODO: Need to update to ts
 import getData from '@ib/api'
 import { ApisauceInstance } from 'apisauce'
+
 import { apiMethods } from '../constants/APIConstants'
 
 export function getAuthAPIAuthorizationHeaders() {
