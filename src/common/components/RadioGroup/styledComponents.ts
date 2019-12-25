@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
 import { Typo12PinkishOrangeRoboto } from '../../../styleGuide/Typos'
+import { mobile } from '../../../utils/MixinUtils'
 
-export const MainContainer = styled.div``
+export const MainContainer = styled.div`
+   ${mobile} {
+      margin-top: 8px;
+   }
+`
 
-export const RadioButtonsContainer = styled.div``
+export const RadioGroupContainer = styled.div``
 
 export const ErrorView = styled.div`
    flex-direction: row;

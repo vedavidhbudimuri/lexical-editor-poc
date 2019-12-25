@@ -6,19 +6,22 @@ import BaseRadioButton from '.'
 
 storiesOf('Base Radio Button', module)
    .add('enabled radio button', () => (
-      <BaseRadioButton value={'red '} onChange={action('selected')} />
-   ))
-   .add('selected disabled radio button', () => (
       <BaseRadioButton
-         checked
-         disabled
-         value={'red'}
-         onChange={action('selected')}
+         option={{ label: 'red', value: 'RED' }}
+         onSelectOption={action('selected')}
       />
    ))
    .add('disabled radio button', () => (
-      <BaseRadioButton disabled value={'red'} onChange={action('selected')} />
+      <BaseRadioButton
+         disabled
+         option={{ label: 'red', value: 'RED' }}
+         onSelectOption={action('selected')}
+      />
    ))
    .add('checked radio button', () => (
-      <BaseRadioButton checked value={'red'} onChange={action('selected')} />
+      <BaseRadioButton
+         checked
+         option={{ label: 'red', value: 'RED' }}
+         onSelectOption={action('selected')}
+      />
    ))

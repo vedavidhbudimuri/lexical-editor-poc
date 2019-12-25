@@ -5,11 +5,14 @@ import BaseRadioButton from '.'
 
 describe('BaseRadioButton component test cases', () => {
    it('should call on change prop', () => {
-      const onChange = jest.fn()
+      const onSelectOption = jest.fn()
       const { getByTestId } = render(
-         <BaseRadioButton value={'red'} onChange={onChange} />
+         <BaseRadioButton
+            option={{ label: 'red', value: 'RED' }}
+            onSelectOption={onSelectOption}
+         />
       )
       fireEvent.click(getByTestId('radioButton'))
-      expect(onChange).toBeCalled()
+      expect(onSelectOption).toBeCalled()
    })
 })

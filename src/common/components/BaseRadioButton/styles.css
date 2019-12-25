@@ -12,6 +12,10 @@ label > input {
    flex-direction: row;
 }
 
+.radioButtonContainerDisabled.radioButtonContainerDisabled {
+   opacity: 0.4;
+}
+
 .radioButtonContainer.radioButtonContainer
    label
    > input[type='radio']
