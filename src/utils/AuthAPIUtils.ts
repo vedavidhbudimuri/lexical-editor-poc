@@ -1,5 +1,6 @@
 //TODO: Need to update to ts
 import getData from '@ib/api'
+import { ApisauceInstance } from 'apisauce'
 import { apiMethods } from '../constants/APIConstants'
 
 export function getAuthAPIAuthorizationHeaders() {
@@ -9,16 +10,8 @@ export function getAuthAPIAuthorizationHeaders() {
 }
 
 export const networkCallWithApisauce = async (
-   api,
-   url,
-   requestObject,
-   type = apiMethods.post
-) => {
-   let response: any = null
-   try {
-      response = await getData(api, url, requestObject, type)
-   } catch (error) {
-      throw error
-   }
-   return response
-}
+   api: ApisauceInstance,
+   url: string,
+   requestObject: Record<string, any>,
+   type: any = apiMethods.post
+) => await getData(api, url, requestObject, type)
