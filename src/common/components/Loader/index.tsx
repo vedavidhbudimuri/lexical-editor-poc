@@ -3,14 +3,14 @@ import ReactLoader from 'react-loader-spinner'
 
 import colors from '../../../themes/Colors'
 
-interface ILoaderProps {
+interface LoaderProps {
    height: number
    width: number
    type: string
    color: string
 }
 
-class Loader extends React.Component<ILoaderProps> {
+class Loader extends React.Component<LoaderProps> {
    static defaultProps = {
       type: 'Oval',
       color: colors.primaryColor,
@@ -18,7 +18,7 @@ class Loader extends React.Component<ILoaderProps> {
       width: 30
    }
 
-   constructor(props: ILoaderProps) {
+   constructor(props: LoaderProps) {
       super(props)
    }
 
