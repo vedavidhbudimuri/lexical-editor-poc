@@ -39,14 +39,6 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
       }
    }
 
-   getDisabledClassName = () => {
-      const { disabled } = this.props
-
-      if (disabled) {
-         return 'radioButtonContainerDisabled'
-      }
-      return ''
-   }
    renderRadioButtons = () => {
       const {
          checked,
@@ -98,7 +90,7 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
       const { option, checked, testId, labelStyleCss } = this.props
 
       return (
-         <div className={`radioButtonContainer ${this.getDisabledClassName()}`}>
+         <div className='radioButtonContainer'>
             <label className='labelStyle' css={labelStyleCss}>
                <input
                   data-testid={testId}
