@@ -30,7 +30,7 @@
    ],
    "rules": {
       //TODO:Need to add some more rules to this file
-
+      "@typescript-eslint/camelcase": 0,
       "prettier/prettier": ["error", { "singleQuote": true }],
 
       "arrow-body-style": [2, "as-needed"],

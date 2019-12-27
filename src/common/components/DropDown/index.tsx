@@ -58,21 +58,20 @@ const NoOptionsMessage = (props: any) => {
 const TranslatedNoOptionsMessage = withTranslation()(NoOptionsMessage)
 
 interface DropDownProps {
-   [x: string]: any
    validate: () => ValidationResponseType
+   [x: string]: any
 }
 
 @observer
 class DropDown extends Component<DropDownProps> {
    dropdownRef
 
+   static defaultProps = {
+      validate: () => ({ shouldShowError: false, errorMessage: '' })
+   }
    constructor(props) {
       super(props)
       this.dropdownRef = React.createRef()
-   }
-
-   static defaultProps = {
-      validate: () => ({ shouldShowError: false, errorMessage: '' })
    }
 
    @observable error = ''

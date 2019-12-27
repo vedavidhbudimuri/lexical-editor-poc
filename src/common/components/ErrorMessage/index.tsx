@@ -1,25 +1,24 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 
-import { ErrorView, ErrorText } from './styledComponents'
+import { ErrorView, ErrorMessageContainer } from './styledComponents'
 
 interface ErrorMessageProps {
-   errorMessage?: string
+   errorMessage: string
+   errorId?: string
 }
 
-class ErrorMessage extends Component<ErrorMessageProps> {
-   renderError = () => {
-      const { errorMessage } = this.props
-      if (errorMessage) {
-         return (
-            <ErrorView>
-               <ErrorText as='div'>{`* ${errorMessage}`}</ErrorText>
-            </ErrorView>
-         )
-      }
-      return null
+class ErrorMessage extends React.Component<ErrorMessageProps> {
+   static defaultProps = {
+      errorMessage: '*required'
    }
+
    render() {
-      return this.renderError()
+      const { errorMessage, errorId } = this.props
+      return (
+         <ErrorView id={errorId}>
+            <ErrorMessageContainer>{errorMessage}</ErrorMessageContainer>
+         </ErrorView>
+      )
    }
 }
 
