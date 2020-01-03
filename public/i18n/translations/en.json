@@ -5,6 +5,12 @@
    "common": {
       "failureView": {
          "retry": "Retry"
+      },
+      "datePicker": {
+         "selectDate": "Select Date"
+      },
+      "dropDown": {
+         "noOptionsToselect": "No options to select"
       }
    }
 }
