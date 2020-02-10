@@ -6,7 +6,8 @@ export const CloseIconWrapper = styled.div`
    z-index: 1;
    width: 18px;
    height: 18px;
-   right: 10px;
+   top: 5px;
+   right: 5px;
    background-color: white;
    display: flex;
    align-items: center;
