@@ -11,6 +11,10 @@
       },
       "dropDown": {
          "noOptionsToselect": "No options to select"
+      },
+      "confirmationAlert": {
+         "yes": "Yes",
+         "no": "No"
       }
    }
 }
