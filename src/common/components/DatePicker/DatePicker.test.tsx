@@ -8,12 +8,12 @@ describe('DatePicker component test cases', () => {
       const selectDate = jest.fn()
       const { getByPlaceholderText } = render(
          <DatePicker
-            onSelectDate={selectDate}
+            onSelectedDate={selectDate}
             date={new Date(2019, 3, 3)}
             isValid={true}
          />
       )
-      const datePicker = getByPlaceholderText('en:common.datePicker.selectDate')
+      const datePicker = getByPlaceholderText('common.datePicker.selectDate')
 
       fireEvent.change(datePicker, { target: { value: '2015-05-05' } })
       expect(selectDate).toHaveBeenCalled()
