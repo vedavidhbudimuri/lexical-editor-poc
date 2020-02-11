@@ -4,47 +4,6 @@ label > input {
 }
 
 .radioImage {
-}
-
-.radioButtonContainer.radioButtonContainer {
-   font-size: 16px;
    display: flex;
-   flex-direction: row;
-}
-
-.radioButtonContainer.radioButtonContainer
-   label
-   > input[type='radio']
-   ~ .radioImage {
-   width: 23px;
-   height: 23px;
-   margin-right: 5px;
-   margin-top: 7px;
-   background-repeat: no-repeat;
-   object-fit: contain;
-}
-
-.radioButtonContainer.radioButtonContainer
-   label
-   > input[type='radio']:checked
-   ~ .radioImage {
-   width: 23px;
-   height: 23px;
-   margin-top: 5px;
-   background-repeat: no-repeat;
-   object-fit: contain;
-}
-
-.labelStyle.labelStyle {
-   font-family: Roboto;
-   font-size: 12px;
-   font-weight: normal;
-   font-style: normal;
-   font-stretch: normal;
-   line-height: normal;
-   letter-spacing: normal;
-   color: #1e2a3f;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
+   margin-right: 10px;
 }

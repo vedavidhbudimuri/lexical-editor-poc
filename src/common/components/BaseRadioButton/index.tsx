@@ -9,6 +9,12 @@ import RadioButtonSelectedDisabledIcon from '../../../icons/RadioButtonSelectedD
 
 import './styles.css'
 import { RadioButtonOption } from './types'
+import {
+   RadioInput,
+   Label,
+   RadioImageContainer,
+   LabelComponentContainer
+} from './styledComponents'
 
 interface BaseRadioButtonProps {
    onSelectOption: (value: string) => void
@@ -19,6 +25,8 @@ interface BaseRadioButtonProps {
    labelStyleCss?: string
    radioImageStyleCss?: string
    radioImageSize?: number
+   renderLabelComponent?: () => {}
+   labelComponentContainerCss?: React.CSSProperties
 }
 
 @observer
@@ -49,64 +57,86 @@ class BaseRadioButton extends React.Component<BaseRadioButtonProps> {
       if (checked) {
          if (disabled) {
             return (
-               <div className='radioImage' css={radioImageStyleCss}>
+               <RadioImageContainer
+                  className='radioImage'
+                  css={radioImageStyleCss}
+               >
                   <RadioButtonSelectedDisabledIcon
                      height={radioImageSize}
                      width={radioImageSize}
                   />
-               </div>
+               </RadioImageContainer>
             )
          }
          return (
-            <div className='radioImage' css={radioImageStyleCss}>
+            <RadioImageContainer
+               className='radioImage'
+               css={radioImageStyleCss}
+            >
                <RadioButtonSelectedIcon
                   height={radioImageSize}
                   width={radioImageSize}
                />
-            </div>
+            </RadioImageContainer>
          )
       }
       if (disabled) {
          return (
-            <div className='radioImage' css={radioImageStyleCss}>
+            <RadioImageContainer
+               className='radioImage'
+               css={radioImageStyleCss}
+            >
                <RadioButtonDisabledIcon
                   height={radioImageSize}
                   width={radioImageSize}
                />
-            </div>
+            </RadioImageContainer>
          )
       }
       return (
-         <div className='radioImage' css={radioImageStyleCss}>
+         <RadioImageContainer className='radioImage' css={radioImageStyleCss}>
             <RadioButtonNormalIcon
                height={radioImageSize}
                width={radioImageSize}
             />
-         </div>
+         </RadioImageContainer>
       )
+   }
+
+   renderLabel = () => {
+      const {
+         option,
+         renderLabelComponent,
+         labelComponentContainerCss
+      } = this.props
+
+      if (renderLabelComponent) {
+         return (
+            <LabelComponentContainer css={labelComponentContainerCss}>
+               {renderLabelComponent}
+            </LabelComponentContainer>
+         )
+      }
+      return option.label
    }
 
    render() {
       const { option, checked, testId, labelStyleCss } = this.props
-
       return (
-         <div className='radioButtonContainer'>
-            <label className='labelStyle' css={labelStyleCss}>
-               <input
-                  data-testid={testId}
-                  type='radio'
-                  checked={checked}
-                  onChange={this.onChange}
-                  value={option.value}
-               />
-               {this.renderRadioButtons()}
-               {option.label}
-            </label>
-         </div>
+         <Label css={labelStyleCss}>
+            <RadioInput
+               data-testid={testId}
+               type='radio'
+               checked={checked}
+               onChange={this.onChange}
+               value={option.value}
+            />
+            {this.renderRadioButtons()}
+            {this.renderLabel()}
+         </Label>
       )
    }
 }
-
 //TODO:make overflow label response styles
 
 export default BaseRadioButton
