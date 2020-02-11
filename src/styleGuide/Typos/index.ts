@@ -9,6 +9,10 @@ export const BaseRobotoText = styled(BaseText)`
    font-family: 'Roboto';
 `
 
+export const BasePoppinsText = styled(BaseText)`
+   font-family: 'Poppins';
+`
+
 export const Typo12BlackRoboto = styled(BaseRobotoText)`
    font-size: 12px;
    color: ${Colors.black};
@@ -31,4 +35,9 @@ export const Typo16DuskRR = styled(BaseRobotoText)`
 
 export const Typo26BlackRoboto = styled(BaseRobotoText)`
    font-size: 26px;
+`
+
+export const Typo16BlackPoppins = styled(BasePoppinsText)`
+   font-size: 16px;
+   color: ${Colors.black};
 `

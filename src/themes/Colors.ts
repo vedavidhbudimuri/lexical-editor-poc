@@ -4,6 +4,8 @@ const colors = {
    black12: 'rgba(0, 0, 0, 0.12)',
    black32: 'rgba(0, 0, 0, 0.32)',
    blackSeven: '#101010',
+   black80: 'rgba(0, 0, 0, 0.8)',
+   blueGreyTwo: '#7b8fac',
    blueyGrey: '#8892a4',
    dark: '#1e2a3f',
    darkGreyBlueTwoSix: 'rgba(53, 78, 110, 0.6)',
