@@ -10,7 +10,7 @@ import { DATE_PICKER_DATE_FORMAT } from '../../../constants/DateConstants'
 
 import ErrorMessage from '../ErrorMessage'
 
-import { DateContainer, ErrorView } from './styledComponents'
+import { DateContainer } from './styledComponents'
 import { ValidationResponseType } from './types'
 import './styles.css'
 
@@ -119,12 +119,7 @@ class DatePicker extends Component<DatePickerProps> {
                disabled={disabled}
                {...other}
             />
-            {/*TODO: need to write the Error Component as common Component */}
-            {this.isError && (
-               <ErrorView id={errorId}>
-                  <ErrorMessage>{`* ${this.error}`}</ErrorMessage>
-               </ErrorView>
-            )}
+            <ErrorMessage errorMessage={this.error} />
          </DateContainer>
       )
    }

@@ -8,9 +8,3 @@ export const DateContainer = styled('div')`
       margin-top: 8px;
    }
 `
-
-export const ErrorView = styled.div`
-   flex-direction: row;
-   margin-top: 3px;
-   margin-left: 3px;
-`
