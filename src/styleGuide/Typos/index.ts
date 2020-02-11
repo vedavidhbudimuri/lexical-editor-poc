@@ -28,3 +28,7 @@ export const Typo16DuskRR = styled(BaseRobotoText)`
    font-size: 16px;
    color: ${Colors.dusk};
 `
+
+export const Typo26BlackRoboto = styled(BaseRobotoText)`
+   font-size: 26px;
+`
