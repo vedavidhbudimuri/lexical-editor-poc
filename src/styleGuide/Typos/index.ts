@@ -18,3 +18,13 @@ export const Typo12PinkishOrangeRoboto = styled(BaseRobotoText)`
    font-size: 12px;
    color: ${Colors.pinkishOrange};
 `
+
+export const Typo14DarkRR = styled(BaseRobotoText)`
+   font-size: 14px;
+   color: ${Colors.dark};
+`
+
+export const Typo16DuskRR = styled(BaseRobotoText)`
+   font-size: 16px;
+   color: ${Colors.dusk};
+`
