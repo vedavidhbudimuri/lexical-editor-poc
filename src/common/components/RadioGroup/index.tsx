@@ -6,13 +6,9 @@ import 'styled-components/macro'
 import { ValidationResponseType } from '../CheckBoxGroup/types'
 import BaseRadioButton from '../BaseRadioButton'
 import { RadioButtonOption } from '../BaseRadioButton/types'
+import ErrorMessage from '../ErrorMessage'
 
-import {
-   RadioGroupContainer,
-   ErrorView,
-   ErrorMessage,
-   MainContainer
-} from './styledComponents'
+import { RadioGroupContainer, MainContainer } from './styledComponents'
 
 interface RadioGroupProps {
    options: Array<RadioButtonOption>
@@ -93,7 +89,6 @@ class RadioGroup extends React.Component<RadioGroupProps> {
       const {
          containerClassName,
          className,
-         errorId,
          radioMainContainerCss,
          radioItemsContainerCss
       } = this.props
@@ -106,9 +101,7 @@ class RadioGroup extends React.Component<RadioGroupProps> {
             >
                {this.renderOptions()}
             </RadioGroupContainer>
-            {this.isError && (
-               <ErrorMessage errorId={errorId} errorMessage={this.error} />
-            )}
+            <ErrorMessage errorMessage={this.error} />
          </MainContainer>
       )
    }
