@@ -9,11 +9,21 @@ function ChildComponent() {
    return <span>Render data here...</span>
 }
 
+function getCustomError(message: string): Error {
+   return new Error(
+      JSON.stringify({
+         response: message,
+         res_status: 'CUSTOM_ERROR',
+         http_status_code: 400
+      })
+   )
+}
+
 storiesOf('component Guide', module)
    .add('LoadingWrapper Component when fetching', () => (
       <LoadingWrapper
          onRetry={action('clicked retry button')}
-         failureText='Connection failed'
+         apiError={getCustomError('Connection failed')}
          apiStatus={API_FETCHING}
       >
          {ChildComponent()}
@@ -24,7 +34,7 @@ storiesOf('component Guide', module)
          onRetry={() => {
             action('clicked retry button')
          }}
-         failureText='Connection failed'
+         apiError={getCustomError('Connection failed')}
          apiStatus={API_SUCCESS}
       >
          {ChildComponent()}
@@ -35,7 +45,7 @@ storiesOf('component Guide', module)
          onRetry={() => {
             action('clicked retry button')
          }}
-         failureText='Connection failed'
+         apiError={getCustomError('Connection failed')}
          apiStatus={API_FAILED}
       >
          {ChildComponent()}
