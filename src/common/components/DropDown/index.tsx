@@ -58,7 +58,7 @@ const NoOptionsMessage = (props: any) => {
 const TranslatedNoOptionsMessage = withTranslation()(NoOptionsMessage)
 
 interface DropDownProps {
-   validate: () => ValidationResponseType
+   validate?: () => ValidationResponseType
    [x: string]: any
 }
 
@@ -82,11 +82,13 @@ class DropDown extends Component<DropDownProps> {
 
    onBlur = () => {
       const { validate } = this.props
-      const result = validate()
-      if (result.shouldShowError) {
-         this.setError(result.errorMessage)
-      } else {
-         this.setError('')
+      if (validate) {
+         const result = validate()
+         if (result.shouldShowError) {
+            this.setError(result.errorMessage)
+         } else {
+            this.setError('')
+         }
       }
    }
 
