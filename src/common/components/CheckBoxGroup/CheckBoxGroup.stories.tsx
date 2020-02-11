@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import { observable } from 'mobx'
+import { observer } from 'mobx-react'
 
 import CheckboxGroup from '.'
 
@@ -10,28 +12,39 @@ const options = [
    { label: 'Others', value: 'OTHERS' }
 ]
 
-class CheckBoxRef extends Component {
-   ref
-   constructor(props) {
-      super(props)
-      this.ref = React.createRef()
+@observer
+class CheckBoxGroupWithState extends Component {
+   @observable checkedValues: string[] = []
+   ref = React.createRef()
+   getIndexOfValue = (value: string) => this.checkedValues.indexOf(value)
+
+   getSelectedValues = () => this.checkedValues.slice()
+
+   onSelectOption = (value: string) => {
+      const index = this.getIndexOfValue(value)
+      if (index === -1) {
+         this.checkedValues.push(value)
+      } else {
+         this.checkedValues.splice(index, 1)
+      }
    }
-   getSelectedValues = () => this.ref.current.getSelectedValues()
 
    render() {
       return (
          <div>
-            <button onClick={this.getSelectedValues}>Get Values</button>
             <CheckboxGroup
                options={options}
-               selectedValues={['FEMALE']}
-               onChange={action('selected')}
-               ref={this.ref}
+               selectedValues={this.checkedValues}
+               onChange={this.onSelectOption}
             />
+            <button onClick={() => alert(this.checkedValues)}>
+               get values
+            </button>
          </div>
       )
    }
 }
+
 storiesOf('CheckboxGroup', module)
    .add('checkbox buttons', () => (
       <CheckboxGroup options={options} onChange={action('selected')} />
@@ -58,4 +71,4 @@ storiesOf('CheckboxGroup', module)
          onChange={action('selected')}
       />
    ))
-   .add('buttons ref', () => <CheckBoxRef />)
+   .add('checkbox buttons ith state', () => <CheckBoxGroupWithState />)
