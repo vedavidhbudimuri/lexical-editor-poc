@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { observable, action, computed } from 'mobx'
 import { observer } from 'mobx-react'
+import 'styled-components/macro'
 
 import BaseCheckBox from '../BaseCheckBox'
 import ErrorMessage from '../ErrorMessage'
@@ -8,13 +9,14 @@ import ErrorMessage from '../ErrorMessage'
 import { ValidationResponseType } from './types'
 import { CheckBoxContainer, MainContainer } from './styledComponents'
 
-interface Options {
+interface Option {
    label: string
    value: string
+   renderLabelComponent?: () => {}
 }
 
 interface CheckBoxProps {
-   options: Array<Options>
+   options: Array<Option>
    disabled?: boolean
    validate?: () => ValidationResponseType
    containerClassName?: string
@@ -23,25 +25,20 @@ interface CheckBoxProps {
    className?: string
    errorId?: string
    errorMessage?: string
+   checkboxItemsContainerCss?: string
+   checkboxMainContainerCss?: string
+   checkboxItemsCss?: React.CSSProperties
+   checkBoxTextCss?: any
+   checkBoxSize?: number
+   errorMessageContainerCSS?: React.CSSProperties
+   labelComponentContainerCss?: React.CSSProperties
 }
 
 @observer
 class CheckboxGroup extends React.Component<CheckBoxProps> {
-   ref
-   @observable checkedValues: string[] = []
-
-   constructor(props) {
-      super(props)
-      this.ref = React.createRef()
-   }
-
    static defaultProps = {
       disabled: false,
       selectedValues: []
-   }
-
-   componentDidMount() {
-      this.setSelectedValues()
    }
 
    @observable error = ''
@@ -66,44 +63,29 @@ class CheckboxGroup extends React.Component<CheckBoxProps> {
       }
    }
 
-   onChange = (value: string) => {
-      const { onChange } = this.props
-      if (value) {
-         const index = this.checkedValues.indexOf(value)
-         if (index === -1) {
-            this.checkedValues.push(value)
-         } else {
-            this.checkedValues.splice(index, 1)
-         }
-      }
-      onChange(value)
-   }
-
-   getSelectedValues = () => this.checkedValues
-
    isValueChecked = (value: string) => {
-      const index = this.checkedValues.indexOf(value)
-      if (index !== -1) return true
+      const { selectedValues } = this.props
+      const index = selectedValues.indexOf(value)
+      if (index !== -1) {
+         this.setError('')
+         return true
+      }
       return false
    }
 
-   setSelectedValues = () => {
-      const { selectedValues } = this.props
-      selectedValues.map(value => this.checkedValues.push(value))
-   }
-
    renderOptions = () => {
-      const { options, disabled } = this.props
+      const { options, onChange, disabled, ...otherProps } = this.props
       const radioButtons = options.map((option, index) => (
          <BaseCheckBox
-            ref={this.ref}
+            {...otherProps}
             key={option.label + index}
             disabled={disabled}
             testId={option.label}
             label={option.label}
             value={option.value}
-            onChange={this.onChange}
+            onChange={onChange}
             checked={this.isValueChecked(option.value)}
+            renderLabelComponent={option.renderLabelComponent}
          />
       ))
 
@@ -115,16 +97,24 @@ class CheckboxGroup extends React.Component<CheckBoxProps> {
          containerClassName,
          className,
          errorId,
-         errorMessage
+         checkboxMainContainerCss,
+         checkboxItemsCss,
+         errorMessageContainerCSS
       } = this.props
-
       return (
-         <MainContainer className={className}>
-            <CheckBoxContainer className={containerClassName}>
+         <MainContainer className={className} css={checkboxMainContainerCss}>
+            <CheckBoxContainer
+               className={containerClassName}
+               css={checkboxItemsCss}
+            >
                {this.renderOptions()}
             </CheckBoxContainer>
             {this.isError && (
-               <ErrorMessage errorId={errorId} errorMessage={errorMessage} />
+               <ErrorMessage
+                  errorContainerCSS={errorMessageContainerCSS}
+                  errorId={errorId}
+                  errorMessage={this.error}
+               />
             )}
          </MainContainer>
       )

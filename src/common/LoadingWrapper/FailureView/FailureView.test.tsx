@@ -14,7 +14,7 @@ describe('Test cases of FailureView Component', () => {
             <FailureView onRetry={onRetry} failureText='Connection failed' />
          </I18nextProvider>
       )
-      const retry = getByText(i18n.t('common.failureView.retry'))
+      const retry = getByText('common.failureView.retry')
       fireEvent.click(retry)
       expect(onRetry).toBeCalled()
    })

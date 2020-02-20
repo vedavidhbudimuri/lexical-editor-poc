@@ -3,9 +3,11 @@ import { components } from 'react-select'
 import { observer } from 'mobx-react'
 import { observable, action, computed } from 'mobx'
 import { withTranslation } from 'react-i18next'
+import 'styled-components/macro'
 
-import { ValidationResponseType } from '../DatePicker/types'
 import ErrorMessage from '../ErrorMessage'
+
+import { ValidationResponseType } from './types'
 
 import {
    DropDownContainer,
@@ -17,7 +19,10 @@ import {
 } from './styledComponents'
 import './styles.css'
 
-const ValueContainer = ({ children, ...props }: any) => (
+const ValueContainer = ({
+   children,
+   ...props
+}: DropDownProps): React.ReactNode => (
    <components.ValueContainer {...props}>
       <SelectContainer>
          <ValueOptionText>{children}</ValueOptionText>
@@ -25,7 +30,7 @@ const ValueContainer = ({ children, ...props }: any) => (
    </components.ValueContainer>
 )
 
-const DropdownIndicator = (props: any) => {
+const DropdownIndicator = props => {
    const { selectProps } = props
    const { menuIsOpen } = selectProps
    return (
@@ -37,7 +42,7 @@ const DropdownIndicator = (props: any) => {
    )
 }
 
-const Option = (props: any) => {
+const Option = (props: DropDownProps) => {
    const { isSelected, children } = props
    return (
       <components.Option {...props}>
@@ -46,11 +51,11 @@ const Option = (props: any) => {
    )
 }
 
-const NoOptionsMessage = (props: any) => {
+const NoOptionsMessage = (props: DropDownProps) => {
    const { t } = props
    return (
       <components.NoOptionsMessage {...props}>
-         {t('en:common.dropDown.noOptionsToselect')}
+         {t('common:dropDown.noOptionsToselect')}
       </components.NoOptionsMessage>
    )
 }
@@ -58,7 +63,14 @@ const NoOptionsMessage = (props: any) => {
 const TranslatedNoOptionsMessage = withTranslation()(NoOptionsMessage)
 
 interface DropDownProps {
-   validate: () => ValidationResponseType
+   validate?: () => ValidationResponseType
+
+   dropDownCss?: any
+
+   containerCss?: any
+
+   shouldDisableForSingleOption?: boolean
+
    [x: string]: any
 }
 
@@ -66,12 +78,14 @@ interface DropDownProps {
 class DropDown extends Component<DropDownProps> {
    dropdownRef
 
-   static defaultProps = {
-      validate: () => ({ shouldShowError: false, errorMessage: '' })
-   }
    constructor(props) {
       super(props)
       this.dropdownRef = React.createRef()
+   }
+
+   static defaultProps = {
+      validate: () => ({ shouldShowError: false, errorMessage: '' }),
+      shouldDisableForSingleOption: false
    }
 
    @observable error = ''
@@ -82,11 +96,13 @@ class DropDown extends Component<DropDownProps> {
 
    onBlur = () => {
       const { validate } = this.props
-      const result = validate()
-      if (result.shouldShowError) {
-         this.setError(result.errorMessage)
-      } else {
-         this.setError('')
+      if (validate) {
+         const result = validate()
+         if (result.shouldShowError) {
+            this.setError(result.errorMessage)
+         } else {
+            this.setError('')
+         }
       }
    }
 
@@ -98,10 +114,29 @@ class DropDown extends Component<DropDownProps> {
       return this.error !== ''
    }
 
-   render() {
-      const { className, isDisabled } = this.props
+   isOnlyOneOption = (): boolean => {
+      const { options } = this.props
+      return options && options.length === 1
+   }
+
+   getIsDisabled = (): boolean => {
+      const { isDisabled, shouldDisableForSingleOption } = this.props
       return (
-         <DropDownContainer className={className}>
+         (shouldDisableForSingleOption && this.isOnlyOneOption()) || isDisabled
+      )
+   }
+
+   render() {
+      const {
+         className,
+         errorId,
+         dropDownCss,
+         containerCss,
+         ...otherProps
+      } = this.props
+
+      return (
+         <DropDownContainer className={className} css={containerCss}>
             <SelectField
                ref={this.dropdownRef}
                isValid={!this.isError}
@@ -114,8 +149,9 @@ class DropDown extends Component<DropDownProps> {
                   NoOptionsMessage: TranslatedNoOptionsMessage
                }}
                classNamePrefix='Select'
-               isDisabled={isDisabled}
-               {...this.props}
+               css={dropDownCss}
+               {...otherProps}
+               isDisabled={this.getIsDisabled()}
             />
             <ErrorMessage errorMessage={this.error} />
          </DropDownContainer>

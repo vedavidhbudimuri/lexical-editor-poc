@@ -3,28 +3,32 @@ import Select from 'react-select'
 
 import Colors from '../../../themes/Colors'
 import ReactSelectDropDownArrow from '../../../icons/ReactSelectDropDownArrow'
-import { BaseRobotoText } from '../../../styleGuide/Typos'
+import {
+   Typo14DarkRR,
+   Typo16DuskRR,
+   Typo12PinkishOrangeRoboto
+} from '../../../styleGuide/Typos'
 
 export const DropDownContainer = styled('div')`
    width: 100%;
-   margin: 20px 0px 0px 0px;
 `
 
 export const SelectField = styled(Select)`
    outline: none;
-   width: 100%;
+   width: 100% !important;
    height: 50px;
    padding: 0px;
-   background-color: ${Colors.white};
+   background-color: ${props =>
+      props.isDisabled ? Colors.paleGreyFour : Colors.whiteTwo};
    border-radius: 5px;
    border: solid 1px
       ${props => {
          if (props.isDisabled) {
-            return Colors.primaryColor
+            return Colors.black32
          } else if (props.isValid) {
-            return Colors.black
+            return Colors.black32
          }
-         return Colors.white50
+         return Colors.pinkishOrange
       }};
    align-items: center;
    justify-content: center;
@@ -34,12 +38,11 @@ export const SelectField = styled(Select)`
    .Select__control {
       height: 48px;
       border: solid 1px
-         ${props => (props.isValid ? Colors.black : Colors.white50)};
-      background-color: ${Colors.white};
+         ${props => (props.isValid ? Colors.black32 : Colors.pinkishOrange)};
+      background-color: ${Colors.whiteTwo};
    }
-   .Select-placeholder {
-      padding-left: 15px;
-      height: 48px;
+   .Select__placeholder {
+      color: ${props => props.isDisabled && Colors.darkGreyBlueTwoSix};
    }
    .Select__value-container {
       padding: 0 0 0 15px;
@@ -54,7 +57,8 @@ export const SelectField = styled(Select)`
       font-size: 16px;
       line-height: 1.5;
       letter-spacing: 0.15px;
-      color: ${Colors.black};
+      color: ${props =>
+         props.isDisabled ? Colors.darkGreyBlueTwoSix : Colors.blackSeven};
    }
    .Select__indicator-separator {
       opacity: 0;
@@ -69,29 +73,34 @@ export const SelectField = styled(Select)`
    }
    .Select__menu-list {
       padding: 0px;
-      box-shadow: 2px 6px 10px 0 ${Colors.black};
-      border: solid 1px ${Colors.primaryColor};
-      max-height: 294px;
+      box-shadow: 2px 6px 10px 0 ${Colors.black12};
+      border: solid 1px ${Colors.paleGrey};
+      max-height: 150px;
    }
    .Select__option {
       padding: 13.5px 0px 13.5px 20px;
       cursor: pointer;
-      color: ${Colors.black};
-      background-color: ${Colors.white};
+      color: ${Colors.dusk};
+      background-color: ${Colors.whiteTwo};
    }
    .Select__option--is-focused {
       background-color: ${Colors.paleGrey};
    }
    .Select__option--is-selected {
-      background-color: ${Colors.primaryColor};
+      background-color: ${Colors.paleGrey};
    }
    .Select__control--is-disabled {
-      background-color: ${Colors.paleGrey};
-      border: solid 1px ${Colors.primaryColor} !important;
+      border-width: 0px;
+      border-color: ${Colors.black32};
+      font-family: 'Roboto';
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      color: ${Colors.darkGreyBlueTwoSix} !important;
    }
 `
 
-export const MenuOption = styled(BaseRobotoText)`
+export const MenuOption = styled(Typo16DuskRR)`
    line-height: 1.5;
    letter-spacing: 0.15px;
    padding-top: 13.5px;
@@ -109,14 +118,26 @@ export const SelectContainer = styled('div')`
    align-items: center;
 `
 
-export const BaseRobotoTextWithDiv = BaseRobotoText.withComponent('div')
+export const Typo14DarkRRWithDiv = Typo14DarkRR.withComponent('div')
 
-export const ValueOptionText = styled(BaseRobotoTextWithDiv)`
+export const ValueOptionText = styled(Typo14DarkRRWithDiv)`
    opacity: 0.9;
    font-family: Roboto;
    font-size: 16px;
    text-align: left;
-   color: ${Colors.black};
+   color: ${Colors.dark};
    line-height: unset;
    padding-left: 0px;
+`
+
+export const ErrorView = styled.div`
+   flex-direction: row;
+   margin-top: 3px;
+   margin-left: 3px;
+`
+
+export const ErrorMessage = styled(Typo12PinkishOrangeRoboto)`
+   line-height: 2.03;
+   letter-spacing: 0.11px;
+   pointer-events: none;
 `

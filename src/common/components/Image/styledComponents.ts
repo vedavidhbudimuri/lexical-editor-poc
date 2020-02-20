@@ -1,3 +1,5 @@
 import styled from 'styled-components'
 
-export const ReactImage = styled.img``
+export const ReactImage = styled.img`
+   user-select: none;
+`

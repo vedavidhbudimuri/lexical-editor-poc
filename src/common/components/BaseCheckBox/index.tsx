@@ -1,12 +1,18 @@
 import * as React from 'react'
 import { observer } from 'mobx-react'
+import 'styled-components/macro'
 
 import BaseCheckBoxNormalIcon from '../../../icons/BaseCheckBoxNormalIcon'
 import BaseCheckBoxSelectedIcon from '../../../icons/BaseCheckBoxSelectedIcon'
 import CheckBoxDisabled from '../../../icons/CheckBoxDisabled'
 import CheckBoxSelectedDisabledIcon from '../../../icons/CheckBoxSelectedDisabledIcon'
 
-import { CheckBoxLabel } from './styledComponents'
+import {
+   CheckBoxLabel,
+   Input,
+   Label,
+   LabelComponentContainer
+} from './styledComponents'
 
 import './styles.css'
 
@@ -14,10 +20,14 @@ interface BaseCheckBoxProps {
    onChange: (value: string) => void
    disabled?: boolean
    label: string
-
    value: string
    testId?: string
    checked?: boolean
+   checkBoxTextCss?: React.CSSProperties
+   checkBoxSize?: number
+   renderLabelComponent?: () => {}
+   labelComponentContainerCss?: React.CSSProperties
+   checkBoxContainerCss?: React.CSSProperties
 }
 
 @observer
@@ -37,52 +47,77 @@ class BaseCheckBox extends React.Component<BaseCheckBoxProps> {
    }
 
    renderCheckBox = () => {
-      const { checked, disabled } = this.props
+      const { checked, disabled, checkBoxSize } = this.props
       if (checked) {
          if (disabled) {
             return (
                <div className='checkBoxImage'>
-                  <CheckBoxSelectedDisabledIcon />
+                  <CheckBoxSelectedDisabledIcon
+                     width={checkBoxSize}
+                     height={checkBoxSize}
+                  />
                </div>
             )
          }
          return (
             <div className='checkBoxImage'>
-               <BaseCheckBoxSelectedIcon />
+               <BaseCheckBoxSelectedIcon
+                  width={checkBoxSize}
+                  height={checkBoxSize}
+               />
             </div>
          )
       }
       if (disabled) {
          return (
             <div className='checkBoxImage'>
-               <CheckBoxDisabled />
+               <CheckBoxDisabled width={checkBoxSize} height={checkBoxSize} />
             </div>
          )
       }
       return (
          <div className='checkBoxImage'>
-            <BaseCheckBoxNormalIcon />
+            <BaseCheckBoxNormalIcon
+               width={checkBoxSize}
+               height={checkBoxSize}
+            />
          </div>
       )
    }
 
+   renderLabel = () => {
+      const {
+         label,
+         renderLabelComponent,
+         checkBoxTextCss,
+         labelComponentContainerCss
+      } = this.props
+
+      if (renderLabelComponent) {
+         return (
+            <LabelComponentContainer css={labelComponentContainerCss}>
+               {renderLabelComponent}
+            </LabelComponentContainer>
+         )
+      }
+      return <CheckBoxLabel css={checkBoxTextCss}>{label}</CheckBoxLabel>
+   }
+
    render() {
-      const { label, value, checked, testId, disabled } = this.props
+      const { value, checked, testId, checkBoxContainerCss } = this.props
 
       return (
-         <div className='checkBoxContainer'>
-            <label className='labelStyle'>
-               <input
-                  data-testid={testId}
-                  type='checkbox'
-                  checked={checked}
-                  onChange={this.onChange}
-                  value={value}
-               />
-               {this.renderCheckBox()}
-               <CheckBoxLabel>{label}</CheckBoxLabel>
-            </label>
-         </div>
+         <Label className='labelStyle' css={checkBoxContainerCss}>
+            <Input
+               data-testid={testId}
+               type='checkbox'
+               checked={checked}
+               onChange={this.onChange}
+               value={value}
+            />
+            {this.renderCheckBox()}
+            {this.renderLabel()}
+         </Label>
       )
    }
 }

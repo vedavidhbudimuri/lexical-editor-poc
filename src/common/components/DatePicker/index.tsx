@@ -1,23 +1,28 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import { observable, action, computed } from 'mobx'
-import { withTranslation, WithTranslation } from 'react-i18next'
+import { withTranslation, WithTranslation } from 'react-i18next' // eslint-disable-line
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import classNames from 'classnames'
+import 'styled-components/macro'
 
 import { DATE_PICKER_DATE_FORMAT } from '../../../constants/DateConstants'
 
 import ErrorMessage from '../ErrorMessage'
 
-import { ValidationResponseType } from './types'
 import { DateContainer } from './styledComponents'
+import { ValidationResponseType } from './types'
 import './styles.css'
 
 interface DatePickerProps extends WithTranslation {
-   onSelectDate: (date: Date) => void
+   onSelectedDate: (date: Date) => void
+
+   containerClassName?: string
+   containerCSS?: string
+
    date: Date
-   validate: () => ValidationResponseType
+   validate?: () => ValidationResponseType
+   disabled?: boolean
 
    [x: string]: any
 }
@@ -33,7 +38,8 @@ class DatePicker extends Component<DatePickerProps> {
    }
 
    static defaultProps = {
-      validate: () => ({ shouldShowError: false, errorMessage: '' })
+      validate: () => ({ shouldShowError: false, errorMessage: '' }),
+      disabled: false
    }
 
    @observable error = ''
@@ -44,11 +50,13 @@ class DatePicker extends Component<DatePickerProps> {
 
    onBlur = () => {
       const { validate } = this.props
-      const result = validate()
-      if (result.shouldShowError) {
-         this.setError(result.errorMessage)
-      } else {
-         this.setError('')
+      if (validate) {
+         const result = validate()
+         if (result.shouldShowError) {
+            this.setError(result.errorMessage)
+         } else {
+            this.setError('')
+         }
       }
    }
 
@@ -61,9 +69,11 @@ class DatePicker extends Component<DatePickerProps> {
    }
 
    handleChange = date => {
-      const { onSelectDate } = this.props
+      const { onSelectedDate } = this.props
       this.selectedDate = date
-      onSelectDate(date)
+      if (onSelectedDate) {
+         onSelectedDate(date)
+      }
    }
 
    captureDatePickerRef = ref => {
@@ -74,14 +84,17 @@ class DatePicker extends Component<DatePickerProps> {
    }
 
    render() {
-      const { t, ...other } = this.props
-      const datePickerClass = classNames({
-         dateFieldStyles: true,
-         'dateFieldStyles dateFieldStylesOnError': this.isError,
-         dateFieldStyle: !this.isError
-      })
+      const {
+         t,
+         containerClassName,
+         containerCSS,
+         disabled,
+         errorId,
+         ...other
+      } = this.props
+
       return (
-         <DateContainer>
+         <DateContainer className={containerClassName} css={containerCSS}>
             <ReactDatePicker
                onFocus={this.onFocus}
                onBlur={this.onBlur}
@@ -93,13 +106,20 @@ class DatePicker extends Component<DatePickerProps> {
                scrollableYearDropdown
                yearDropdownItemNumber={100}
                dateFormat={DATE_PICKER_DATE_FORMAT}
-               placeholderText={t('en:common.datePicker.selectDate')}
-               className={datePickerClass}
+               placeholderText={t('common.datePicker.selectDate')}
+               className={
+                  !this.isError
+                     ? disabled
+                        ? 'dateFieldStyles dateFieldDisabled'
+                        : 'dateFieldStyles'
+                     : 'dateFieldStyles dateFieldStylesOnError'
+               }
                maxDate={new Date()}
-               isClearable
+               isClearable={!disabled}
+               disabled={disabled}
                {...other}
             />
-            {<ErrorMessage errorMessage={this.error} />}
+            <ErrorMessage errorMessage={this.error} />
          </DateContainer>
       )
    }

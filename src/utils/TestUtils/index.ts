@@ -4,3 +4,9 @@ export function resolveWithTimeout<T>(response: T): Promise<T> {
       setTimeout(() => resolve(response), timeOut)
    })
 }
+
+export function waitForMilliseconds(milliSeconds: number) {
+   return new Promise(resolve => {
+      setTimeout(() => resolve(), milliSeconds)
+   })
+}

@@ -4,10 +4,12 @@ import ReactLoader from 'react-loader-spinner'
 import colors from '../../../themes/Colors'
 
 interface LoaderProps {
-   height: number
-   width: number
-   type: string
-   color: string
+   height?: number
+   width?: number
+   type?: string
+   color?: string
+
+   [x: string]: any
 }
 
 class Loader extends React.Component<LoaderProps> {
@@ -18,14 +20,16 @@ class Loader extends React.Component<LoaderProps> {
       width: 30
    }
 
-   constructor(props: LoaderProps) {
-      super(props)
-   }
-
    render() {
-      const { height, width, type, color } = this.props
+      const { height, width, type, color, ...other } = this.props
       return (
-         <ReactLoader type={type} color={color} height={height} width={width} />
+         <ReactLoader
+            type={type}
+            color={color}
+            height={height}
+            width={width}
+            {...other}
+         />
       )
    }
 }

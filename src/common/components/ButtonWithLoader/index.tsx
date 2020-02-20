@@ -1,20 +1,24 @@
 import * as React from 'react'
-import { APIStatus, API_INITIAL, API_FETCHING } from '@ib/api-constants'
+import { API_INITIAL, API_FETCHING, APIStatus } from '@ib/api-constants'
 
 import Colors from '../../../themes/Colors'
 
-import { StyledText } from '../Button/styledComponents'
-import Button from '../Button'
 import Loader from '../Loader'
 
-interface ButtonWithLoaderProps {
+import { StyledButton, StyledText } from './styledComponents'
+import './styles.css'
+
+export interface ButtonWithLoaderProps {
    text: string
-   onClick: () => any
+   onClick: Function
    apiStatus: APIStatus
-   textComponent: React.ElementType
-   textStyle: object
+   className: string
+   textTypo: React.ElementType
+   textClassName?: string
    disabled: boolean
-   renderLoader: () => any
+   renderLoader: Function
+   id?: string
+   renderRightIcon?: Function
 }
 
 class ButtonWithLoader extends React.Component<ButtonWithLoaderProps> {
@@ -22,11 +26,16 @@ class ButtonWithLoader extends React.Component<ButtonWithLoaderProps> {
       apiStatus: API_INITIAL,
       disabled: false,
       renderLoader: () => (
-         <Loader color={Colors.white} height={25} width={25} />
+         <Loader
+            color={Colors.primaryColor}
+            height={25}
+            width={25}
+            className='loaderStyles'
+         />
       ),
-      textStyle: { fontSize: 20 },
-      className: '',
-      textComponent: StyledText
+      textTypo: StyledText,
+      textClassName: '',
+      className: ''
    }
 
    isFetching = () => {
@@ -37,21 +46,35 @@ class ButtonWithLoader extends React.Component<ButtonWithLoaderProps> {
    renderContentBasedOnStatus = () => {
       const {
          text,
-         textStyle,
-         textComponent: ButtonText,
-         renderLoader
+         textTypo: ButtonText,
+         textClassName,
+         renderLoader,
+         renderRightIcon
       } = this.props
+
       if (this.isFetching()) {
          return renderLoader()
       }
-      return <ButtonText style={textStyle}>{text}</ButtonText>
-   }
-   render() {
-      const { onClick } = this.props
       return (
-         <Button disabled={this.isFetching()} onClick={onClick}>
+         <ButtonText className={textClassName}>
+            {text}
+            {renderRightIcon && renderRightIcon()}
+         </ButtonText>
+      )
+   }
+
+   render() {
+      const { onClick, disabled, className, id, ...otherProps } = this.props
+      return (
+         <StyledButton
+            onClick={onClick}
+            disabled={disabled || this.isFetching()}
+            className={className}
+            id={id}
+            {...otherProps}
+         >
             {this.renderContentBasedOnStatus()}
-         </Button>
+         </StyledButton>
       )
    }
 }
