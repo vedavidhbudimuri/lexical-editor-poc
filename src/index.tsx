@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
+
 import './i18n'
-import './index.css'
-import App from './App'
 import * as serviceWorker from './serviceWorker'
+import App from './routes/App'
+import './index.css'
 
 ReactDOM.render(
    <Suspense fallback={<div>Loading</div>}>
