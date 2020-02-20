@@ -9,7 +9,7 @@ import {
    Message,
    MainContainer,
    ButtonsContainer
-} from './ styledComponents'
+} from './styledComponents'
 
 interface ConfirmAlertProps extends WithTranslation {
    onConfirm: Function
