@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 
-import Card from './'
+import Card from '.'
 
 describe('Card component test cases', () => {
    it('should send callback while clicking Card Component', () => {

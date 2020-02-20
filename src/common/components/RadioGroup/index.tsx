@@ -101,7 +101,7 @@ class RadioGroup extends React.Component<RadioGroupProps> {
             >
                {this.renderOptions()}
             </RadioGroupContainer>
-            <ErrorMessage errorMessage={this.error} />
+            {this.isError && <ErrorMessage errorMessage={this.error} />}
          </MainContainer>
       )
    }

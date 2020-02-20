@@ -42,7 +42,7 @@ export const Message = styled(Typo16BlackPoppins)``
 
 export const MainContainer = styled.div`
    position: fixed;
-   z-index: 100000000000000;
+   z-index: 100000000000000; /* TODO: Need to use this from constants. */
    top: 0;
    left: 0;
    right: 0;

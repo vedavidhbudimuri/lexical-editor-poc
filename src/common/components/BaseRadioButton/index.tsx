@@ -7,7 +7,6 @@ import RadioButtonSelectedIcon from '../../../icons/RadioButtonSelectedIcon'
 import RadioButtonDisabledIcon from '../../../icons/RadioButtonDisabledIcon'
 import RadioButtonSelectedDisabledIcon from '../../../icons/RadioButtonSelectedDisabledIcon'
 
-import './styles.css'
 import { RadioButtonOption } from './types'
 import {
    RadioInput,
@@ -15,6 +14,7 @@ import {
    RadioImageContainer,
    LabelComponentContainer
 } from './styledComponents'
+import './styles.css'
 
 interface BaseRadioButtonProps {
    onSelectOption: (value: string) => void
