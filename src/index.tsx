@@ -4,10 +4,17 @@ import ReactDOM from 'react-dom'
 import './i18n'
 import * as serviceWorker from './serviceWorker'
 import App from './routes/App'
+import LoadingView from './common/LoadingWrapper/LoadingView'
 import './index.css'
 
 ReactDOM.render(
-   <Suspense fallback={<div>Loading</div>}>
+   <Suspense
+      fallback={
+         <div className='suspense-loading-view'>
+            <LoadingView />
+         </div>
+      }
+   >
       <App />
    </Suspense>,
    document.getElementById('root')
