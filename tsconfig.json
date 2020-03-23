@@ -18,7 +18,7 @@
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true
    },
-   "include": ["src"],
+   "include": ["src", "cypress"],
    "exclude": [
       "node_modules/@storybook",
       "node_modules",
