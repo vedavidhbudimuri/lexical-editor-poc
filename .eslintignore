@@ -2,7 +2,6 @@
 # node.js
 #
 node_modules/
-cypress/
 npm-debug.log
 yarn-error.log
 config/
