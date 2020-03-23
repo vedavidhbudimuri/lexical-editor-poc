@@ -42,6 +42,7 @@
       "yarnhook": "0.4.3"
    },
    "scripts": {
+      "e2e:start": "yarn run cypress open",
       "start": "react-scripts start",
       "build": "react-scripts build",
       "build:staging": "env-cmd -f .env.staging npm run build",
@@ -92,7 +93,8 @@
       "eslint": "6.4.0",
       "eslint-config-prettier": "6.3.0",
       "eslint-plugin-prettier": "3.1.0",
-      "prettier": "1.19.1"
+      "prettier": "1.19.1",
+      "cypress": "3.8.0"
    },
    "husky": {
       "hooks": {
