@@ -2,6 +2,13 @@
    "app": {
       "learnReact": "Learn  React"
    },
+   "pageNotFound": {
+      "404": "404",
+      "pageNotFoundText": "Page Not Found",
+      "noManPlaceText": "Oops! You've wandered into no man's land.",
+      "goHome": "Go to Home",
+      "imageAlt": "No Room"
+   },
    "common": {
       "failureView": {
          "retry": "Retry"
