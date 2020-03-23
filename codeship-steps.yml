@@ -1,0 +1,88 @@
+- type: serial
+  services:
+     - app
+  exclude: ^(alpha|beta|gamma|staging|master)$
+  steps:
+     - command: mv /root/node_modules .
+     - type: parallel
+       steps:
+          - command: yarn test
+
+- type: serial
+  services:
+     - alpha_app
+  exclude: master
+  tag: ^(alpha)$
+  steps:
+     - command: mv /root/node_modules .
+     - type: parallel
+       steps:
+          - command: yarn test
+          - type: serial
+            steps:
+               - command: /bin/sh -c "source ./env_setup.sh && yarn build:$BUILD_ENVIRONMENT"
+     - type: serial
+       steps:
+          - command: /bin/sh -c "rm build/robots.txt"
+          - command: /bin/sh -c "cp /root/fonts/robots.txt build/"
+          - command: /bin/sh -c "wget https://s3-eu-west-1.amazonaws.com/ibconsole/util_scipts/deploy_to_s3.py"
+          - command: /bin/sh -c "source ./env_setup.sh && cd build && python ../deploy_to_s3.py"
+
+- type: serial
+  services:
+     - beta_app
+  exclude: master
+  tag: ^(beta)$
+  steps:
+     - command: mv /root/node_modules .
+     - type: parallel
+       steps:
+          - command: yarn test
+          - type: serial
+            steps:
+               - command: /bin/sh -c "source ./env_setup.sh && yarn build:$BUILD_ENVIRONMENT"
+     - type: serial
+       steps:
+          - command: /bin/sh -c "rm build/robots.txt"
+          - command: /bin/sh -c "cp /root/fonts/robots.txt build/"
+          - command: /bin/sh -c "wget https://s3-eu-west-1.amazonaws.com/ibconsole/util_scipts/deploy_to_s3.py"
+          - command: /bin/sh -c "source ./env_setup.sh && cd build && python ../deploy_to_s3.py"
+
+- type: serial
+  services:
+     - gamma_app
+  exclude: master
+  tag: ^(gamma)$
+  steps:
+     - command: mv /root/node_modules .
+     - type: parallel
+       steps:
+          - command: yarn test
+          - type: serial
+            steps:
+               - command: /bin/sh -c "source ./env_setup.sh && yarn build:$BUILD_ENVIRONMENT"
+     - type: serial
+       steps:
+          - command: /bin/sh -c "rm build/robots.txt"
+          - command: /bin/sh -c "cp /root/fonts/robots.txt build/"
+          - command: /bin/sh -c "wget https://s3-eu-west-1.amazonaws.com/ibconsole/util_scipts/deploy_to_s3.py"
+          - command: /bin/sh -c "source ./env_setup.sh && cd build && python ../deploy_to_s3.py"
+
+- type: serial
+  services:
+     - prod_app
+  tag: ^(master)$
+  steps:
+     - command: mv /root/node_modules .
+     - type: parallel
+       steps:
+          - command: yarn test
+          - type: serial
+            steps:
+               - command: /bin/sh -c "source ./env_setup.sh && yarn build:$BUILD_ENVIRONMENT"
+     - type: serial
+       steps:
+          - command: /bin/sh -c "rm build/robots.txt"
+          - command: /bin/sh -c "cp /root/fonts/robots.txt build/"
+          - command: /bin/sh -c "wget https://s3-eu-west-1.amazonaws.com/ibconsole/util_scipts/deploy_to_s3.py"
+          - command: /bin/sh -c "source ./env_setup.sh && cd build && python ../deploy_to_s3.py"
