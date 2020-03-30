@@ -1,0 +1,54 @@
+app:
+   build:
+      dockerfile: Dockerfile
+      encrypted_args_file: env.encrypted
+   cached: true
+   default_cache_branch: "dev"
+   volumes:
+      - ./:/code
+   encrypted_env_file:
+      - env.encrypted
+
+alpha_app:
+   build:
+      dockerfile: Dockerfile
+      encrypted_args_file: env_alpha.encrypted
+   cached: true
+   default_cache_branch: "dev"
+   volumes:
+      - ./:/code
+   encrypted_env_file:
+      - env_alpha.encrypted
+
+beta_app:
+   build:
+      dockerfile: Dockerfile
+      encrypted_args_file: env_beta.encrypted
+   cached: true
+   default_cache_branch: "dev"
+   volumes:
+      - ./:/code
+   encrypted_env_file:
+      - env_beta.encrypted
+
+gamma_app:
+   build:
+      dockerfile: Dockerfile
+      encrypted_args_file: env_gamma.encrypted
+   cached: true
+   default_cache_branch: "dev"
+   volumes:
+      - ./:/code
+   encrypted_env_file:
+      - env_gamma.encrypted
+
+prod_app:
+   build:
+      dockerfile: Dockerfile
+      encrypted_args_file: env_prod.encrypted
+   cached: true
+   default_cache_branch: "dev"
+   volumes:
+      - ./:/code
+   encrypted_env_file:
+      - env_prod.encrypted
