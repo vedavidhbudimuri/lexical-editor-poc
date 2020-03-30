@@ -75,7 +75,7 @@ export const BottomSection = styled('div')`
    height: calc((100vh - 460px) / 2);
    width: 100%;
    ${mobile} {
-      height: calc(100vh - 405px);
+      height: calc(100vh - 455px);
       padding-top: 55px;
       padding-bottom: 60px;
    }
