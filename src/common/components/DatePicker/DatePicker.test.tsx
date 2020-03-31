@@ -13,7 +13,7 @@ describe('DatePicker component test cases', () => {
             isValid={true}
          />
       )
-      const datePicker = getByPlaceholderText('common.datePicker.selectDate')
+      const datePicker = getByPlaceholderText('Select Date')
 
       fireEvent.change(datePicker, { target: { value: '2015-05-05' } })
       expect(selectDate).toHaveBeenCalled()
