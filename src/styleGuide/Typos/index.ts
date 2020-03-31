@@ -9,6 +9,10 @@ export const BaseRobotoText = styled(BaseText)`
    font-family: 'Roboto';
 `
 
+export const BaseRobotoMediumText = styled(BaseRobotoText)`
+   font-weight: 500;
+`
+
 export const BasePoppinsText = styled(BaseText)`
    font-family: 'Poppins';
 `
