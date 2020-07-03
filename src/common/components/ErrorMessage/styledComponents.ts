@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { Typo12PinkishOrangeRoboto } from '../../../styleGuide/Typos'
+import { Typo12PinkishOrangeRoboto } from '../../styleGuide/Typos'
 
 export const ErrorView = styled.div``
 

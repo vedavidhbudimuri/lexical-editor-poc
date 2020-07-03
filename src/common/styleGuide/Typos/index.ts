@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Colors from '../../common/themes/Colors'
+import Colors from '../../themes/Colors'
 
 export const BaseText = styled.span`
    font-family: 'Roboto';

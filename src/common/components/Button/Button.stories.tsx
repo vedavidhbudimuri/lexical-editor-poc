@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { I18nextProvider } from 'react-i18next'
 
-import { Typo12BlackRoboto } from '../../../styleGuide/Typos'
+import { Typo12BlackRoboto } from '../../styleGuide/Typos'
 import i18n from '../../i18n'
 
 import Button from '.'

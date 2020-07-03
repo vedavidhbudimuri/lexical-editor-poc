@@ -7,7 +7,7 @@ import {
    Typo14DarkRR,
    Typo16DuskRR,
    Typo12PinkishOrangeRoboto
-} from '../../../styleGuide/Typos'
+} from '../../styleGuide/Typos'
 
 export const DropDownContainer = styled('div')`
    width: 100%;

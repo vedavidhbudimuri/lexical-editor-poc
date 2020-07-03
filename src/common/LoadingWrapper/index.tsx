@@ -7,7 +7,7 @@ import {
    API_FAILED
 } from '@ib/api-constants'
 
-import { getAPIErrorMessage } from '../../utils/APIUtils'
+import { getAPIErrorMessage } from '../utils/APIUtils'
 
 import LoadingView from './LoadingView'
 import FailureView from './FailureView'

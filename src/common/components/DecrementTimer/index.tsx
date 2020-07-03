@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import { observable, action } from 'mobx'
 import 'styled-components/macro'
 
-import { getTimeFormat } from '../../../utils/TimeUtils'
+import { getTimeFormat } from '../../utils/TimeUtils'
 
 import { DecrementTimerContainer } from './styledComponents'
 

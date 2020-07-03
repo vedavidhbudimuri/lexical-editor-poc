@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import { waitForMilliseconds } from '../../../utils/TestUtils'
+import { waitForMilliseconds } from '../../utils/TestUtils'
 
 import IncrementTimer from '.'
 

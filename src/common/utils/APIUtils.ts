@@ -9,9 +9,9 @@ import {
 import getData from '@ib/api'
 import { ApisauceInstance } from 'apisauce'
 
-import { apiMethods } from '../common/constants/APIConstants'
-import { resStatuses, statusCodes } from '../common/constants/APIErrorConstants'
-import I18n from '../common/i18n'
+import { apiMethods } from '../constants/APIConstants'
+import { resStatuses, statusCodes } from '../constants/APIErrorConstants'
+import I18n from '../i18n'
 
 import { getAccessToken, getRefreshToken } from './StorageUtils'
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import Colors from '../../themes/Colors'
-import { mobile, tablet } from '../../../utils/MixinUtils'
-import { BaseRobotoText, BaseRobotoMediumText } from '../../../styleGuide/Typos'
+import { mobile, tablet } from '../../utils/MixinUtils'
+import { BaseRobotoText, BaseRobotoMediumText } from '../../styleGuide/Typos'
 
 export const Container = styled('div')``
 

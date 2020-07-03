@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 import { APIStatus, API_INITIAL } from '@ib/api-constants'
 
-import { bindPromiseWithOnSuccess } from '../../../utils/MobxPromise'
+import { bindPromiseWithOnSuccess } from '../../utils/MobxPromise'
 import SampleService from '../../services/SampleService'
 
 import { SampleApiResponse, SampleApiRequest } from '../types'

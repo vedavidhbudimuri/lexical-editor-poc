@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { mobile } from '../../../utils/MixinUtils'
+import { mobile } from '../../utils/MixinUtils'
 
 export const MainContainer = styled.div`
    ${mobile} {
