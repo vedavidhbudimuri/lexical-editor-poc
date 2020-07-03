@@ -5,7 +5,7 @@ import { I18nextProvider } from 'react-i18next'
 
 import i18n from '../../common/i18n'
 
-import stores from '../../stores'
+import stores from '../../common/stores'
 
 import Routes from '../index'
 

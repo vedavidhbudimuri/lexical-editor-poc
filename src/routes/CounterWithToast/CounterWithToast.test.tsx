@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import stores from '../../stores'
+import stores from '../../common/stores'
 
 import CounterWithToast from './index'
 

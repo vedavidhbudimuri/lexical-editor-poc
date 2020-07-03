@@ -1,4 +1,4 @@
-import { resolveWithTimeout } from '../../utils/TestUtils'
+import { resolveWithTimeout } from '../../../utils/TestUtils'
 import sampleData from '../../fixtures/sample.json'
 import { SampleApiResponse, SampleApiRequest } from '../../stores/types'
 

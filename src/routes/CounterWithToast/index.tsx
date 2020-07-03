@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Link } from 'react-router-dom'
 
-import CounterStore from '../../stores/CounterStore'
+import CounterStore from '../../common/stores/CounterStore'
 
 interface CounterWithToastProps {
    counterStore: CounterStore
