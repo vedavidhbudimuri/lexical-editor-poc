@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { API_INITIAL, API_FETCHING, APIStatus } from '@ib/api-constants'
 
-import Colors from '../../../themes/Colors'
+import Colors from '../../themes/Colors'
 
 import Loader from '../Loader'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import styled from 'styled-components'
 
-import Colors from '../../../themes/Colors'
+import Colors from '../../themes/Colors'
 
 import BaseModalContainer from '.'
 

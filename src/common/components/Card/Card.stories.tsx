@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import styled from 'styled-components'
 
-import colors from '../../../themes/Colors'
+import colors from '../../themes/Colors'
 
 import Card from '.'
 

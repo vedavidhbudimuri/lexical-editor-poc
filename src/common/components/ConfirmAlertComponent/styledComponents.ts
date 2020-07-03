@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Colors from '../../../themes/Colors'
+import Colors from '../../themes/Colors'
 import { Typo16BlackPoppins } from '../../../styleGuide/Typos'
 import { mobile } from '../../../utils/MixinUtils'
 

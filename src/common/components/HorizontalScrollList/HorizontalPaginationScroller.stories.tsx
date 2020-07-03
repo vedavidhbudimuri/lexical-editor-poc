@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import colors from '../../../themes/Colors'
+import colors from '../../themes/Colors'
 
 import HorizontalScrollList from '.'
 

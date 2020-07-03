@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { mobile } from '../../../utils/MixinUtils'
 
-import Colors from '../../../themes/Colors'
+import Colors from '../../themes/Colors'
 import { Typo12PinkishOrangeRoboto } from '../../../styleGuide/Typos'
 
 import CustomTag from './CustomTag'

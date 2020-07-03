@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactModal from 'react-modal'
 
-import Colors from '../../../themes/Colors'
+import Colors from '../../themes/Colors'
 import CloseIcon from '../../../icons/CloseIcon'
 
 import { CloseIconWrapper } from './styledComponents'
