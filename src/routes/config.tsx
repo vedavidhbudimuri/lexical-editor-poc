@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import {
    NOT_FOUND_PAGE_PATH,
    NOT_FOUND_PAGE
-} from '../constants/NavigationConstants'
+} from '../common/constants/NavigationConstants'
 import PageNotFound404 from '../common/components/PageNotFound404'
 
 import CounterWithToast from './CounterWithToast'

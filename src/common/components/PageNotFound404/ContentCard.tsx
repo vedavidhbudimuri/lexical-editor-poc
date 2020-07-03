@@ -2,7 +2,7 @@ import * as React from 'react'
 // eslint-disable-next-line import/named
 import { withTranslation, WithTranslation } from 'react-i18next'
 
-import { HOME_SCREEN_PATH } from '../../../constants/NavigationConstants'
+import { HOME_SCREEN_PATH } from '../../constants/NavigationConstants'
 
 import {
    Heading,

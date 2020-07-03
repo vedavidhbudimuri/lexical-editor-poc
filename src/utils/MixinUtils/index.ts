@@ -2,7 +2,7 @@ import {
    TABLET_MIN_WIDTH,
    DESKTOP_MIN_WIDTH,
    LG_DESKTOP_MIN_WIDTH
-} from '../../constants/ResponsiveConstants'
+} from '../../common/constants/ResponsiveConstants'
 
 export const mobile = `@media (max-width: ${TABLET_MIN_WIDTH - 1}px) `
 

@@ -6,7 +6,7 @@ import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import 'styled-components/macro'
 
-import { DATE_PICKER_DATE_FORMAT } from '../../../constants/DateConstants'
+import { DATE_PICKER_DATE_FORMAT } from '../../constants/DateConstants'
 
 import ErrorMessage from '../ErrorMessage'
 

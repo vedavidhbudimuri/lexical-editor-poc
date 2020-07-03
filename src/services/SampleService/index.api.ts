@@ -1,7 +1,7 @@
 import { create, ApisauceInstance } from 'apisauce'
 
-import { apiMethods } from '../../constants/APIConstants'
-import Config from '../../constants/EnvironmentConstants'
+import { apiMethods } from '../../common/constants/APIConstants'
+import Config from '../../common/constants/EnvironmentConstants'
 import { SampleApiResponse, SampleApiRequest } from '../../stores/types'
 
 import endpoints from '../endpoints'

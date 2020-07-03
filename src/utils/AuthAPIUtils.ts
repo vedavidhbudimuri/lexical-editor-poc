@@ -2,7 +2,7 @@
 import getData from '@ib/api'
 import { ApisauceInstance } from 'apisauce'
 
-import { apiMethods } from '../constants/APIConstants'
+import { apiMethods } from '../common/constants/APIConstants'
 
 export function getAuthAPIAuthorizationHeaders() {
    return {

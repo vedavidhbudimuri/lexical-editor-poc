@@ -1,7 +1,7 @@
 import * as React from 'react'
 import 'styled-components/macro'
 
-import { CLOUDINARY_CONFIGURED_PREFIX } from '../../../constants/Cloudinary'
+import { CLOUDINARY_CONFIGURED_PREFIX } from '../../constants/Cloudinary'
 
 import { ReactImage } from './styledComponents'
 
