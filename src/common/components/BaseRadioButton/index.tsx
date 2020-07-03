@@ -2,10 +2,10 @@ import * as React from 'react'
 import { observer } from 'mobx-react'
 import 'styled-components/macro'
 
-import RadioButtonNormalIcon from '../../../icons/RadioButtonNormalIcon'
-import RadioButtonSelectedIcon from '../../../icons/RadioButtonSelectedIcon'
-import RadioButtonDisabledIcon from '../../../icons/RadioButtonDisabledIcon'
-import RadioButtonSelectedDisabledIcon from '../../../icons/RadioButtonSelectedDisabledIcon'
+import RadioButtonNormalIcon from '../../icons/RadioButtonNormalIcon'
+import RadioButtonSelectedIcon from '../../icons/RadioButtonSelectedIcon'
+import RadioButtonDisabledIcon from '../../icons/RadioButtonDisabledIcon'
+import RadioButtonSelectedDisabledIcon from '../../icons/RadioButtonSelectedDisabledIcon'
 
 import { RadioButtonOption } from './types'
 import {

@@ -2,10 +2,10 @@ import * as React from 'react'
 import { observer } from 'mobx-react'
 import 'styled-components/macro'
 
-import BaseCheckBoxNormalIcon from '../../../icons/BaseCheckBoxNormalIcon'
-import BaseCheckBoxSelectedIcon from '../../../icons/BaseCheckBoxSelectedIcon'
-import CheckBoxDisabled from '../../../icons/CheckBoxDisabled'
-import CheckBoxSelectedDisabledIcon from '../../../icons/CheckBoxSelectedDisabledIcon'
+import BaseCheckBoxNormalIcon from '../../icons/BaseCheckBoxNormalIcon'
+import BaseCheckBoxSelectedIcon from '../../icons/BaseCheckBoxSelectedIcon'
+import CheckBoxDisabled from '../../icons/CheckBoxDisabled'
+import CheckBoxSelectedDisabledIcon from '../../icons/CheckBoxSelectedDisabledIcon'
 
 import {
    CheckBoxLabel,

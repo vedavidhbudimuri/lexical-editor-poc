@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Select from 'react-select'
 
 import Colors from '../../themes/Colors'
-import ReactSelectDropDownArrow from '../../../icons/ReactSelectDropDownArrow'
+import ReactSelectDropDownArrow from '../../icons/ReactSelectDropDownArrow'
 import {
    Typo14DarkRR,
    Typo16DuskRR,
