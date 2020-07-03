@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 import { API_FETCHING } from '@ib/api-constants'
 import { I18nextProvider } from 'react-i18next'
 
-import i18n from '../../../i18n'
+import i18n from '../../i18n'
 
 import CorrectIcon from '../../../icons/CorrectIcon'
 

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 
-import './i18n'
+import './common/i18n'
 import * as serviceWorker from './serviceWorker'
 import App from './routes/App'
 import LoadingView from './common/LoadingWrapper/LoadingView'

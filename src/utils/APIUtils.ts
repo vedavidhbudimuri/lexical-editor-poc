@@ -11,7 +11,7 @@ import { ApisauceInstance } from 'apisauce'
 
 import { apiMethods } from '../common/constants/APIConstants'
 import { resStatuses, statusCodes } from '../common/constants/APIErrorConstants'
-import I18n from '../i18n'
+import I18n from '../common/i18n'
 
 import { getAccessToken, getRefreshToken } from './StorageUtils'
 
