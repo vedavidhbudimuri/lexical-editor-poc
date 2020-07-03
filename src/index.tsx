@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import './common/i18n'
 import * as serviceWorker from './serviceWorker'
-import App from './routes/App'
+import App from './common/routes/App'
 import LoadingView from './common/LoadingWrapper/LoadingView'
 import './index.css'
 
