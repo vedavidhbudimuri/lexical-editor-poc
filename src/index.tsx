@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 
+import 'tailwindcss/dist/base.min.css'
+
 import './i18n'
 import * as serviceWorker from './serviceWorker'
 import App from './routes/App'
