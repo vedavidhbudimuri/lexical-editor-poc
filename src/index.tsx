@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom'
 
 import 'tailwindcss/dist/base.min.css'
 
-import './i18n'
+import './Common/i18n'
+
 import * as serviceWorker from './serviceWorker'
-import App from './routes/App'
-import LoadingView from './common/LoadingWrapper/LoadingView'
+import App from './Common/routes/App'
+import LoadingView from './Common/LoadingWrapper/LoadingView'
+
 import './index.css'
 
 ReactDOM.render(

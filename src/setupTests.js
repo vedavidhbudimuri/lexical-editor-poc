@@ -1,6 +1,6 @@
 import strings from '../public/i18n/translations/en.json'
 
-import i18n from './i18n'
+import i18n from './Common/i18n'
 
 i18n.options.react.useSuspense = false
 
