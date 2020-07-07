@@ -1,10 +1,14 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 
-import './common/i18n'
+import 'tailwindcss/dist/base.min.css'
+
+import './Common/i18n'
+
 import * as serviceWorker from './serviceWorker'
-import App from './common/routes/App'
-import LoadingView from './common/LoadingWrapper/LoadingView'
+import App from './Common/routes/App'
+import LoadingView from './Common/LoadingWrapper/LoadingView'
+
 import './index.css'
 
 ReactDOM.render(

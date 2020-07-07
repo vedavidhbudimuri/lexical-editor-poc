@@ -38,6 +38,8 @@
       "react-scripts": "3.2.0",
       "react-toastify": "5.4.1",
       "styled-components": "4.4.1",
+      "tailwindcss": "^1.4.6",
+      "twin.macro": "1.4.1",
       "typescript": "3.7.2",
       "yarnhook": "0.4.3"
    },
@@ -90,17 +92,24 @@
       "@typescript-eslint/eslint-plugin": "2.3.0",
       "@typescript-eslint/parser": "2.8.0",
       "babel-eslint": "10.0.3",
+      "cypress": "3.8.0",
       "eslint": "6.4.0",
       "eslint-config-prettier": "6.3.0",
       "eslint-plugin-prettier": "3.1.0",
-      "prettier": "1.19.1",
-      "cypress": "3.8.0"
+      "prettier": "1.19.1"
    },
    "husky": {
       "hooks": {
          "pre-commit": " madge --format es6 --circular src/ && lint-staged && tsc --noEmit --skipLibCheck  ",
          "post-merge": "yarnhook",
          "post-rewrite": "yarnhook"
+      }
+   },
+   "babelMacros": {
+      "twin": {
+         "preset": "styled-components",
+         "config": "src/tailwind.config.js",
+         "autoCssProp": true
       }
    }
 }
