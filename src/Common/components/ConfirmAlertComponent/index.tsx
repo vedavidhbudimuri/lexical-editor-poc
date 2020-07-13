@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { withTranslation, WithTranslation } from 'react-i18next' // eslint-disable-line
-import 'styled-components/macro'
+import 'twin.macro'
 
 import {
    YesButton,

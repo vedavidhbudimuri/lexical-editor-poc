@@ -3,7 +3,7 @@ import { components } from 'react-select'
 import { observer } from 'mobx-react'
 import { observable, action, computed } from 'mobx'
 import { withTranslation } from 'react-i18next'
-import 'styled-components/macro'
+import 'twin.macro'
 
 import ErrorMessage from '../ErrorMessage'
 

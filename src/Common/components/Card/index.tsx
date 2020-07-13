@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { observer } from 'mobx-react'
-import 'styled-components/macro'
+import 'twin.macro'
 
 import { CardContainer } from './styledComponents'
 

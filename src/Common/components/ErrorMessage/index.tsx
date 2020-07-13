@@ -1,5 +1,5 @@
 import * as React from 'react'
-import 'styled-components/macro'
+import 'twin.macro'
 
 import {
    ErrorView,

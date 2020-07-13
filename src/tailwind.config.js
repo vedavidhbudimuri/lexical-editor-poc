@@ -1,4 +1,5 @@
-module.exports = {
+export default {
+   title: 'hello',
    purge: [],
    target: 'relaxed',
    prefix: '',
