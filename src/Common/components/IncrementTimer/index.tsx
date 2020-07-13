@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import { observable, action } from 'mobx'
-import 'styled-components/macro'
+import 'twin.macro'
 
 import { getTimeFormat } from '../../utils/TimeUtils'
 

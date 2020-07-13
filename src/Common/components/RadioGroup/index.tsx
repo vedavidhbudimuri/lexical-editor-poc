@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { observable, action, computed } from 'mobx'
 import { observer } from 'mobx-react'
-import 'styled-components/macro'
+import 'twin.macro'
 
 import { ValidationResponseType } from '../CheckBoxGroup/types'
 import BaseRadioButton from '../BaseRadioButton'

@@ -4,7 +4,7 @@ import { observable, action, computed } from 'mobx'
 import { withTranslation, WithTranslation } from 'react-i18next' // eslint-disable-line
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import 'styled-components/macro'
+import 'twin.macro'
 
 import { DATE_PICKER_DATE_FORMAT } from '../../constants/DateConstants'
 
