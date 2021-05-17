@@ -6,7 +6,7 @@ interface Props {
 }
 
 const RadioButtonSelectedDisabledIcon = (props: Props) => (
-   <svg width={props.width} height={props.height} {...props}>
+   <svg width={props.width} height={props.height}>
       <defs>
          <path id='selected_disabled_radio_svg__a' d='M0 0h20v20H0z' />
       </defs>

@@ -12,7 +12,6 @@ const RadioButtonNormalIcon = (props: Props) => (
       width={props.width}
       height={props.height}
       viewBox='0 0 16 16'
-      {...props}
    >
       <defs>
          <path id='a' d='M0 0h20v20H0z'></path>
