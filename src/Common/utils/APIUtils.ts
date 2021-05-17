@@ -185,7 +185,7 @@ export const networkCallWithFetch = async (url: string) => {
 }
 
 export const networkCallWithApisauce = store => async (
-   api: ApisauceInstance,
+   api: any,
    url: string,
    requestObject: Record<string, any>,
    type: any = apiMethods.post,

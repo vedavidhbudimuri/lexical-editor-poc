@@ -19,6 +19,20 @@ import {
 } from './styledComponents'
 import './styles.css'
 
+interface DropDownProps {
+   validate?: () => ValidationResponseType
+
+   dropDownCss?: any
+
+   containerCss?: any
+
+   shouldDisableForSingleOption?: boolean
+
+   children?: any
+
+   [x: string]: any
+}
+
 const ValueContainer = ({
    children,
    ...props
@@ -61,20 +75,6 @@ const NoOptionsMessage = (props: DropDownProps & { t: any }) => {
 }
 
 const TranslatedNoOptionsMessage = withTranslation()(NoOptionsMessage)
-
-interface DropDownProps {
-   validate?: () => ValidationResponseType
-
-   dropDownCss?: any
-
-   containerCss?: any
-
-   shouldDisableForSingleOption?: boolean
-
-   children?: any
-
-   [x: string]: any
-}
 
 @observer
 class DropDown extends Component<DropDownProps> {
