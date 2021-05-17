@@ -10,15 +10,15 @@ import './styles.css'
 
 export interface ButtonWithLoaderProps {
    text: string
-   onClick: Function
+   onClick: () => void
    apiStatus: APIStatus
    className: string
    textTypo: React.ElementType
    textClassName?: string
    disabled: boolean
-   renderLoader: Function
+   renderLoader: () => React.ReactElement
    id?: string
-   renderRightIcon?: Function
+   renderRightIcon?: () => React.ReactElement
 }
 
 class ButtonWithLoader extends React.Component<ButtonWithLoaderProps> {

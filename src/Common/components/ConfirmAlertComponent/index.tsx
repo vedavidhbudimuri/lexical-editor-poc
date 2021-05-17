@@ -12,7 +12,7 @@ import {
 } from './styledComponents'
 
 interface ConfirmAlertProps extends WithTranslation {
-   onConfirm: Function
+   onConfirm: () => void
    onClose: any
    onCancel?: any
    message: string

@@ -25,7 +25,7 @@ interface BaseRadioButtonProps {
    labelStyleCss?: string
    radioImageStyleCss?: string
    radioImageSize?: number
-   renderLabelComponent?: () => {}
+   renderLabelComponent?: () => React.ReactElement
    labelComponentContainerCss?: React.CSSProperties
 }
 

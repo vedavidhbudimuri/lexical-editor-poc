@@ -14,7 +14,7 @@ interface CardProps {
 @observer
 class Card extends React.Component<CardProps> {
    static defaultProps = {
-      onClick: () => {},
+      onClick: () => null,
       testId: 'card'
    }
 

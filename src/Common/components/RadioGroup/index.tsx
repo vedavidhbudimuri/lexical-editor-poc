@@ -30,7 +30,7 @@ interface RadioGroupProps {
 class RadioGroup extends React.Component<RadioGroupProps> {
    static defaultProps = {
       disabled: false,
-      validate: () => {}
+      validate: () => null
    }
 
    @observable error = ''

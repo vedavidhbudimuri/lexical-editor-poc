@@ -12,7 +12,7 @@ export interface IncrementTimerProps {
    maxTime: number
    onComplete: () => void
    isFiniteTime: boolean
-   renderTimer?: (seconds: number) => React.ReactNode
+   renderTimer?: (seconds: number) => React.ReactElement
    onTimeUpdate: (totalSeconds: number) => void
    className: string
    containerCss: React.CSSProperties
@@ -28,13 +28,13 @@ class IncrementTimer extends Component<IncrementTimerProps> {
    }
 
    static defaultProps = {
-      onTimeUpdate: () => {},
+      onTimeUpdate: () => null,
       timeInSeconds: 0,
       isFiniteTime: false,
       maxTime: 1,
       className: '',
       containerCss: {},
-      onComplete: () => {}
+      onComplete: () => null
    }
 
    componentDidMount() {

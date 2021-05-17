@@ -12,7 +12,7 @@ import { CheckBoxContainer, MainContainer } from './styledComponents'
 interface Option {
    label: string
    value: string
-   renderLabelComponent?: () => {}
+   renderLabelComponent?: () => React.ReactElement
 }
 
 interface CheckBoxProps {

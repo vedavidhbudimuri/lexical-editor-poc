@@ -30,7 +30,7 @@ const ValueContainer = ({
    </components.ValueContainer>
 )
 
-const DropdownIndicator = props => {
+const DropdownIndicator = (props: { selectProps: { menuIsOpen: boolean } }) => {
    const { selectProps } = props
    const { menuIsOpen } = selectProps
    return (
@@ -42,7 +42,7 @@ const DropdownIndicator = props => {
    )
 }
 
-const Option = (props: DropDownProps) => {
+const Option = (props: DropDownProps & { isSelected: boolean }) => {
    const { isSelected, children } = props
    return (
       <components.Option {...props}>
@@ -51,7 +51,7 @@ const Option = (props: DropDownProps) => {
    )
 }
 
-const NoOptionsMessage = (props: DropDownProps) => {
+const NoOptionsMessage = (props: DropDownProps & { t: any }) => {
    const { t } = props
    return (
       <components.NoOptionsMessage {...props}>
@@ -70,6 +70,8 @@ interface DropDownProps {
    containerCss?: any
 
    shouldDisableForSingleOption?: boolean
+
+   children?: any
 
    [x: string]: any
 }

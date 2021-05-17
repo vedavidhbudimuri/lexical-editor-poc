@@ -37,7 +37,7 @@ class BuyEntireKitCard extends Component {
                displayText={'SIGN IN WITH FACEBOOK TO CONTINUE'}
                disabled={false}
                link=''
-               onClick={() => {}}
+               onClick={() => null}
             />
          </BuyEntireKitCardContainer>
       )

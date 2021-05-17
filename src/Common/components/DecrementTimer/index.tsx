@@ -26,7 +26,7 @@ class DecrementTimer extends Component<DecrementTimerProps> {
    }
 
    static defaultProps = {
-      onTimeUpdate: () => {},
+      onTimeUpdate: () => null,
       className: '',
       containerCss: {}
    }

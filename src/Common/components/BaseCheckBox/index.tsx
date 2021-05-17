@@ -25,7 +25,7 @@ interface BaseCheckBoxProps {
    checked?: boolean
    checkBoxTextCss?: React.CSSProperties
    checkBoxSize?: number
-   renderLabelComponent?: () => {}
+   renderLabelComponent?: () => React.ReactElement
    labelComponentContainerCss?: React.CSSProperties
    checkBoxContainerCss?: React.CSSProperties
 }
