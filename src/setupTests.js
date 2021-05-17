@@ -1,4 +1,6 @@
-import strings from '../public/i18n/translations/en.json'
+// import strings from '../public/i18n/translations/en.json'
+// TODO: Fix import outside src/
+const strings = {}
 
 import i18n from './Common/i18n'
 
