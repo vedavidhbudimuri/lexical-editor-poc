@@ -201,7 +201,7 @@ export const networkCallWithApisauce = store => async (
       // NOTE: same api is invocation method is used in AuthApiUtils also. for any modifications update the same there
       response = await getData(api, url, requestObject, type)
    } catch (error) {
-      const { message } = error
+      const { message } = error as Error
       const { isAccessTokenExpired } = isAccessTokenExpiredMessage(message)
       //
       if (isAccessTokenExpired) {
