@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import tw from 'twin.macro'
 
 export const TailwindContainer = styled.div`
-   ${tw`flex flex-col items-center justify-center`}
+   ${tw`flex flex-col items-center justify-center md:flex-row md:text-white lg:text-black`}
 `
 
 export const tailwindContainerCSS = css`
