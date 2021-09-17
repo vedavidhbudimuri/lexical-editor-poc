@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import { withKnobs } from '@storybook/addon-knobs'
 
 import TextArea from './TextArea'
 
 export default {
-   title: 'TextArea',
-   decorators: [withKnobs]
+   title: 'TextArea'
 }
 
 class TextAreaStory extends Component {

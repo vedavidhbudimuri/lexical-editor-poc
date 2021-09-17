@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import { withKnobs } from '@storybook/addon-knobs'
 
 import TextInput from '.'
 
 export default {
-   title: 'InputBox',
-   decorators: [withKnobs]
+   title: 'InputBox'
 }
 
 class InputBox extends Component {
