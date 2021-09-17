@@ -1,6 +1,5 @@
 //TODO: Need to update to ts
 import getData from '@ib/api'
-import { ApisauceInstance } from 'apisauce'
 
 import { apiMethods } from '../constants/APIConstants'
 
@@ -10,9 +9,9 @@ export function getAuthAPIAuthorizationHeaders() {
    }
 }
 
-export const networkCallWithApisauce = async (
-   api: ApisauceInstance,
+export const networkCallWithApisauce = async <T, U>(
+   api: any,
    url: string,
-   requestObject: Record<string, any>,
+   requestObject: U,
    type: any = apiMethods.post
-) => await getData(api, url, requestObject, type)
+): Promise<T> => (await getData<T, U>(api, url, requestObject, type)) as T
