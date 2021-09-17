@@ -13,7 +13,7 @@
       "@types/node": "12.12.9",
       "@types/react": "16.9.11",
       "@types/react-dom": "16.9.4",
-      "apisauce": "1.1.1",
+      "apisauce": "1.1.2",
       "classnames": "2.2.6",
       "env-cmd": "10.0.1",
       "eslint-plugin-import": "2.18.2",
