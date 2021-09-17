@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+// eslint-disable-next-line import/named
+import { RouteComponentProps, withRouter } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import { observable } from 'mobx'
 
 import ConfirmAlertComponent from '../ConfirmAlertComponent'
 
-interface Props {
+interface Props extends RouteComponentProps {
    when?: boolean
    history: any
    routesToAllow: Array<string>
