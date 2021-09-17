@@ -184,7 +184,7 @@ export const networkCallWithFetch = async (url: string) => {
    throw Error(JSON.stringify(response))
 }
 
-export const networkCallWithApisauce = (store: any) => async (
+export const networkCallWithApisauce = store => async (
    api: ApisauceInstance,
    url: string,
    requestObject: Record<string, any>,
@@ -199,6 +199,7 @@ export const networkCallWithApisauce = (store: any) => async (
    let response: any = null
    try {
       // NOTE: same api is invocation method is used in AuthApiUtils also. for any modifications update the same there
+      //@ts-ignore
       response = await getData(api, url, requestObject, type)
    } catch (error) {
       const { message } = error
@@ -216,6 +217,7 @@ export const networkCallWithApisauce = (store: any) => async (
          api.setHeaders({
             Authorization: `Bearer ${options.getAccessToken()}`
          })
+         //@ts-ignore
          response = await getData(api, url, requestObject, type)
       } else {
          throw error
