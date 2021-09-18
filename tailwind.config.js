@@ -1,9 +1,12 @@
 module.exports = {
    title: 'hello',
-   purge: [],
+   // purge: [],
    target: 'relaxed',
+   mode: 'jit',
+   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
    prefix: '',
    important: false,
+   presets: [require('@ib/nebula-system/tailwind')],
    separator: ':',
    theme: {
       screens: {
@@ -12,10 +15,11 @@ module.exports = {
          lg: '1024px',
          xl: '1280px'
       },
+
       colors: {
          transparent: 'transparent',
          current: 'currentColor',
-
+         customColor: 'red',
          black: '#000',
          white: '#fff',
 
@@ -68,7 +72,7 @@ module.exports = {
             200: '#c6f6d5',
             300: '#9ae6b4',
             400: '#68d391',
-            500: '#48bb78',
+            500: '#6b46c1',
             600: '#38a169',
             700: '#2f855a',
             800: '#276749',
@@ -130,6 +134,7 @@ module.exports = {
             900: '#702459'
          }
       },
+
       spacing: {
          px: '1px',
          '0': '0',

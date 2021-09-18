@@ -19,7 +19,7 @@
       "emitDecoratorMetadata": true,
       "noFallthroughCasesInSwitch": true
    },
-   "include": ["src", "cypress"],
+   "include": ["src", "cypress", "tailwind.config.js"],
    "exclude": [
       "node_modules/@storybook",
       "node_modules",

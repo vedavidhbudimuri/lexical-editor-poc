@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import 'twin.macro'
+import { Button, LensProvider } from '@ib/nebula-system'
 
 import { tailwindContainerCSS, TailwindContainer } from './styledComponents'
 @observer
@@ -20,10 +21,13 @@ class Home extends Component {
                ]}
             >
                <div tw='flex flex-col justify-center h-full space-y-5'>
-                  <p>Tailwind Column Item</p>
+                  <p className='bg-green-500'>Tailwind Column Item</p>
                   <p>Tailwind Column Item</p>
                </div>
             </TailwindContainer>
+            <LensProvider>
+               <Button variant='positive'>Positive</Button>
+            </LensProvider>
          </div>
       )
    }
