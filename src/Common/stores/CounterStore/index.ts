@@ -4,12 +4,12 @@ class CounterStore {
    @observable count = 0
 
    @action.bound
-   incrementCounter() {
+   incrementCounter(): void {
       this.count = this.count + 1
    }
 
    @action.bound
-   decrementCounter() {
+   decrementCounter(): void {
       this.count = this.count - 1
    }
 }

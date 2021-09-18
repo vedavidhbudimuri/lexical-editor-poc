@@ -13,13 +13,13 @@ interface CounterWithToastProps {
 @inject('counterStore')
 @observer
 class CounterWithToast extends Component<CounterWithToastProps> {
-   handleIncrement = () => {
+   handleIncrement = (): void => {
       const { counterStore } = this.props
       counterStore.incrementCounter()
       toast(`Count has been incremented by 1`)
    }
 
-   handleDecrement = () => {
+   handleDecrement = (): void => {
       const { counterStore } = this.props
       if (counterStore.count !== 0) {
          counterStore.decrementCounter()
@@ -29,7 +29,7 @@ class CounterWithToast extends Component<CounterWithToastProps> {
       }
    }
 
-   render() {
+   render(): JSX.Element {
       const { counterStore } = this.props
       return (
          <div>

@@ -16,11 +16,11 @@ export const desktop = `@media (min-width: ${DESKTOP_MIN_WIDTH}px)`
 
 export const lgDesktop = `@media (min-width: ${LG_DESKTOP_MIN_WIDTH}px)`
 
-export const customDevice = (minWidth: number, maxWidth: number) =>
+export const customDevice = (minWidth: number, maxWidth: number): string =>
    `@media (min-width: ${minWidth}px) and (max-width: ${maxWidth}px)`
 
-export const minDeviceWidth = (minWidth: number) =>
+export const minDeviceWidth = (minWidth: number): string =>
    `@media (min-width: ${minWidth}px)`
 
-export const maxDeviceWidth = (maxWidth: number) =>
+export const maxDeviceWidth = (maxWidth: number): string =>
    `@media (max-width: ${maxWidth}px)`

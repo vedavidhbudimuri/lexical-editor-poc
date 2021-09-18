@@ -9,7 +9,8 @@ interface LoaderProps {
    type?: string
    color?: string
 
-   [x: string]: any
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   className?: any
 }
 
 class Loader extends React.Component<LoaderProps> {
@@ -20,7 +21,7 @@ class Loader extends React.Component<LoaderProps> {
       width: 30
    }
 
-   render() {
+   render(): JSX.Element {
       const { height, width, type, color, ...other } = this.props
       return (
          <ReactLoader

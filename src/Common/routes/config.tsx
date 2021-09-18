@@ -10,7 +10,7 @@ import PageNotFound404 from '../components/PageNotFound404'
 import CounterWithToast from './CounterWithToast'
 import Home from './Home'
 
-export const routes = () => (
+export const routes = (): React.ReactElement => (
    <Router>
       <Switch>
          <Route exact path='/' component={Home} />

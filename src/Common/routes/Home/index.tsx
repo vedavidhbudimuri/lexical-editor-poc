@@ -6,7 +6,7 @@ import 'twin.macro'
 import { tailwindContainerCSS, TailwindContainer } from './styledComponents'
 @observer
 class Home extends Component {
-   render() {
+   render(): React.ReactElement {
       return (
          <div>
             <h2>Home</h2>
