@@ -1,5 +1,5 @@
 import { TextNode } from 'lexical'
-export class EmoticonNode extends TextNode {
+export class EmojiNode extends TextNode {
    __className: string
 
    static getType(): string {
@@ -7,7 +7,7 @@ export class EmoticonNode extends TextNode {
    }
 
    static clone(node) {
-      return new EmoticonNode(node.__className, node.__text, node.__key)
+      return new EmojiNode(node.__className, node.__text, node.__key)
    }
 
    constructor(className, text, key?) {
@@ -24,11 +24,11 @@ export class EmoticonNode extends TextNode {
 }
 
 export function $isEmoticonNode(node) {
-   return node instanceof EmoticonNode
+   return node instanceof EmojiNode
 }
 export function $createEmoticonNode(className, emoticonText) {
-   return new EmoticonNode(className, emoticonText).setMode('token')
+   return new EmojiNode(className, emoticonText).setMode('token')
 }
 export function $createEmojiNode(className, emoticonText) {
-   return new EmoticonNode(className, emoticonText).setMode('token')
+   return new EmojiNode(className, emoticonText).setMode('token')
 }

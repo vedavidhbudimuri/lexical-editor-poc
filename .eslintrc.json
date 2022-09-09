@@ -47,7 +47,7 @@
       "require-yield": 0,
       "prefer-promise-reject-errors": 0,
       "no-underscore-dangle": [
-         "warning",
+         1,
          {
             "allowAfterThis": true,
             "allowAfterSuper": true
@@ -79,7 +79,7 @@
 
       "import/extensions": 0,
       "import/order": [
-         "warning",
+         1,
          {
             "groups": [
                "builtin",

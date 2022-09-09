@@ -1,17 +1,16 @@
-import { $createEmojiNode } from './EmojiNode'
-import { useEffect } from 'react'
-import { TextNode } from 'lexical'
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
+import { LexicalEditor, TextNode } from 'lexical'
+import React, { useEffect } from 'react'
+import { $createEmoticonNode } from './EmojiNode'
 
 function emoticonTransform(node) {
    const textContent = node.getTextContent()
-   // When you type :), we will replace it with an emoji node
    if (textContent === ':)') {
-      node.replace($createEmojiNode('emoji happysmile', '🙂'))
+      node.replace($createEmoticonNode('', '🙂'))
    }
 }
 
-function useEmoticons(editor) {
+function useEmoticons(editor: LexicalEditor) {
    useEffect(() => {
       const removeTransform = editor.registerNodeTransform(
          TextNode,
@@ -20,7 +19,7 @@ function useEmoticons(editor) {
       return () => {
          removeTransform()
       }
-   }, [editor])
+   }, [])
 }
 
 export default function EmoticonPlugin() {
