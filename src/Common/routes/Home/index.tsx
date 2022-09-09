@@ -5,29 +5,15 @@ import 'twin.macro'
 import { Button, LensProvider } from '@ib/nebula-system'
 
 import { tailwindContainerCSS, TailwindContainer } from './styledComponents'
+import Editor from '../../../Editor/Components/Editor/Editor'
+import BasicEditor from '../../../Editor/Components/BasicEditor/BasicEditor'
 @observer
 class Home extends Component {
    render(): React.ReactElement {
       return (
          <div>
-            <h2>Home</h2>
-            <Link to='/counter'>
-               <p>Counter</p>
-            </Link>
-            <TailwindContainer
-               css={[
-                  tailwindContainerCSS
-                  /* Combine regular css and tailwind styles within backticks */
-               ]}
-            >
-               <div tw='flex flex-col justify-center h-full space-y-5'>
-                  <p className='bg-green-500'>Tailwind Column Item</p>
-                  <p>Tailwind Column Item</p>
-               </div>
-            </TailwindContainer>
-            <LensProvider>
-               <Button variant='positive'>Positive</Button>
-            </LensProvider>
+            <Editor />
+            <BasicEditor />
          </div>
       )
    }
