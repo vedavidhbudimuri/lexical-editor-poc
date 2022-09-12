@@ -13,11 +13,12 @@ import {
    COMMAND_PRIORITY_LOW,
    INDENT_CONTENT_COMMAND,
    INSERT_PARAGRAPH_COMMAND,
+   LexicalEditor,
    OUTDENT_CONTENT_COMMAND
 } from 'lexical'
 import { useEffect } from 'react'
 
-export function useList(editor): void {
+export function useList(editor: LexicalEditor): void {
    useEffect(
       () =>
          mergeRegister(
