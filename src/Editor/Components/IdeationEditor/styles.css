@@ -1,0 +1,16 @@
+.outcome-node {
+   font-size: 28px;
+   font-weight: bold;
+   height: 48px;
+   display: block;
+   background: white;
+   display: flex;
+   align-items: baseline;
+   margin: 8px 0;
+}
+/* .outcome-node::before {
+   background-color: aqua;
+   content: '🏳️';
+   display: inline-block;
+   margin-right: 8px;
+} */
