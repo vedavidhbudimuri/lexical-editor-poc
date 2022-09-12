@@ -34,7 +34,7 @@
       "prettier/prettier": ["error", { "singleQuote": true }],
 
       "arrow-body-style": [2, "as-needed"],
-      "comma-dangle": [2, "never"],
+      "comma-dangle": [1, "never"],
       "max-depth": 0,
       "max-len": 0,
       "max-params": 0,

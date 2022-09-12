@@ -7,7 +7,7 @@ function emoticonTransform(node) {
    const textContent = node.getTextContent()
    if (textContent === ':)') {
       node.replace($createEmoticonNode('', '🙂'))
-   }
+   } else if (textContent === ':D') node.replace($createEmoticonNode('', '😮'))
 }
 
 function useEmoticons(editor: LexicalEditor) {
