@@ -1,7 +1,7 @@
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
-import { TextNode } from 'lexical'
+import { DecoratorNode, ElementNode, LexicalNode, TextNode } from 'lexical'
 import React, { useEffect } from 'react'
-import { $createOutcomeNode } from './OutcomeNode'
+import OutcomeNode, { $createOutcomeNode } from './OutcomeNode'
 
 function outcomeTransform(node) {
    const textContext = node.getTextContent()
