@@ -3,9 +3,11 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable'
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
 import React from 'react'
+import OutcomeEditWatcherPlugin from './OutcomeEditWatcher'
 import OutcomeNode from './OutcomeNode'
 import OutcomePlugin from './OutcomePlugin'
 import './styles.css'
+import UpdatePlugin from './UpdatePlugin'
 
 const editorConfig = {
    onError(error) {
@@ -32,6 +34,7 @@ function IdeationEditor() {
                />
                <OutcomePlugin />
                <HistoryPlugin />
+               <OutcomeEditWatcherPlugin />
             </div>
          </LexicalComposer>
       </div>

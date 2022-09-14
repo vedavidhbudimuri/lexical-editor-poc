@@ -65,7 +65,8 @@ function OutcomeComponent() {
    )
 }
 
-export default class OutcomeNode extends DecoratorNode<JSX.Element> {
+export default class OutcomeNode extends TextNode {
+   __id: string
    static getType() {
       return 'OUTCOME_NODE'
    }
@@ -75,20 +76,25 @@ export default class OutcomeNode extends DecoratorNode<JSX.Element> {
    }
 
    constructor(text, key?) {
-      super(key)
+      super(text)
+      this.__id = key
    }
    getType() {
       return 'OUTCOME_NODE'
    }
 
+   setId(id) {
+      this.__id = id
+   }
+
    createDOM(config) {
-      const ele = document.createElement('span')
+      const ele = super.createDOM(config)
       return ele
    }
 
-   decorate(): JSX.Element {
-      return <OutcomeComponent />
-   }
+   // decorate(): JSX.Element {
+   //    return <OutcomeComponent />
+   // }
 }
 
 export function $isOutcomeNode(node) {
