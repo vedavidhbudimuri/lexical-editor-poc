@@ -20,30 +20,8 @@ function OutcomeEditWatcherPlugin() {
          updateOutcomeInStore
       )
 
-      // const removeTransformer2 = editor.registerDecoratorListener(props => {
-      //    console.log('registerDecoratorListener', props)
-      // })
-      // const removeTransformer3 = editor.registerMutationListener(
-      //    OutcomeNode,
-      //    props => console.log('registerMutationListener', props)
-      // )
-      // const removeTransformer4 = editor.registerRootListener(props =>
-      //    console.log('registerRootListener', props)
-      // )
-      // const removeTransformer5 = editor.registerTextContentListener(props =>
-      //    console.log('registerTextContentListener', props)
-      // )
-      // const removeTransformer6 = editor.registerUpdateListener(props =>
-      //    console.log('registerUpdateListener', props)
-      // )
-
       return () => {
          removeTransformer()
-         // removeTransformer2()
-         // removeTransformer3()
-         // removeTransformer4()
-         // removeTransformer5()
-         // removeTransformer6()
       }
    }, [])
    return null

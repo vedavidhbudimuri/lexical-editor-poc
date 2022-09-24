@@ -5,7 +5,7 @@ import OutcomeNode, { $createOutcomeNode } from './OutcomeNode'
 
 function outcomeTransform(node) {
    const textContext = node.getTextContent()
-   if (textContext === '>o ' || textContext === '>O ') {
+   if (textContext === ':+1:' || textContext === '>O ') {
       node.replace($createOutcomeNode('🏳️'))
    }
 }

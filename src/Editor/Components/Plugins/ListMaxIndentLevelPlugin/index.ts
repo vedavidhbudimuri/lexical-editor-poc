@@ -1,3 +1,11 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
 import { $getListDepth, $isListItemNode, $isListNode } from '@lexical/list'
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
 import {
@@ -10,7 +18,8 @@ import {
 } from 'lexical'
 import { useEffect } from 'react'
 
-function getElementNodesInSelection(selection): Set<ElementNode> {
+type Props = any
+function getElementNodesInSelection(selection: any): Set<ElementNode> {
    const nodesInSelection = selection.getNodes()
 
    if (nodesInSelection.length === 0) {
@@ -32,7 +41,9 @@ function isIndentPermitted(maxDepth: number): boolean {
       return false
    }
 
-   const elementNodesInSelection: any = getElementNodesInSelection(selection)
+   const elementNodesInSelection: Set<ElementNode> = getElementNodesInSelection(
+      selection
+   )
 
    let totalDepth = 0
 
@@ -55,11 +66,10 @@ function isIndentPermitted(maxDepth: number): boolean {
    return totalDepth <= maxDepth
 }
 
-export default function ListMaxIndentLevelPlugin({ maxDepth }: any): null {
+export default function ListMaxIndentLevelPlugin({ maxDepth }: Props): null {
    const [editor] = useLexicalComposerContext()
 
    useEffect(() => {
-      console.log('')
       return editor.registerCommand(
          INDENT_CONTENT_COMMAND,
          () => !isIndentPermitted(maxDepth ?? 7),

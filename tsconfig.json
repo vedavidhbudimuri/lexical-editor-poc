@@ -17,7 +17,8 @@
       "jsx": "react-jsx",
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
-      "noFallthroughCasesInSwitch": true
+      "noFallthroughCasesInSwitch": true,
+      "downlevelIteration": true
    },
    "include": ["src", "cypress", "tailwind.config.js"],
    "exclude": [

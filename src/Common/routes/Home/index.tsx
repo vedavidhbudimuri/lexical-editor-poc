@@ -6,17 +6,13 @@ import 'twin.macro'
 
 // import { tailwindContainerCSS, TailwindContainer } from './styledComponents'
 // import Editor from '../../../Editor/Components/Editor/Editor'
-// import BasicEditor from '../../../Editor/Components/BasicEditor/BasicEditor'
-import IdeationEditor from '../../../Editor/Components/IdeationEditor'
+import BasicEditor from '../../../Editor/Components/BasicEditor/BasicEditor'
 @observer
 class Home extends Component {
    render(): React.ReactElement {
       return (
          <div>
-            {/* <Editor />
-            <BasicEditor /> */}
-
-            <IdeationEditor />
+            <BasicEditor />
          </div>
       )
    }
