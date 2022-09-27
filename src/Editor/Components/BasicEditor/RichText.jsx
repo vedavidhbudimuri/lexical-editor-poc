@@ -1,18 +1,24 @@
-import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
-import { ContentEditable } from '@lexical/react/LexicalContentEditable'
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
+import { ContentEditable } from '@lexical/react/LexicalContentEditable'
+import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
 import { unstable_convertLegacyJSONEditorState } from '@lexical/utils'
-import React from 'react'
-import { dataV2 } from './dataV2'
+import { toJS } from 'mobx'
+import React, { useContext } from 'react'
+import { EditorState } from 'lexical'
+
+import { EditorStoreContext } from '../../../Common/stores/storesContext'
+
 function Placeholder() {
    return <div className='editor-placeholder'>Enter some rich text...</div>
 }
 
 export const RichText = () => {
    const [editor] = useLexicalComposerContext()
-
-   const parsed = unstable_convertLegacyJSONEditorState(editor, dataV2)
-   console.log(parsed)
+   const { blocks, getEditorBlocks } = useContext(EditorStoreContext)
+   const estate = {
+      _nodeMap: getEditorBlocks()
+   }
+   const parsed = unstable_convertLegacyJSONEditorState(editor, estate)
 
    return (
       <RichTextPlugin

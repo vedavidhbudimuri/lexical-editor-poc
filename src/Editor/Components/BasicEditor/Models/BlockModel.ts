@@ -1,11 +1,12 @@
 import { observable } from 'mobx'
 
 class BlockModel {
-   @observable data: string
-   @observable children: string[]
-   constructor(data: string, children = []) {
+   @observable data: Record<string, any>
+   id
+   constructor(data: Record<string, any>) {
+      this.id = data.__key
       this.data = data
-      this.children = []
    }
 }
+
 export default BlockModel

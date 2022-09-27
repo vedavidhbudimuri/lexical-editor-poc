@@ -1,24 +1,29 @@
-import { LexicalComposer } from '@lexical/react/LexicalComposer'
-import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
-import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
-import { HeadingNode, QuoteNode } from '@lexical/rich-text'
-import { ListItemNode, ListNode } from '@lexical/list'
+import './styles.css'
+
 import { CodeHighlightNode, CodeNode } from '@lexical/code'
 import { AutoLinkNode, LinkNode } from '@lexical/link'
+import { ListItemNode, ListNode } from '@lexical/list'
+import { TRANSFORMERS } from '@lexical/markdown'
+import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
+import { LexicalComposer } from '@lexical/react/LexicalComposer'
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
+import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
 import { LinkPlugin } from '@lexical/react/LexicalLinkPlugin'
 import { ListPlugin } from '@lexical/react/LexicalListPlugin'
 import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin'
-import { TRANSFORMERS } from '@lexical/markdown'
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin'
+import { HeadingNode, QuoteNode } from '@lexical/rich-text'
+import { EditorState, NodeKey } from 'lexical'
+import { IntentionallyMarkedAsDirtyElement } from 'lexical/LexicalEditor'
+import React, { useContext, useEffect, useState } from 'react'
 
-import React, { useState } from 'react'
-import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin'
-import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
+import { EditorStoreContext } from '../../../Common/stores/storesContext'
 import AutoLinkPlugin from './plugins/AutoLinkPlugin'
-import ToolbarPlugin from './plugins/ToolbarPlugin'
-import './styles.css'
-import { RichText } from './RichText'
+import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
 import DraggableBlockPlugin from './plugins/DraggableBlockPlugin'
+import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin'
+import ToolbarPlugin from './plugins/ToolbarPlugin'
+import { RichText } from './RichText'
 
 const editorConfig = {
    namespace: 'basic editor',
@@ -40,8 +45,40 @@ const editorConfig = {
    ]
 }
 
-const onChange = editorState => {
-   console.log(JSON.stringify(editorState.toJSON()))
+function OnChangeEditorStatePlugin() {
+   const { updateBlocks } = useContext(EditorStoreContext)
+   const [editorState] = useLexicalComposerContext()
+
+   useEffect(() => {
+      const registerFn = editorState.registerUpdateListener(
+         (state: {
+            dirtyElements: Map<NodeKey, IntentionallyMarkedAsDirtyElement>
+            dirtyLeaves: Set<NodeKey>
+            editorState: EditorState
+            normalizedNodes: Set<NodeKey>
+            prevEditorState: EditorState
+            tags: Set<string>
+         }) => {
+            const nodes: any[] = []
+            Array.from(state.dirtyElements.keys()).forEach(id => {
+               const node = state.editorState._nodeMap.get(id)
+               node && nodes.push(node)
+            })
+
+            if (nodes.length) updateBlocks(nodes)
+         }
+      )
+
+      return () => {
+         registerFn()
+      }
+   }, [])
+
+   const onChange = (editorState: EditorState) => {
+      const nodes = editorState._nodeMap
+      console.log('TCL: onChange -> nodes', nodes)
+   }
+   return <OnChangePlugin onChange={onChange} />
 }
 
 export default function BasicEditor() {
@@ -63,7 +100,7 @@ export default function BasicEditor() {
                <div ref={onRef}>
                   <RichText />
                </div>
-               <OnChangePlugin onChange={onChange} />
+               <OnChangeEditorStatePlugin />
                <HistoryPlugin />
                <AutoFocusPlugin />
                <CodeHighlightPlugin />
