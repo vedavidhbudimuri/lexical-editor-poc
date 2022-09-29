@@ -88,8 +88,11 @@ export default class OutcomeNode extends TextNode {
    }
 
    createDOM(config) {
+      const domNode = document.createElement('ul')
       const ele = super.createDOM(config)
-      return ele
+      domNode.className = 'outcome-list'
+      domNode.append(ele)
+      return domNode
    }
 
    // decorate(): JSX.Element {

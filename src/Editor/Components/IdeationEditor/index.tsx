@@ -8,6 +8,7 @@ import React from 'react'
 
 import OutcomeNode from './OutcomeNode'
 import OutcomePlugin from './OutcomePlugin'
+import CommandListener from './Plugins/CommandListener'
 
 const editorConfig = {
    onError(error) {
@@ -33,6 +34,7 @@ function IdeationEditor() {
                   placeholder={'Create Outcomes'}
                />
                <OutcomePlugin />
+               <CommandListener />
                <HistoryPlugin />
             </div>
          </LexicalComposer>
