@@ -3,7 +3,7 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable'
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
 import { unstable_convertLegacyJSONEditorState } from '@lexical/utils'
 import { toJS } from 'mobx'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { EditorState } from 'lexical'
 
 import { EditorStoreContext } from '../../../Common/stores/storesContext'
@@ -15,16 +15,20 @@ function Placeholder() {
 export const RichText = () => {
    const [editor] = useLexicalComposerContext()
    const { blocks, getEditorBlocks } = useContext(EditorStoreContext)
+
    const estate = {
       _nodeMap: getEditorBlocks()
    }
+
    const parsed = unstable_convertLegacyJSONEditorState(editor, estate)
+   useEffect(() => {
+      editor.setEditorState(parsed)
+   }, [])
 
    return (
       <RichTextPlugin
          contentEditable={<ContentEditable className='editor-input px-4' />}
          placeholder={<Placeholder />}
-         initialEditorState={parsed}
       />
    )
 }

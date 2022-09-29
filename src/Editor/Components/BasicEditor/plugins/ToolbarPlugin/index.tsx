@@ -35,7 +35,7 @@ import {
    $isAtNodeEnd,
    $isParentElementRTL,
    $selectAll,
-   $wrapNodes
+   $wrapNodes as $wrapLeafNodesInElements
 } from '@lexical/selection'
 import {
    $findMatchingParent,
@@ -48,7 +48,7 @@ import {
    $getNodeByKey,
    $getSelection,
    $isRangeSelection,
-   $isRootOrShadowRoot,
+   $isRootNode,
    $isTextNode,
    CAN_REDO_COMMAND,
    CAN_UNDO_COMMAND,
@@ -140,7 +140,7 @@ function BlockFormatDropDown({
             const selection = $getSelection()
 
             if ($isRangeSelection(selection)) {
-               $wrapNodes(selection, () => $createParagraphNode())
+               $wrapLeafNodesInElements(selection, () => $createParagraphNode())
             }
          })
       }
@@ -152,7 +152,9 @@ function BlockFormatDropDown({
             const selection = $getSelection()
 
             if ($isRangeSelection(selection)) {
-               $wrapNodes(selection, () => $createHeadingNode(headingSize))
+               $wrapLeafNodesInElements(selection, () =>
+                  $createHeadingNode(headingSize)
+               )
             }
          })
       }
@@ -188,7 +190,7 @@ function BlockFormatDropDown({
             const selection = $getSelection()
 
             if ($isRangeSelection(selection)) {
-               $wrapNodes(selection, () => $createQuoteNode())
+               $wrapLeafNodesInElements(selection, () => $createQuoteNode())
             }
          })
       }
@@ -201,7 +203,7 @@ function BlockFormatDropDown({
 
             if ($isRangeSelection(selection)) {
                if (selection.isCollapsed()) {
-                  $wrapNodes(selection, () => $createCodeNode())
+                  $wrapLeafNodesInElements(selection, () => $createCodeNode())
                } else {
                   const textContent = selection.getTextContent()
                   const codeNode = $createCodeNode()
@@ -263,13 +265,6 @@ function BlockFormatDropDown({
             <span className='text'>Numbered List</span>
          </DropDownItem>
          <DropDownItem
-            className={`item ${dropDownActiveClass(blockType === 'check')}`}
-            onClick={formatCheckList}
-         >
-            <i className='icon check-list' />
-            <span className='text'>Check List</span>
-         </DropDownItem>
-         <DropDownItem
             className={`item ${dropDownActiveClass(blockType === 'quote')}`}
             onClick={formatQuote}
          >
@@ -312,7 +307,6 @@ export default function ToolbarPlugin(): JSX.Element {
    const [canRedo, setCanRedo] = useState(false)
    const [isRTL, setIsRTL] = useState(false)
    const [codeLanguage, setCodeLanguage] = useState<string>('')
-   const [modal, showModal] = useModal()
 
    const updateToolbar = useCallback(() => {
       const selection = $getSelection()
@@ -323,7 +317,7 @@ export default function ToolbarPlugin(): JSX.Element {
                ? anchorNode
                : $findMatchingParent(anchorNode, e => {
                     const parent = e.getParent()
-                    return parent !== null && $isRootOrShadowRoot(parent)
+                    return parent !== null && $isRootNode(parent)
                  })
 
          if (element === null) {
@@ -632,17 +626,7 @@ export default function ToolbarPlugin(): JSX.Element {
                      <i className='icon superscript' />
                      <span className='text'>Superscript</span>
                   </DropDownItem>
-                  <DropDownItem
-                     onClick={clearFormatting}
-                     className='item'
-                     title='Clear text formatting'
-                     aria-label='Clear all text formatting'
-                  >
-                     <i className='icon clear' />
-                     <span className='text'>Clear Formatting</span>
-                  </DropDownItem>
                </DropDown>
-               <Divider />
             </>
          )}
          <Divider />
@@ -692,32 +676,7 @@ export default function ToolbarPlugin(): JSX.Element {
                <span className='text'>Justify Align</span>
             </DropDownItem>
             <Divider />
-            <DropDownItem
-               onClick={() => {
-                  activeEditor.dispatchCommand(
-                     OUTDENT_CONTENT_COMMAND,
-                     undefined
-                  )
-               }}
-               className='item'
-            >
-               <i className={`icon ${isRTL ? 'indent' : 'outdent'}`} />
-               <span className='text'>Outdent</span>
-            </DropDownItem>
-            <DropDownItem
-               onClick={() => {
-                  activeEditor.dispatchCommand(
-                     INDENT_CONTENT_COMMAND,
-                     undefined
-                  )
-               }}
-               className='item'
-            >
-               <i className={`icon ${isRTL ? 'outdent' : 'indent'}`} />
-               <span className='text'>Indent</span>
-            </DropDownItem>
          </DropDown>
-         {modal}
       </div>
    )
 }

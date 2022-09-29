@@ -3,13 +3,7 @@ import './styles.css'
 import { CodeHighlightNode, CodeNode } from '@lexical/code'
 import { AutoLinkNode, LinkNode } from '@lexical/link'
 import { ListItemNode, ListNode } from '@lexical/list'
-import {
-   TRANSFORMERS,
-   CHECK_LIST,
-   ELEMENT_TRANSFORMERS,
-   TEXT_FORMAT_TRANSFORMERS,
-   TEXT_MATCH_TRANSFORMERS
-} from '@lexical/markdown'
+import { TRANSFORMERS } from '@lexical/markdown'
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
 import { LexicalComposer } from '@lexical/react/LexicalComposer'
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
@@ -22,18 +16,17 @@ import { EditorState, NodeKey } from 'lexical'
 import { IntentionallyMarkedAsDirtyElement } from 'lexical/LexicalEditor'
 import React, { useContext, useEffect, useState } from 'react'
 
-import { ContentEditable } from '@lexical/react/LexicalContentEditable'
-import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
 import { EditorStoreContext } from '../../../Common/stores/storesContext'
 import AutoLinkPlugin from './plugins/AutoLinkPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
 import DraggableBlockPlugin from './plugins/DraggableBlockPlugin'
+import FloatingLinkEditorPlugin from './plugins/FloatingLinkEditorPlugin'
+import { LinkPlugin } from './plugins/LexicalLinkPlugin'
 import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin'
 import ToolbarPlugin from './plugins/ToolbarPlugin'
-
-import { LinkPlugin } from './plugins/LexicalLinkPlugin'
+import { RichText } from './RichText'
 import theme from './theme/EditorTheme'
-import FloatingLinkEditorPlugin from './plugins/FloatingLinkEditorPlugin'
+import ClickableLinkPlugin from './plugins/ClickableLinkPlugin'
 
 const editorConfig = {
    namespace: 'basic editor',
@@ -109,12 +102,7 @@ export default function BasicEditor() {
             <ToolbarPlugin />
             <div className='m-4 editor-inner'>
                <div ref={onRef}>
-                  <RichTextPlugin
-                     contentEditable={
-                        <ContentEditable className='editor-input px-4' />
-                     }
-                     placeholder={'Enter the text...'}
-                  />
+                  <RichText />
                </div>
                <OnChangeEditorStatePlugin />
                <HistoryPlugin />
@@ -125,6 +113,7 @@ export default function BasicEditor() {
                <AutoLinkPlugin />
                <ListMaxIndentLevelPlugin maxDepth={7} />
                <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+               <ClickableLinkPlugin />
                {floatingAnchorElem && (
                   <>
                      <DraggableBlockPlugin anchorElem={floatingAnchorElem} />
