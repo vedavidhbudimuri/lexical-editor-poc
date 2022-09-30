@@ -27,6 +27,7 @@ import ToolbarPlugin from './plugins/ToolbarPlugin'
 import { RichText } from './RichText'
 import theme from './theme/EditorTheme'
 import ClickableLinkPlugin from './plugins/ClickableLinkPlugin'
+import FloatingTextFormatToolbarPlugin from './plugins/FloatingTextFormatToolbarPlugin'
 
 const editorConfig = {
    namespace: 'basic editor',
@@ -118,6 +119,9 @@ export default function BasicEditor() {
                   <>
                      <DraggableBlockPlugin anchorElem={floatingAnchorElem} />
                      <FloatingLinkEditorPlugin
+                        anchorElem={floatingAnchorElem}
+                     />
+                     <FloatingTextFormatToolbarPlugin
                         anchorElem={floatingAnchorElem}
                      />
                   </>
