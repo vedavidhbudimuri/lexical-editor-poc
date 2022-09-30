@@ -27,6 +27,9 @@ import ToolbarPlugin from './plugins/ToolbarPlugin'
 import { RichText } from './RichText'
 import theme from './theme/EditorTheme'
 import ClickableLinkPlugin from './plugins/ClickableLinkPlugin'
+import FigmaPlugin from './plugins/FigmaPlugin'
+import { FigmaNode } from './nodes/FigmaNode'
+import AutoEmbedPlugin from './plugins/AutoEmbedPlugin'
 
 const editorConfig = {
    namespace: 'basic editor',
@@ -44,7 +47,8 @@ const editorConfig = {
       CodeNode,
       CodeHighlightNode,
       AutoLinkNode,
-      LinkNode
+      LinkNode,
+      FigmaNode
    ],
    theme: theme
 }
@@ -114,6 +118,8 @@ export default function BasicEditor() {
                <ListMaxIndentLevelPlugin maxDepth={7} />
                <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
                <ClickableLinkPlugin />
+               <FigmaPlugin />
+               <AutoEmbedPlugin />
                {floatingAnchorElem && (
                   <>
                      <DraggableBlockPlugin anchorElem={floatingAnchorElem} />

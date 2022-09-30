@@ -70,6 +70,8 @@ import { createPortal } from 'react-dom'
 import useModal from '../../hooks/useModal'
 import DropDown, { DropDownItem } from '../../ui/DropDown'
 import { sanitizeUrl } from '../../utils' // --> OFF
+import { EmbedConfigs } from '../AutoEmbedPlugin'
+import { INSERT_EMBED_COMMAND } from '@lexical/react/LexicalAutoEmbedPlugin'
 
 /* eslint react/prop-types: 0 */
 
@@ -676,6 +678,28 @@ export default function ToolbarPlugin(): JSX.Element {
                <span className='text'>Justify Align</span>
             </DropDownItem>
             <Divider />
+         </DropDown>
+         <DropDown
+            buttonClassName='toolbar-item spaced'
+            buttonLabel='Insert'
+            buttonAriaLabel='Insert specialized editor node'
+            buttonIconClassName='icon plus'
+         >
+            {EmbedConfigs.map(embedConfig => (
+               <DropDownItem
+                  key={embedConfig.type}
+                  onClick={() => {
+                     activeEditor.dispatchCommand(
+                        INSERT_EMBED_COMMAND,
+                        embedConfig.type
+                     )
+                  }}
+                  className='item'
+               >
+                  {embedConfig.icon}
+                  <span className='text'>{embedConfig.contentName}</span>
+               </DropDownItem>
+            ))}
          </DropDown>
       </div>
    )
